@@ -1,0 +1,40 @@
+.stack{display:grid;gap:12px;margin:12px 0;min-width:0}
+.card{display:grid;gap:10px;padding:14px;border:1px solid var(--mc-border,#dbe0e8);border-radius:14px;background:var(--mc-surface,#fff);color:var(--mc-text,#202938);min-width:0;max-width:760px}
+.card header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.badge{flex:none;font-size:12px;font-weight:600;color:var(--mc-primary,#3467f6);background:var(--mc-primary-bg,#eef3ff);border-radius:999px;padding:3px 10px}
+.card header strong{flex:1;min-width:120px;font-size:14px;color:var(--mc-text-strong,#253047);overflow-wrap:anywhere}
+.status{flex:none;font-size:12px;color:var(--mc-text-muted,#626f80);font-variant-numeric:tabular-nums}
+.status[data-status="completed"]{color:var(--mc-safe-text)}
+.status[data-status="failed"],.status[data-status="needs_connection"]{color:var(--mc-danger-ink)}
+.detail{margin:0;font-size:13px;line-height:1.6;color:var(--mc-text-muted,#626f80);overflow-wrap:anywhere}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.image,.placeholder{position:relative;display:block;width:100%;aspect-ratio:1/1;padding:0;border:1px solid var(--mc-border,#dbe0e8);border-radius:12px;overflow:hidden;background:var(--mc-bg,#f4f6fa)}
+.grid[data-aspect="portrait"] .image,.grid[data-aspect="portrait"] .placeholder{aspect-ratio:2/3}
+.grid[data-aspect="landscape"] .image,.grid[data-aspect="landscape"] .placeholder{aspect-ratio:3/2}
+.image{cursor:zoom-in}
+.image:focus-visible{outline:2px solid var(--mc-primary,#3467f6);outline-offset:2px}
+.image img{display:block;width:100%;height:100%;object-fit:cover;animation:reveal .6s ease-out}
+.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mc-text-muted,#626f80)}
+.placeholder{background:linear-gradient(110deg,var(--mc-bg,#f4f6fa) 30%,var(--mc-primary-bg,#eef3ff) 50%,var(--mc-bg,#f4f6fa) 70%);background-size:220% 100%;animation:shimmer 1.6s linear infinite}
+.placeholder span{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:12px;color:var(--mc-text-muted,#626f80)}
+.card footer{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.folder{flex:1;min-width:0;font-size:12px;color:var(--mc-text-muted,#626f80);overflow-wrap:anywhere}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions button{min-height:40px;padding:8px 12px;border:1px solid var(--mc-border,#dbe0e8);border-radius:8px;background:var(--mc-surface,#fff);color:inherit;font:inherit;font-size:13px;cursor:pointer}
+.actions button:hover{border-color:var(--mc-primary,#3467f6)}
+.actions button:focus-visible{outline:2px solid var(--mc-primary,#3467f6);outline-offset:2px}
+.message{margin:0;font-size:12px;color:var(--mc-danger-ink)}
+/* 답변 말풍선의 목록·문단 서식이 덮어쓰지 않도록 카드 안에서 한 단계 더 구체적으로 잡는다(2026-11-02 세로로 흩어짐). */
+.card .fileList{display:grid;gap:6px;min-width:0;margin:0;padding:0}
+.card .fileRow{display:flex;flex-direction:row;align-items:center;gap:8px;min-width:0;margin:0;padding:6px 8px;border:1px solid var(--mc-border,#dbe0e8);border-radius:10px;background:var(--mc-bg,#f8f9fb)}
+.card .fileKind{display:inline-block;flex:none;margin:0;font-size:11px;font-weight:600;line-height:1.6;color:var(--mc-text-muted,#626f80);background:var(--mc-surface,#fff);border:1px solid var(--mc-border,#dbe0e8);border-radius:999px;padding:2px 8px}
+.card .fileKind[data-kind="web"],.card .fileKind[data-kind="document"]{color:var(--mc-primary,#3467f6);border-color:var(--mc-primary-bg,#dbe6ff)}
+.card .fileName{display:block;flex:1;min-width:0;margin:0;font-size:13px;color:var(--mc-text-strong,#253047);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .fileSize{display:inline-block;flex:none;margin:0;font-size:12px;color:var(--mc-text-muted,#626f80);font-variant-numeric:tabular-nums}
+.card .fileRow button{flex:none;min-height:32px;margin:0;padding:4px 12px;border:1px solid var(--mc-border,#dbe0e8);border-radius:8px;background:var(--mc-surface,#fff);color:inherit;font:inherit;font-size:13px;cursor:pointer}
+.card .fileRow button:hover{border-color:var(--mc-primary,#3467f6)}
+.card .fileRow button:focus-visible{outline:2px solid var(--mc-primary,#3467f6);outline-offset:2px}
+@keyframes shimmer{to{background-position:-220% 0}}
+@keyframes reveal{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:none}}
+@media (prefers-reduced-motion:reduce){.placeholder{animation:none}.image img{animation:none}}
+

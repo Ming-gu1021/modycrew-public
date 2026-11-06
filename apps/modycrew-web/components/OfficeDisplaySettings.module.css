@@ -1,0 +1,20 @@
+.settings { flex: 0 0 auto; }
+.trigger { display: inline-flex; min-height: 32px; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid var(--mc-border-subtle); border-radius: var(--mc-radius-pill); background: var(--mc-surface); color: var(--mc-text-muted); font-size: var(--mc-font-size-sm); font-weight: var(--mc-weight-semibold); list-style: none; cursor: pointer; white-space: nowrap; }
+.trigger::-webkit-details-marker { display: none; }
+.trigger svg { display: block; width: 16px; height: 16px; flex: 0 0 16px; }
+.trigger:hover, .settings[open] .trigger { border-color: var(--mc-border); background: var(--mc-surface-elevated); color: var(--mc-text-strong); }
+.trigger:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 3px; }
+/* The sticky office header anchors this panel, including when the scene is scrolled. */
+.panel { position: absolute; top: calc(100% + 8px); right: max(12px, env(safe-area-inset-right)); width: min(360px, calc(100% - 24px)); max-height: calc(var(--mc-scaled-viewport-height, 100dvh) - 144px - env(safe-area-inset-bottom)); overflow: auto; overscroll-behavior: contain; padding: 8px 16px 12px; border: 1px solid var(--mc-border); border-radius: 18px; background: var(--mc-surface); color: var(--mc-text); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+.panel > section { padding-inline: 0; border-bottom: 0; }
+.panel strong { text-wrap: balance; }
+.panel p, .panel small { text-wrap: pretty; }
+.panel select { min-width: 0; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) {
+  .trigger { width: 32px; padding: 0; }
+  .trigger span { display: none; }
+  .panel { padding: 8px 12px 12px; }
+  .panel label { flex-wrap: wrap; gap: 6px; }
+  .panel label > span { flex: 1 1 140px; }
+  .panel label select { flex: 1 1 140px; width: 100%; max-width: none; }
+}

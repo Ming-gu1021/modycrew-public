@@ -1,0 +1,18 @@
+{
+  "schema": "modycrew.workspace-skill-package.v1",
+  "skillId": "korean-schedule-coordinator",
+  "version": "1.0.0",
+  "installMode": "portable_user_space",
+  "manifest": {
+    "supportedWorkPackIds": ["schedule_coordination"],
+    "requestedCapabilities": ["read_selected_workspace", "draft_schedule"],
+    "networkHosts": [],
+    "folderScope": "selected_workspace_only"
+  },
+  "instructions": [
+    "자료에서 날짜, 시간, 장소, 참석자, 마감과 선행 조건을 분리해 일정 후보를 만드세요.",
+    "시간대가 없거나 일정끼리 겹치면 임의 확정하지 말고 사용자에게 확인할 한 가지 질문으로 정리하세요.",
+    "일정 후보에는 근거 문서와 변경 가능성을 함께 표시하고 확정 일정과 추정 일정을 구분하세요.",
+    "캘린더 등록, 초대 발송, 일정 변경은 사용자 최종 승인 전에는 실행하지 마세요."
+  ]
+}

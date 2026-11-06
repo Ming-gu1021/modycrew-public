@@ -1,0 +1,474 @@
+.page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--mc-surface-muted) 72%, transparent), transparent 62%),
+    var(--mc-bg);
+  color: var(--mc-text);
+}
+
+.panel {
+  width: min(520px, 100%);
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-lg);
+  background: color-mix(in srgb, var(--mc-surface) 92%, transparent);
+  box-shadow: var(--mc-elev-2);
+}
+
+.panel header {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.panel header span {
+  color: var(--mc-primary-strong);
+  font-size: 11px;
+  font-weight: var(--mc-weight-bold);
+  line-height: 1.2;
+}
+
+.panel h1 {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.panel p {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.summary {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  margin: 0;
+}
+
+.summary div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 9px;
+  border: 1px solid color-mix(in srgb, var(--mc-border-subtle) 76%, transparent);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 64%, transparent);
+}
+
+.summary dt,
+.summary dd {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.summary dt {
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.summary dd {
+  color: var(--mc-text-strong);
+  font-size: 12px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.reviewRail {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 9px;
+  border: 1px solid color-mix(in srgb, var(--mc-accent) 24%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-accent-soft) 20%, var(--mc-surface));
+}
+
+.queueRail {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 9px;
+  border: 1px solid color-mix(in srgb, var(--mc-safe) 22%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-safe-bg) 24%, var(--mc-surface));
+}
+
+.queueRail header {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.queueRail header span,
+.queueRail li span {
+  color: var(--mc-safe-ink);
+  font-size: 12px;
+  font-weight: var(--mc-weight-bold);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.queueRail header strong {
+  min-width: 0;
+  color: var(--mc-text-strong);
+  font-size: 12px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.queueRail ol {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.queueRail li {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 3px 6px;
+  align-items: center;
+  padding: 7px;
+  border: 1px solid color-mix(in srgb, var(--mc-border-subtle) 78%, transparent);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 76%, transparent);
+}
+
+.queueRail li[data-mobile-mail-share-row-state="reply"] {
+  border-left: 3px solid var(--mc-safe);
+}
+
+.queueRail li[data-mobile-mail-share-row-state="schedule"],
+.queueRail li[data-mobile-mail-share-row-state="review"] {
+  border-left: 3px solid var(--mc-primary);
+}
+
+.queueRail li[data-mobile-mail-share-row-state="risk"] {
+  border-left: 3px solid var(--mc-warning);
+  background: color-mix(in srgb, var(--mc-warning-soft) 18%, var(--mc-surface));
+}
+
+.queueRail li strong,
+.queueRail li small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.queueRail li strong {
+  color: var(--mc-text-strong);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.25;
+}
+
+.queueRail li small {
+  grid-column: 2;
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.reviewRail header {
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.reviewRail header span,
+.reviewRail li span {
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  font-weight: var(--mc-weight-bold);
+  line-height: 1.2;
+}
+
+.reviewRail header strong {
+  min-width: 0;
+  color: var(--mc-text-strong);
+  font-size: 12px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reviewRail ol {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.decisionActionRail {
+  min-width: 0;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.decisionActionRail a {
+  min-width: 0;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 9px;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 24%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 82%, transparent);
+  color: var(--mc-text-strong);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.reviewRail li {
+  min-width: 0;
+  min-height: 58px;
+  display: grid;
+  align-content: start;
+  gap: 3px;
+  padding: 7px;
+  border: 1px solid color-mix(in srgb, var(--mc-border-subtle) 80%, transparent);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 72%, transparent);
+}
+
+.reviewRail li[data-state="risk"] {
+  border-color: color-mix(in srgb, var(--mc-danger) 28%, var(--mc-border-subtle));
+}
+
+.reviewRail li strong,
+.reviewRail li small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.reviewRail li strong {
+  color: var(--mc-text-strong);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.25;
+}
+
+.reviewRail li small {
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.installGuide {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.installGuide li {
+  min-width: 0;
+  min-height: 42px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  padding: 7px;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 14%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-primary-bg) 38%, var(--mc-surface));
+}
+
+.installGuide span {
+  width: 18px;
+  height: 18px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-primary);
+  color: var(--mc-text-inverse);
+  font-size: 12px;
+  font-weight: var(--mc-weight-bold);
+  line-height: 1;
+}
+
+.installGuide strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--mc-text-strong);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.actions a,
+.actions button {
+  min-width: 0;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface-elevated);
+  color: var(--mc-text-strong);
+  font-size: 13px;
+  font-weight: var(--mc-weight-semibold);
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.actions a:first-child,
+.actions button:first-child {
+  border-color: color-mix(in srgb, var(--mc-primary) 36%, var(--mc-border-subtle));
+  background: var(--mc-primary-strong);
+  color: var(--mc-text-inverse);
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 12px;
+    place-items: stretch;
+  }
+
+  .panel {
+    align-self: center;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .installGuide {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewRail header {
+    display: grid;
+  }
+
+  .queueRail header {
+    display: grid;
+  }
+
+  .queueRail ol,
+  .reviewRail ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================================
+   메일 공유 화면 미니멀 (2026-07-29)
+   ============================================================================ */
+
+/* --- 제목/본문/상태 요약 3줄: 테두리·배경 → 여백 ----------------------------- */
+.summary div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  min-height: 0;
+}
+
+/* --- 전달 묶음 · 앱에서 볼 순서 두 레일의 색 상자 제거 -----------------------
+   행의 위험/일정 색 신호는 border-left 슬롯으로 유지한다
+   (기존 li[data-mobile-mail-share-row-state=...] 색 규칙이 그대로 이긴다). */
+.queueRail,
+.reviewRail {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.queueRail li {
+  border: 0;
+  border-left: 3px solid transparent;
+  background: none;
+  padding: 2px 0 2px 9px;
+}
+
+/* --- '앱에서 볼 순서' 4칸 설명 카드 접기 -------------------------------------
+   헤더 문장이 4단계 이름을 그대로 말하고, 아래 3개 결정 링크가 같은 라벨을
+   버튼으로 보여주며, 메일 업무로 넘어간 홈 화면에서 같은 4줄이 다시 나온다. */
+.reviewRail > ol {
+  display: none;
+}
+
+/* --- PWA 설치 3단계 안내: 숨기지 말고 상자만 걷는다 --------------------------
+   앱 안 "휴대폰에서 가져오기"(OfficeBoard.tsx:5497, :5556)로 들어온 사용자에게는
+   이 3단계가 제품 내 유일한 설정 안내다(grep 결과 page.tsx:246,250 이 유일본).
+   display:none 은 그 경로를 제품에서 지운다 — 배지·테두리 6상자만 없앤다. */
+.installGuide li {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.installGuide span {
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--mc-text-muted);
+}

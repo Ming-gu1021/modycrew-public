@@ -1,0 +1,13 @@
+type StorageLike = Pick<Storage, "getItem" | "setItem">;
+type LatestMessage = { id: string; authorUid: string; authorName?: string; kind?: string; text?: string; createdAtEpochMs: number };
+export const COMPANY_UNREAD_EVENT: string;
+export const COMPANY_SEEN_EVENT: string;
+export function companyTeamKey(companyId: string, teamId: string): string;
+export function readLastSeen(storage: StorageLike | null | undefined, uid: string): Record<string, number>;
+export function markCompanyTeamSeen(storage: StorageLike | null | undefined, uid: string, companyId: string, teamId: string, epochMs: number): boolean;
+export function isCompanyTeamUnread(latest: LatestMessage | null | undefined, lastSeenMs: number | undefined, myUid: string): boolean;
+export function countUnreadCompanyTeams(latestByKey: Record<string, LatestMessage | null | undefined>, lastSeen: Record<string, number>, myUid: string): number;
+export function shouldNotifyCompanyMessage(input: { message: LatestMessage | null | undefined; previousId?: string; lastSeenMs?: number; myUid: string; startedAt: number; documentHidden: boolean; pathname: string }): boolean;
+export function companyNotificationContent(input: { companyName?: string; teamName?: string; message: LatestMessage }): { title: string; body: string };
+export function readCompanyUnreadCount(): number;
+export function publishCompanyUnreadCount(count: number): void;

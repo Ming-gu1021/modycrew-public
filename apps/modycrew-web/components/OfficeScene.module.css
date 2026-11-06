@@ -1,0 +1,767 @@
+.scene {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-5);
+  /* 상자 대신 여백: 씬 전체를 감싸던 카드 표면을 걷는다 (2026-07-29) */
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: var(--mc-radius-lg);
+  box-shadow: none;
+}
+
+/* ── 헤더 ── */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--mc-space-4);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kicker {
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-primary);
+}
+
+.title {
+  font-size: var(--mc-text-xl);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-strong);
+  line-height: var(--mc-leading-tight);
+}
+
+.lede {
+  margin: 0;
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text-subtle);
+  line-height: var(--mc-leading-normal);
+}
+
+.headerSide {
+  display: flex;
+  align-items: center;
+  gap: var(--mc-space-3);
+}
+
+.saveNotice {
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-safe);
+  background: var(--mc-safe-bg);
+  border: 1px solid var(--mc-safe-soft);
+  border-radius: var(--mc-radius-pill);
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.foldButton {
+  flex: none;
+  min-height: 30px;
+  padding: 0 var(--mc-space-4);
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-muted);
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-pill);
+  cursor: pointer;
+}
+.foldButton:hover {
+  color: var(--mc-text-strong);
+  background: var(--mc-surface-muted);
+}
+
+.stats {
+  display: flex;
+  gap: var(--mc-space-2);
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 58px;
+  padding: var(--mc-space-3) var(--mc-space-4);
+  background: var(--mc-surface-muted);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+}
+
+.stats dt {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-subtle);
+  white-space: nowrap;
+}
+
+.stats dd {
+  margin: 0;
+  font-size: var(--mc-text-lg);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.stats > div[data-tone="primary"] dd {
+  color: var(--mc-primary);
+}
+.stats > div[data-tone="warning"] dd {
+  color: var(--mc-warning);
+}
+.stats > div[data-tone="safe"] dd {
+  color: var(--mc-safe);
+}
+
+/* ── 사무실 바닥 ──
+   표면(테두리·배경·카펫 격자)을 걷는다. 배경이 사라지면 둥근 모서리로
+   잘라낼 대상도 없어지므로 overflow:hidden 을 반드시 함께 푼다 —
+   남겨두면 .bubble(top:-14px, 상태 말풍선)이 위에서 6~7px 잘리고
+   .pod:hover 의 -3px 리프트와 :focus-visible 링 4px 도 잘린다(실측). */
+.floor {
+  position: relative;
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  background-image: none;
+  padding: 0;
+  overflow: visible;
+}
+
+.floorInner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: var(--mc-space-5) var(--mc-space-4);
+  align-items: end;
+}
+
+/* ── 자리(데스크 포드) ── */
+.pod {
+  --pod-accent: var(--mc-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--mc-space-2);
+  padding: var(--mc-space-3) var(--mc-space-2) var(--mc-space-4);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--mc-radius-lg);
+  cursor: pointer;
+  text-align: center;
+  transition: transform var(--mc-dur-base) ease, background var(--mc-dur-base) ease,
+    border-color var(--mc-dur-base) ease, box-shadow var(--mc-dur-base) ease;
+}
+
+.pod:hover {
+  transform: translateY(-3px);
+  background: var(--mc-surface);
+  border-color: var(--mc-border);
+  box-shadow: var(--mc-elev-2);
+}
+
+.pod:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.pod[data-selected="true"] {
+  background: var(--mc-surface);
+  border-color: var(--pod-accent);
+  box-shadow: 0 0 0 1px var(--pod-accent) inset, var(--mc-elev-2);
+}
+
+/* 아바타 + 데스크가 겹치는 무대 */
+.stage {
+  position: relative;
+  width: 126px;
+  height: 124px;
+  display: block;
+}
+
+/* 말풍선 — 일하는 중/승인 대기/결과 준비 상태를 캐릭터가 직접 말하는 느낌 */
+.bubble {
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  transform: translateX(-50%);
+  z-index: 4;
+  max-width: 150px;
+  padding: 4px 9px;
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-medium);
+  line-height: 1.35;
+  color: var(--mc-text);
+  background: var(--mc-surface-elevated);
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  box-shadow: var(--mc-elev-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: bubbleFloat 3.6s ease-in-out infinite;
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--mc-surface-elevated);
+  border-right: 1px solid var(--mc-border);
+  border-bottom: 1px solid var(--mc-border);
+}
+.bubble[data-tone="primary"] {
+  border-color: color-mix(in srgb, var(--pod-accent) 45%, var(--mc-border));
+}
+.bubble[data-tone="primary"]::after {
+  border-color: color-mix(in srgb, var(--pod-accent) 45%, var(--mc-border));
+}
+.bubble[data-tone="warning"] {
+  border-color: var(--mc-warning-soft);
+  color: var(--mc-warning);
+  font-weight: var(--mc-weight-semibold);
+}
+.bubble[data-tone="warning"]::after {
+  border-color: var(--mc-warning-soft);
+}
+.bubble[data-tone="safe"] {
+  border-color: var(--mc-safe-soft);
+  color: var(--mc-safe);
+  font-weight: var(--mc-weight-semibold);
+}
+.bubble[data-tone="safe"]::after {
+  border-color: var(--mc-safe-soft);
+}
+
+.avatarWrap {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: 96px;
+  height: 106px;
+  transform: translateX(-50%);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 3px 4px rgba(15, 23, 42, 0.12));
+}
+
+.pod[data-status="working"] .avatarWrap {
+  animation: podBob 3.4s ease-in-out infinite;
+}
+
+/* 승인·결과도 멈춘 장면이 아니라 다음 행동을 기다리는 크루처럼 보이게 한다. */
+.pod[data-status="approval"] .avatarWrap {
+  animation: approvalNod 4.2s ease-in-out infinite;
+  animation-delay: var(--pod-delay, 0s);
+}
+
+.pod[data-status="done"] .avatarWrap {
+  animation: resultSettle 4.8s ease-in-out infinite;
+  animation-delay: var(--pod-delay, 0s);
+}
+
+/* 대기 중에도 완전히 멈춘 마네킹처럼 보이지 않게 아주 느린 숨쉬기 */
+.pod[data-status="idle"] .avatarWrap,
+.pod[data-status="offline"] .avatarWrap {
+  opacity: 0.92;
+  animation: idleBreath 5.6s ease-in-out infinite;
+  animation-delay: var(--pod-delay, 0s);
+}
+
+/* 데스크 */
+.desk {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 112px;
+  height: 34px;
+  background: var(--mc-surface-elevated);
+  border: 1px solid var(--mc-border);
+  border-bottom-color: var(--mc-border-strong);
+  border-radius: 8px 8px 5px 5px;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.08);
+}
+
+.desk::before {
+  /* 데스크 상판 앞면 */
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: -6px;
+  height: 8px;
+  background: var(--mc-surface-muted);
+  border: 1px solid var(--mc-border);
+  border-radius: 0 0 6px 6px;
+}
+
+.monitor {
+  position: absolute;
+  left: 14px;
+  top: -18px;
+  width: 34px;
+  height: 24px;
+}
+
+.monitorScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 22px;
+  background: color-mix(in srgb, var(--pod-accent) 16%, var(--mc-surface));
+  border: 1.5px solid var(--pod-accent);
+  border-radius: 4px;
+}
+
+.monitor::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 4px;
+  background: var(--mc-border-strong);
+  border-radius: 0 0 3px 3px;
+}
+
+.pod[data-status="working"] .monitorScreen {
+  animation: screenPulse 2.2s ease-in-out infinite;
+}
+
+/* working 중 모니터: 은은한 켜짐 바 — 움직이는 작업 표시는 캐릭터 workCue가 담당 */
+.monitorOn {
+  width: 16px;
+  height: 3px;
+  border-radius: var(--mc-radius-pill);
+  background: var(--pod-accent);
+}
+
+.monitorBadge {
+  font-size: 12px;
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-warning);
+  line-height: 1;
+}
+.monitorBadge[data-done="true"] {
+  color: var(--mc-safe);
+}
+
+.monitorIdle {
+  width: 16px;
+  height: 3px;
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-border-strong);
+  opacity: 0.7;
+}
+
+.mug {
+  position: absolute;
+  right: 16px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 0 0 3px 3px;
+  background: var(--pod-accent);
+  opacity: 0.85;
+}
+.mug::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 1px;
+  width: 3px;
+  height: 4px;
+  border: 1.4px solid var(--pod-accent);
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+}
+
+/* 이름표 */
+.plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  max-width: 100%;
+}
+
+.nameRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mc-space-2);
+  max-width: 100%;
+}
+
+.name {
+  font-size: var(--mc-text-base);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-strong);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 108px;
+}
+
+.mainTag {
+  flex: none;
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-primary);
+  background: var(--mc-primary-soft);
+  border-radius: var(--mc-radius-pill);
+  padding: 1px 6px;
+}
+
+.role {
+  font-size: var(--mc-text-xs);
+  color: var(--mc-text-subtle);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 128px;
+}
+
+.statusRow {
+  display: flex;
+  justify-content: center;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-semibold);
+  padding: 2px 8px;
+  border-radius: var(--mc-radius-pill);
+  border: 1px solid transparent;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.statusPill[data-tone="primary"] {
+  color: var(--mc-primary);
+  background: var(--mc-primary-bg);
+  border-color: var(--mc-primary-soft);
+}
+.statusPill[data-tone="warning"] {
+  color: var(--mc-warning);
+  background: var(--mc-warning-bg);
+  border-color: var(--mc-warning-soft);
+}
+.statusPill[data-tone="safe"] {
+  color: var(--mc-safe);
+  background: var(--mc-safe-bg);
+  border-color: var(--mc-safe-soft);
+}
+.statusPill[data-tone="muted"] {
+  color: var(--mc-text-subtle);
+  background: var(--mc-surface-sunken);
+  border-color: var(--mc-border-subtle);
+}
+
+.pod[data-status="approval"] .statusPill {
+  animation: pillPulse 1.8s ease-in-out infinite;
+}
+
+.timeAgo {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-faint);
+  line-height: 1.3;
+}
+
+.task {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-subtle);
+  line-height: var(--mc-leading-normal);
+  max-width: 132px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── 빈 자리 (채용) ── */
+.emptyPod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--mc-space-2);
+  padding: var(--mc-space-4) var(--mc-space-2);
+  background: transparent;
+  border: 1px dashed var(--mc-border-strong);
+  border-radius: var(--mc-radius-lg);
+  cursor: pointer;
+  min-height: 150px;
+  text-align: center;
+  transition: border-color var(--mc-dur-base) ease, background var(--mc-dur-base) ease,
+    transform var(--mc-dur-base) ease;
+}
+
+.emptyPod:hover {
+  transform: translateY(-3px);
+  border-color: var(--mc-primary);
+  background: var(--mc-primary-bg);
+}
+
+.emptyPod:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.emptyChair {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px 10px 6px 6px;
+  border: 1.5px dashed var(--mc-border-strong);
+  opacity: 0.7;
+}
+
+.emptyDesk {
+  position: relative;
+  width: 96px;
+  height: 30px;
+  border: 1.5px dashed var(--mc-border-strong);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plusMark {
+  font-size: 18px;
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-faint);
+}
+
+.emptyPod:hover .plusMark,
+.emptyPod:hover .emptyChair,
+.emptyPod:hover .emptyDesk {
+  color: var(--mc-primary);
+  border-color: var(--mc-primary);
+}
+
+.emptyRole {
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-muted);
+}
+
+.emptyCta {
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-primary);
+}
+
+/* ── 애니메이션 ── */
+@keyframes podBob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-2.5px);
+  }
+}
+
+@keyframes approvalNod {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  42% {
+    transform: translateX(-50%) translateY(-1.6px) rotate(-0.7deg);
+  }
+  58% {
+    transform: translateX(-50%) translateY(-1.1px) rotate(0.7deg);
+  }
+}
+
+@keyframes resultSettle {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-1.2px) scale(1.012);
+  }
+}
+
+@keyframes screenPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--pod-accent) 22%, transparent);
+  }
+}
+
+@keyframes pillPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 3px var(--mc-warning-bg);
+  }
+}
+
+@keyframes bubbleFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+@keyframes idleBreath {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pod[data-status="working"] .avatarWrap,
+  .pod[data-status="working"] .monitorScreen,
+  .pod[data-status="approval"] .statusPill,
+  .pod[data-status="approval"] .avatarWrap,
+  .pod[data-status="done"] .avatarWrap,
+  .pod[data-status="idle"] .avatarWrap,
+  .pod[data-status="offline"] .avatarWrap,
+  .bubble {
+    animation: none;
+  }
+}
+
+/* 이 블록이 기본 규칙보다 뒤에 있고 명시도가 같아서, 여기 padding 을 남겨두면
+   ≤520px(모바일·e2e 390px 뷰포트)에서 되살아나 위의 탈상자가 통째로 무효가 된다 */
+@media (max-width: 520px) {
+  .scene {
+    padding: 0;
+  }
+  .floor {
+    padding: 0;
+  }
+  .floorInner {
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  }
+}
+
+/* ============================================================================
+   오피스 씬 미니멀 (2026-07-29)
+   ============================================================================ */
+
+/* --- 헤더 설명문 1줄(38자)과 중복 라벨 'AI 오피스'(6자) ----------------------
+   .lede 는 '접기' 버튼(.foldButton)으로 data-folded="true" 가 붙으면
+   상태 요약 문구로 다시 나타난다 — 상태 정보는 하나도 안 잃고 설명문만 사라진다.
+   'AI 오피스' 라벨은 같은 화면 하단 VirtualOfficeScene .noteBadge 에 남는다. */
+.scene:not([data-folded]) .lede {
+  display: none;
+}
+
+.kicker {
+  display: none;
+}
+
+/* --- 현황 4칸(팀원/일하는 중/승인 대기/결과 준비): 칸 테두리 → 여백 ---------
+   dt/dd 텍스트와 숫자는 100% 그대로. 색 신호(data-tone) 규칙도 그대로 이긴다. */
+.stats > div {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+/* --- 빈 자리 8개: 점선 상자·의자·책상 글리프 제거 → 텍스트 한 줄 ------------
+   버튼·역할명·＋ 마크·aria-label 은 전부 남는다. 클릭 타깃은 가로 배치로
+   재구성되어 오히려 스캔이 쉬워진다. */
+.emptyPod {
+  border: 0;
+  background: transparent;
+  min-height: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--mc-space-2);
+  padding: 4px var(--mc-space-2);
+}
+
+.emptyChair {
+  display: none;
+}
+
+.emptyDesk {
+  border: 0;
+  width: auto;
+  height: auto;
+}
+
+/* --- 빈 자리마다 8번 반복되는 '이 자리에 채용'(64자)은 가리킬 때만 ----------
+   상시 노출되는 <button aria-label="{역할} 자리에 새 팀원 채용하기"> 가
+   스크린리더 경로를 계속 보장하고, ＋ 마크가 시각 어포던스로 남는다. */
+.emptyCta {
+  display: none;
+}
+
+.emptyPod:hover .emptyCta,
+.emptyPod:focus-visible .emptyCta {
+  display: inline;
+}
+
+/* 자리마다 놓인 명패 — 이 직원이 쌓아 온 기록.
+   레벨·경험치 같은 지어낸 수치가 아니라 실제 활동·기술·학습 건수다.
+   글자를 늘리지 않으려고 숫자를 앞세우고 이름표는 작게 붙인다
+   ("한 일 12건" 대신 "12한 일"). 한 줄 안에서 끝난다. */
+.statPlate {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  justify-content: center;
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-faint);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.statPlate > span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.statPlate b {
+  font-size: var(--mc-text-xs);
+  font-weight: 700;
+  color: var(--mc-text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 일하는 중인 자리는 숫자도 살아 있게 — 사무실이 돌아가는 느낌을 준다. */
+.pod[data-status="working"] .statPlate b {
+  color: var(--pod-accent, var(--mc-text-strong));
+}

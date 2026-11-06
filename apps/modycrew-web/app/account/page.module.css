@@ -1,0 +1,2011 @@
+.page {
+  --setting-body-size: var(--mc-chat-body-size);
+  --setting-caption-size: var(--mc-chat-caption-size);
+  --setting-control-size: var(--mc-chat-caption-size);
+  --setting-body-leading: var(--mc-chat-body-leading);
+  --setting-caption-leading: var(--mc-chat-caption-leading);
+  --setting-control-leading: var(--mc-chat-control-leading);
+  --setting-body-weight: var(--mc-chat-body-weight);
+  --setting-title-weight: var(--mc-chat-title-weight);
+  --setting-control-weight: var(--mc-chat-control-weight);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 5vh, 56px) var(--mc-space-5);
+  background: var(--mc-bg);
+  color: var(--mc-text);
+  font-synthesis: none;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+.shell {
+  width: min(640px, 100%);
+  display: grid;
+  gap: var(--mc-space-3);
+  padding: var(--mc-space-4);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-lg);
+  background: var(--mc-surface);
+  box-shadow: none;
+}
+
+.shell[data-mode="settings"] {
+  width: min(980px, 100%);
+}
+
+.shell[data-mode="login"] {
+  width: min(520px, 100%);
+  gap: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--mc-space-3);
+}
+
+.headerLead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.headerTitle {
+  display: grid;
+  gap: var(--mc-space-1);
+  min-width: 0;
+}
+
+.shell[data-mode="login"] .header {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.shell[data-mode="login"] .headerLead {
+  justify-content: center;
+}
+
+.shell[data-mode="login"] .headerTitle {
+  justify-items: center;
+  gap: 7px;
+}
+
+.header span {
+  color: var(--mc-text-subtle);
+  font-size: var(--mc-font-size-xs);
+  font-weight: var(--mc-weight-medium);
+  line-height: var(--mc-line-normal);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.brand img {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--mc-radius-xs);
+}
+
+.shell[data-mode="login"] .brand img {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--mc-radius-xs);
+  box-shadow: none;
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-size: var(--mc-font-size-lg);
+  line-height: var(--mc-line-tight);
+  font-weight: var(--mc-weight-semibold);
+  letter-spacing: 0;
+}
+
+.shell[data-mode="login"] .header h1 {
+  font-size: 26px;
+  line-height: 32px;
+}
+
+.headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shell[data-mode="login"] .headerActions {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+}
+
+.header a,
+.tabs button,
+.themeToggle,
+.profileButton,
+.accountSignOutButton {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--mc-space-5);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface-elevated);
+  color: var(--mc-text);
+  font-size: var(--mc-font-size-xs);
+  font-weight: var(--mc-weight-semibold);
+  box-shadow: none;
+}
+
+.accountSignOutButton {
+  border-color: color-mix(in srgb, var(--mc-danger) 24%, var(--mc-border-subtle));
+  background: color-mix(in srgb, var(--mc-danger) 8%, var(--mc-surface-elevated));
+  color: var(--mc-text-strong);
+}
+
+/* 왼쪽 상단 뒤로가기 화살표 — 앱 표준(아이콘 버튼). .header a 알약 스타일을 특이성으로 덮어씀 */
+.header a.backArrow {
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--mc-radius-sm);
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  flex: none;
+}
+
+.header a.backArrow:hover {
+  border-color: var(--mc-border-strong);
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-strong);
+}
+
+.page :where(strong, p, small, span, em, li, input, button, a) {
+  letter-spacing: 0;
+}
+
+.page :where(p, li) {
+  font-size: var(--setting-body-size);
+  font-weight: var(--setting-body-weight);
+  line-height: var(--setting-body-leading);
+}
+
+.page :where(small, em) {
+  font-size: var(--setting-caption-size);
+  line-height: var(--setting-caption-leading);
+}
+
+.page :where(strong) {
+  font-weight: var(--setting-title-weight);
+}
+
+.page :where(button, a, input) {
+  font-size: var(--setting-control-size);
+  font-weight: var(--setting-control-weight);
+  line-height: var(--setting-control-leading);
+}
+
+.loginNote,
+.description {
+  font-size: var(--setting-body-size);
+  font-weight: var(--setting-body-weight);
+  line-height: var(--setting-body-leading);
+  letter-spacing: 0;
+}
+
+.shell[data-mode="login"] .loginNote {
+  justify-self: center;
+  max-width: 44ch;
+  color: var(--mc-text-muted);
+  text-align: center;
+}
+
+.header a:hover,
+.themeToggle:hover,
+.profileButton:hover,
+.accountSignOutButton:hover,
+.tabs button:hover,
+.tabs button[aria-pressed="true"] {
+  border-color: var(--mc-border-strong);
+  background: var(--mc-surface-elevated);
+  color: var(--mc-text-strong);
+}
+
+.loginNote,
+.description {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: var(--setting-body-size);
+  font-weight: var(--setting-body-weight);
+  line-height: var(--setting-body-leading);
+  letter-spacing: 0;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface-elevated);
+  box-shadow: none;
+}
+
+.accountViewTabs {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--mc-space-2);
+  padding: 6px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-lg);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 82%, transparent);
+}
+
+.accountViewTabs button {
+  min-width: 0;
+  min-height: 42px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 7px var(--mc-space-3);
+  border: 1px solid transparent;
+  border-radius: var(--mc-radius-md);
+  background: transparent;
+  color: var(--mc-text-muted);
+  text-align: left;
+}
+
+.accountViewTabs button[data-active="true"] {
+  border-color: color-mix(in srgb, var(--mc-primary) 34%, var(--mc-border));
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  box-shadow: inset 3px 0 0 var(--mc-primary);
+}
+
+.accountViewTabs span,
+.accountViewTabs small,
+.accountViewTabs b {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountViewTabs span {
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-bold);
+}
+
+.accountViewTabs small {
+  display: none;
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-2xs);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountViewTabs b {
+  color: var(--mc-text-muted);
+  font: inherit;
+  font-weight: var(--mc-weight-bold);
+}
+
+.accountLayoutGuide {
+  min-width: 0;
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 18%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 72%, transparent);
+}
+
+.accountLayoutGuide[data-account-settings-view="connections"] {
+  border-color: color-mix(in srgb, var(--mc-safe) 24%, var(--mc-border-subtle));
+}
+
+.accountLayoutGuide[data-account-settings-view="advanced"] {
+  border-color: color-mix(in srgb, var(--mc-warning) 24%, var(--mc-border-subtle));
+}
+
+.accountLayoutGuide[data-custom-layout="true"] {
+  background: color-mix(in srgb, var(--mc-primary-soft) 14%, var(--mc-surface));
+  border-color: color-mix(in srgb, var(--mc-primary) 24%, var(--mc-border-subtle));
+}
+
+.accountLayoutGuide div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.accountLayoutGuide span,
+.accountLayoutGuide strong,
+.accountLayoutGuide small,
+.accountLayoutGuide p {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountLayoutGuide span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountLayoutGuide strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountLayoutGuide small,
+.accountLayoutGuide p {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+}
+
+.accountLayoutGuide p {
+  margin: 0;
+  text-align: right;
+}
+
+.accountLayoutGuide button {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  font-size: var(--setting-control-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountLayoutGuide button:hover:not(:disabled) {
+  border-color: var(--mc-primary);
+  color: var(--mc-primary);
+}
+
+.accountLayoutGuide button:disabled {
+  cursor: not-allowed;
+  opacity: 0.54;
+}
+
+.accountSettingsFolderMap {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 9px;
+  border: 1px solid color-mix(in srgb, var(--mc-border-subtle) 88%, transparent);
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 58%, transparent);
+}
+
+.accountSettingsFolderHeader {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(86px, auto) minmax(0, 1fr) minmax(170px, auto) 24px;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accountSettingsFolderHeader::-webkit-details-marker {
+  display: none;
+}
+
+.accountSettingsFolderHeader::after {
+  content: "+";
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-xs);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFolderMap[open] > .accountSettingsFolderHeader::after {
+  content: "-";
+}
+
+.accountSettingsFolderHeader span,
+.accountSettingsFolderHeader strong,
+.accountSettingsFolderHeader small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsFolderHeader span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-bold);
+}
+
+.accountSettingsFolderHeader strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFolderHeader small {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  text-align: right;
+}
+
+.accountSettingsFolderMapBody {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.accountSettingsFolderMap:not([open]) > .accountSettingsFolderMapBody {
+  display: none;
+}
+
+.accountSettingsFolderMapBody > ol {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accountSettingsFolderMapBody > ol > li {
+  min-width: 0;
+}
+
+.accountSettingsFolderMapBody > ol > li > button {
+  width: 100%;
+  min-height: 54px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 7px 8px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface) 84%, transparent);
+  color: var(--mc-text);
+  text-align: left;
+}
+
+.accountSettingsFolderMapBody > ol > li[data-current="true"] > button {
+  border-color: color-mix(in srgb, var(--mc-primary) 34%, var(--mc-border));
+  background: color-mix(in srgb, var(--mc-primary-soft) 14%, var(--mc-surface));
+  box-shadow: inset 3px 0 0 var(--mc-primary);
+  color: var(--mc-text-strong);
+}
+
+.accountSettingsFolderMapBody > ol > li[data-state="connections"] > button {
+  border-color: color-mix(in srgb, var(--mc-safe) 24%, var(--mc-border-subtle));
+}
+
+.accountSettingsFolderMapBody > ol > li[data-state="advanced"] > button {
+  border-color: color-mix(in srgb, var(--mc-warning) 24%, var(--mc-border-subtle));
+}
+
+.accountSettingsFolderMapBody > ol > li span,
+.accountSettingsFolderMapBody > ol > li strong,
+.accountSettingsFolderMapBody > ol > li small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsFolderMapBody > ol > li span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-bold);
+}
+
+.accountSettingsFolderMapBody > ol > li strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFolderMapBody > ol > li small {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+}
+
+.accountSettingsFolderDetails {
+  min-width: 0;
+  border-top: 1px solid var(--mc-border-subtle);
+  padding-top: 6px;
+}
+
+.accountSettingsFolderDetails > summary {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--mc-text-muted);
+}
+
+.accountSettingsFolderDetails > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accountSettingsFolderDetails > summary::after {
+  content: "+";
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-xs);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFolderDetails[open] > summary::after {
+  content: "-";
+}
+
+.accountSettingsFolderDetails > summary span,
+.accountSettingsFolderDetails > summary strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsFolderDetails > summary span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-bold);
+}
+
+.accountSettingsFolderDetails > summary strong {
+  color: var(--mc-text);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFolderDetailsBody {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.accountSettingsFocusSummary {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.9fr);
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid color-mix(in srgb, var(--mc-border-subtle) 86%, transparent);
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 64%, transparent);
+}
+
+.accountSettingsFocusSummary article,
+.accountSettingsFocusSummary li button {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface) 86%, transparent);
+}
+
+.accountSettingsFocusSummary article {
+  padding: 9px;
+}
+
+.accountSettingsFocusSummary article[data-state="connections"],
+.accountSettingsFocusSummary li[data-state="connections"] button {
+  border-color: color-mix(in srgb, var(--mc-safe) 26%, var(--mc-border-subtle));
+  background: color-mix(in srgb, var(--mc-safe-bg) 22%, var(--mc-surface));
+}
+
+.accountSettingsFocusSummary article[data-state="advanced"],
+.accountSettingsFocusSummary li[data-state="advanced"] button {
+  border-color: color-mix(in srgb, var(--mc-warning) 26%, var(--mc-border-subtle));
+  background: color-mix(in srgb, var(--mc-warning-bg) 22%, var(--mc-surface));
+}
+
+.accountSettingsFocusSummary article span,
+.accountSettingsFocusSummary article strong,
+.accountSettingsFocusSummary article small,
+.accountSettingsFocusSummary li span,
+.accountSettingsFocusSummary li strong,
+.accountSettingsFocusSummary li small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.accountSettingsFocusSummary article span,
+.accountSettingsFocusSummary li span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-bold);
+}
+
+.accountSettingsFocusSummary article strong,
+.accountSettingsFocusSummary li strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFocusSummary article small,
+.accountSettingsFocusSummary li small {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+}
+
+.accountSettingsFocusSummary article button {
+  justify-self: start;
+  min-height: 30px;
+  margin-top: 2px;
+  padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 28%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  font-size: var(--setting-control-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherViewRail {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.76fr);
+  gap: 6px;
+}
+
+.accountSettingsOtherViewsFold {
+  min-width: 0;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-surface) 82%, transparent);
+}
+
+.accountSettingsOtherViewsFold > summary {
+  min-height: 54px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px;
+  padding: 7px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accountSettingsOtherViewsFold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accountSettingsOtherViewsFold > summary::after {
+  content: "+";
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherViewsFold[open] > summary::after {
+  content: "-";
+}
+
+.accountSettingsOtherViewsFold > summary span,
+.accountSettingsOtherViewsFold > summary strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsOtherViewsFold > summary span {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherViewsFold > summary strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherViewsFold:not([open]) > .accountSettingsOtherViewRail {
+  display: none;
+}
+
+.accountSettingsOtherViewsFold > .accountSettingsOtherViewRail {
+  padding: 0 7px 7px;
+}
+
+.accountSettingsOtherViewList,
+.accountSettingsFocusMore ol {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accountSettingsFocusMore:not([open]) ol {
+  display: none;
+}
+
+.accountSettingsFocusSummary li {
+  min-width: 0;
+}
+
+.accountSettingsFocusSummary li button {
+  width: 100%;
+  min-height: 58px;
+  padding: 7px;
+  text-align: left;
+}
+
+.accountSettingsFocusMore {
+  min-width: 0;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface) 76%, transparent);
+}
+
+.accountSettingsFocusMore summary {
+  min-width: 0;
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: center;
+  gap: 2px 8px;
+  padding: 7px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accountSettingsFocusMore summary::-webkit-details-marker {
+  display: none;
+}
+
+.accountSettingsFocusMore summary::after {
+  content: "+";
+  align-self: center;
+  justify-self: end;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFocusMore[open] summary::after {
+  content: "-";
+}
+
+.accountSettingsFocusMore summary span,
+.accountSettingsFocusMore summary strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsFocusMore summary span {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFocusMore summary strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsFocusMore ol {
+  padding: 0 7px 7px;
+}
+
+.panel {
+  min-width: 0;
+}
+
+/* AI 연결 아래 따로 둔 선택 기능(Jev 메일 판단 도우미). */
+.jevSection {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--mc-border-subtle);
+}
+
+.jevSection > header {
+  display: grid;
+  gap: 4px;
+}
+
+.jevSection > header h2 {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-size: 16px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.4;
+}
+
+.jevSection > header p {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.advancedSettingsDetails {
+  min-width: 0;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-lg);
+  background: color-mix(in srgb, var(--mc-surface-elevated) 72%, transparent);
+}
+
+.advancedSettingsDetails summary {
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: minmax(108px, auto) minmax(0, 1fr) auto 28px;
+  align-items: center;
+  gap: var(--mc-space-2);
+  padding: var(--mc-space-2) var(--mc-space-3);
+  cursor: pointer;
+  list-style: none;
+}
+
+.advancedSettingsDetails summary::-webkit-details-marker {
+  display: none;
+}
+
+.advancedSettingsDetails summary::after {
+  content: "+";
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.advancedSettingsDetails[open] summary::after {
+  content: "-";
+}
+
+.advancedSettingsDetails:not([open]) {
+  background: color-mix(in srgb, var(--mc-surface-elevated) 48%, transparent);
+}
+
+.advancedSettingsDetails:not([open]) .advancedSettingsBody {
+  display: none;
+}
+
+.advancedSettingsDetails summary span,
+.advancedSettingsDetails summary strong,
+.advancedSettingsDetails summary small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.advancedSettingsDetails summary span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+  white-space: nowrap;
+}
+
+.advancedSettingsDetails summary strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+  line-height: var(--setting-body-leading);
+  white-space: nowrap;
+}
+
+.advancedSettingsDetails summary small {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  line-height: var(--setting-caption-leading);
+  white-space: nowrap;
+}
+
+.advancedSettingsBody {
+  display: grid;
+  gap: var(--mc-space-3);
+  padding: 0 var(--mc-space-3) var(--mc-space-3);
+}
+
+.accountSettingsGroupSummary {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(180px, 0.9fr);
+  gap: var(--mc-space-2);
+  padding: var(--mc-space-2);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-surface) 72%, transparent);
+}
+
+.accountSettingsGroupSummary article,
+.accountSettingsGroupSummary li button,
+.accountSettingsGroupSummary p {
+  min-width: 0;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+}
+
+.accountSettingsGroupSummary article {
+  display: grid;
+  gap: 3px;
+  padding: var(--mc-space-2);
+  border-left: 3px solid var(--mc-primary);
+}
+
+.accountSettingsGroupSummary article span,
+.accountSettingsGroupSummary article strong,
+.accountSettingsGroupSummary article small,
+.accountSettingsGroupSummary li span,
+.accountSettingsGroupSummary li strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsGroupSummary article span,
+.accountSettingsGroupSummary li span {
+  color: var(--mc-primary);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsGroupSummary article strong,
+.accountSettingsGroupSummary li strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsGroupSummary article small {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+}
+
+.accountSettingsOtherPanelFold {
+  min-width: 0;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: color-mix(in srgb, var(--mc-surface) 82%, transparent);
+}
+
+.accountSettingsOtherPanelFold > summary {
+  min-width: 0;
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 22px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accountSettingsOtherPanelFold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accountSettingsOtherPanelFold > summary::after {
+  content: "+";
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherPanelFold[open] > summary::after {
+  content: "-";
+}
+
+.accountSettingsOtherPanelFold:not([open]) ol {
+  display: none;
+}
+
+.accountSettingsOtherPanelFold > summary span,
+.accountSettingsOtherPanelFold > summary strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsOtherPanelFold > summary span {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherPanelFold > summary strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsOtherPanelFold ol {
+  padding: 0 7px 7px;
+}
+
+.accountSettingsPanelSwitcher {
+  min-width: 0;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-surface) 78%, transparent);
+}
+
+.accountSettingsPanelSwitcher > summary {
+  min-width: 0;
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 22px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accountSettingsPanelSwitcher > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accountSettingsPanelSwitcher > summary::after {
+  content: "+";
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsPanelSwitcher[open] > summary::after {
+  content: "-";
+}
+
+.accountSettingsPanelSwitcher:not([open]) .tabs {
+  display: none;
+}
+
+.accountSettingsPanelSwitcher > summary span,
+.accountSettingsPanelSwitcher > summary strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSettingsPanelSwitcher > summary span {
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsPanelSwitcher > summary strong {
+  color: var(--mc-text-strong);
+  font-size: var(--setting-body-size);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.accountSettingsPanelSwitcher .tabs {
+  padding: 0 8px 8px;
+}
+
+.accountSettingsGroupSummary ol {
+  min-width: 0;
+  display: grid;
+  gap: var(--mc-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accountSettingsGroupSummary li {
+  min-width: 0;
+}
+
+.accountSettingsGroupSummary li button {
+  width: 100%;
+  min-height: 48px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 7px var(--mc-space-2);
+  color: var(--mc-text);
+  text-align: left;
+}
+
+.accountSettingsGroupSummary p {
+  margin: 0;
+  display: grid;
+  align-content: center;
+  padding: var(--mc-space-2);
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+}
+
+.advancedSettingsHint {
+  margin: 0;
+  color: var(--mc-text-muted);
+}
+
+.legalFootnote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: var(--mc-space-2);
+  border-top: 1px solid var(--mc-border-subtle);
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  line-height: var(--setting-caption-leading);
+}
+
+.legalFootnote a {
+  color: var(--mc-text);
+  font-weight: var(--mc-weight-semibold);
+  text-decoration: none;
+}
+
+.legalFootnote a:hover {
+  color: var(--mc-text-strong);
+}
+
+.shell[data-mode="login"] .panel {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* The selected card opens directly; explanatory layout layers stay hidden. */
+.accountSettingsFolderMap {
+  display: none;
+}
+
+.advancedSettingsDetails {
+  border: 0;
+  background: transparent;
+}
+
+.advancedSettingsDetails > summary {
+  display: none;
+}
+
+.advancedSettingsBody {
+  padding: 0;
+}
+
+.accountSettingsGroupSummary {
+  display: none;
+}
+
+.accountSettingsPanelSwitcher {
+  border: 0;
+  background: transparent;
+}
+
+.accountSettingsPanelSwitcher > summary {
+  display: none;
+}
+
+.accountSettingsPanelSwitcher .tabs {
+  width: 100%;
+  padding: 0;
+}
+
+@media (max-width: 720px) {
+  .page {
+    align-items: center;
+    padding: max(18px, env(safe-area-inset-top)) var(--mc-space-4) max(18px, env(safe-area-inset-bottom));
+  }
+
+  .shell[data-mode="login"] {
+    align-self: start;
+    width: min(100%, 420px);
+    margin-top: clamp(42px, 8vh, 72px);
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .shell[data-mode="settings"] {
+    align-self: start;
+    margin-top: max(12px, env(safe-area-inset-top));
+  }
+
+  .shell[data-account-login-layout="top_aligned_single_step"] {
+    align-self: start;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shell[data-mode="login"] .header {
+    display: grid;
+    justify-items: center;
+  }
+
+  .headerActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .headerActions :where(a, button) {
+    width: 100%;
+    min-height: 30px;
+    padding: 0 9px;
+  }
+
+  .shell[data-mode="login"] .headerActions {
+    width: auto;
+    display: inline-flex;
+    top: 12px;
+    right: 12px;
+  }
+
+  .advancedSettingsDetails summary {
+    grid-template-columns: 1fr 28px;
+  }
+
+  .advancedSettingsDetails summary span,
+  .advancedSettingsDetails summary strong,
+  .advancedSettingsDetails summary small {
+    grid-column: 1;
+    white-space: normal;
+  }
+
+  .advancedSettingsDetails summary::after {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  .advancedSettingsDetails summary strong {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .accountSettingsGroupSummary {
+    grid-template-columns: 1fr;
+  }
+
+  .accountSettingsGroupSummary article small,
+  .accountSettingsGroupSummary li span,
+  .accountSettingsGroupSummary li strong {
+    white-space: normal;
+  }
+
+  .accountSettingsOtherPanelFold > summary {
+    min-height: 42px;
+    grid-template-columns: minmax(0, 1fr) 22px;
+    padding: 6px 7px;
+  }
+
+  .accountSettingsOtherPanelFold > summary span,
+  .accountSettingsOtherPanelFold > summary strong {
+    grid-column: 1;
+    white-space: normal;
+  }
+
+  .accountSettingsOtherPanelFold > summary::after {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+
+  .accountSettingsOtherPanelFold li button {
+    min-height: 42px;
+  }
+
+  .accountSettingsPanelSwitcher > summary {
+    min-height: 42px;
+    grid-template-columns: minmax(0, 1fr) 22px;
+    padding: 6px 7px;
+  }
+
+  .accountSettingsPanelSwitcher > summary span,
+  .accountSettingsPanelSwitcher > summary strong {
+    grid-column: 1;
+    white-space: normal;
+  }
+
+  .accountSettingsPanelSwitcher > summary::after {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+
+  .tabs {
+    width: 100%;
+    border-radius: var(--mc-radius-md);
+  }
+
+  .accountViewTabs {
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .accountViewTabs button {
+    min-height: 40px;
+    padding: 6px 5px;
+    text-align: center;
+  }
+
+  .accountViewTabs button:not([data-active="true"]) {
+    display: none;
+  }
+
+  .accountViewTabs button[data-active="true"] {
+    box-shadow: inset 0 3px 0 var(--mc-primary);
+  }
+
+  .accountViewTabs span,
+  .accountViewTabs b {
+    display: block;
+    text-align: center;
+  }
+
+  .accountViewTabs small {
+    display: none;
+  }
+
+  .accountLayoutGuide {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px;
+    min-height: 46px;
+    padding: 8px;
+  }
+
+  .accountLayoutGuide div {
+    grid-column: 1;
+  }
+
+  .accountLayoutGuide p {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .accountLayoutGuide[data-account-settings-customization="preferred_view_reset"] p {
+    display: none;
+  }
+
+  .accountLayoutGuide button {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
+    min-height: 34px;
+  }
+
+  .accountLayoutGuide span,
+  .accountLayoutGuide strong,
+  .accountLayoutGuide small,
+  .accountLayoutGuide p {
+    white-space: normal;
+  }
+
+  .accountSettingsFolderMap {
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .accountSettingsFolderHeader small {
+    display: none;
+  }
+
+  .accountSettingsFolderHeader {
+    grid-template-columns: minmax(0, 1fr) 24px;
+  }
+
+  .accountSettingsFolderHeader span,
+  .accountSettingsFolderHeader strong,
+  .accountSettingsFolderHeader small {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .accountSettingsFolderHeader::after {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: center;
+  }
+
+  .accountSettingsFolderMapBody > ol {
+    gap: 5px;
+  }
+
+  .accountSettingsFolderMapBody > ol > li > button {
+    min-height: 48px;
+    padding: 6px 5px;
+    text-align: center;
+  }
+
+  .accountSettingsFolderMapBody > ol > li[data-current="true"] > button {
+    box-shadow: inset 0 3px 0 var(--mc-primary);
+  }
+
+  .accountSettingsFolderMapBody > ol > li span,
+  .accountSettingsFolderMapBody > ol > li strong,
+  .accountSettingsFolderMapBody > ol > li small {
+    text-align: center;
+  }
+
+  .accountSettingsFolderMapBody > ol > li small {
+    display: none;
+  }
+
+  .accountSettingsFolderDetails > summary {
+    gap: 6px;
+  }
+
+  .accountSettingsFolderDetails > summary strong {
+    display: none;
+  }
+
+  .accountSettingsFocusSummary {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .accountSettingsFocusSummary article {
+    padding: 8px;
+  }
+
+  .accountSettingsFocusSummary article small {
+    display: none;
+  }
+
+  .accountSettingsOtherViewRail {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .accountSettingsOtherViewsFold > summary {
+    min-height: 40px;
+    grid-template-columns: minmax(0, 1fr) auto 22px;
+    padding: 6px;
+  }
+
+  .accountSettingsOtherViewsFold > summary::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .accountSettingsFocusSummary li button {
+    min-height: 42px;
+    padding: 6px;
+  }
+
+  .accountSettingsFocusMore summary {
+    min-height: 42px;
+    padding: 6px;
+  }
+
+  .tabs button {
+    flex: 1 1 120px;
+  }
+
+  .header h1 {
+    font-size: var(--mc-font-size-lg);
+  }
+
+  .shell[data-mode="login"] .header h1 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+/* Keep every account view selectable after the base mobile rules above. */
+@media (max-width: 720px) {
+  .accountViewTabs button:not([data-active="true"]) {
+    display: grid;
+  }
+}
+
+@media (max-width: 380px) {
+  .accountViewTabs,
+  .accountSettingsPanelSwitcher .tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .accountViewTabs button,
+  .accountSettingsPanelSwitcher .tabs button {
+    width: 100%;
+    min-height: 44px;
+    text-align: left;
+  }
+
+  .accountViewTabs small {
+    display: block;
+    overflow: visible;
+    white-space: normal;
+  }
+}
+
+/* 계정 화면: 법적 링크 3개를 설명하는 캡션 한 줄 제거 + 구분선 → 여백 (2026-07-29).
+   링크 3개(법적 고지·개인정보처리방침·이용약관)가 스스로를 설명하고,
+   각 문서 안에 같은 설명이 본문으로 들어 있다. */
+.legalFootnote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: var(--mc-space-4);
+  border-top: 0;
+  color: var(--mc-text-muted);
+  font-size: var(--setting-caption-size);
+  line-height: var(--setting-caption-leading);
+}
+
+.legalFootnote > span {
+  display: none;
+}
+
+/* 계정 설정 탭 접기 — 활성 탭만 보이고 나머지는 '다른 설정'에서 편다 (codex/chat-first-minimal) */
+
+.accountViewMore {
+  min-width: 0;
+}
+
+.accountViewMore > summary {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2px;
+  color: var(--mc-text-muted);
+  cursor: pointer;
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-semibold);
+  list-style: none;
+}
+
+.accountViewMore > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accountViewMore > summary::after {
+  content: "+";
+  margin-left: 6px;
+  color: var(--mc-text-subtle);
+}
+
+.accountViewMore[open] > summary::after {
+  content: "-";
+}
+
+.accountViewMoreOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 6px;
+}
+
+.accountViewTabs .accountViewMoreOptions button {
+  width: auto;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-semibold);
+  text-align: left;
+}
+
+.accountViewTabs .accountViewMoreOptions button[data-active="true"] {
+  border-color: var(--mc-primary);
+  color: var(--mc-primary-strong);
+  box-shadow: none;
+}
+
+/* ============================================================================
+   설정 화면 시각 정리 — 반지름 체계 · 안쪽 여백 · 행 정렬 · 글자 3단계 (2026-11-02)
+
+   한 화면에 반지름이 제각각이었다(카드 24 / 접힘 행 16 / 드롭다운 10 /
+   튜토리얼 버튼 10 / 초기화 버튼 9 / 배경 타일 12). 글자는 둥근 모서리에
+   붙어 있었고(카드 padding 10px vs 반지름 24px), 행마다 높이·여백이 달랐다.
+
+   반지름 층위 — 토큰 값은 rounded-ui.css 기준 xs 8 / sm 12 / md 16 / lg 24
+     바깥 섹션 카드(.shell, 프로필 카드)             lg
+     카드 안의 행·접힘(세션 행, 로그인 정보, 다른 설정) md
+     40px 이상 입력·주 버튼                           md
+     36px 이하 컨트롤(드롭다운·보조 버튼·헤더 버튼)   sm
+     알약(pill)                                      토글 스위치만
+   안쪽 여백
+     lg 카드 padding 24px(모바일 18px) ≥ 반지름 → 글자가 곡선과 겹치지 않는다
+     md 행 padding 10px 18px, 최소 높이 56px, 내용은 세로 중앙
+     섹션 사이 간격은 구분선 기준 위아래 24px(= 섹션 padding 10 + 그리드 gap 14)
+   글자 3단계
+     제목  --mc-text-md 14px / semibold / --mc-text-strong
+     라벨  --mc-text-base 13px / medium / --mc-text-strong
+     설명  --mc-text-sm 12px / regular / --mc-text-muted
+
+   DisplayPreferences·FirstUseTutorial 은 자기 CSS 모듈을 쓰므로 이 화면 안에서만
+   aria-label 속성 선택자로 덮어쓴다. 다른 화면의 같은 컴포넌트는 영향이 없다.
+   ============================================================================ */
+.shell[data-mode="settings"] {
+  --settings-card-pad: var(--mc-space-7);
+  --settings-row-pad-x: var(--mc-space-6);
+  --settings-row-pad-y: var(--mc-space-4);
+  --settings-row-min-height: 56px;
+  --settings-control-height: 36px;
+  --settings-control-height-sm: 32px;
+  --settings-section-gap: var(--mc-space-5);
+  --settings-title-size: var(--mc-text-md);
+  --settings-label-size: var(--mc-text-base);
+  --settings-caption-size: var(--mc-text-sm);
+  gap: var(--settings-section-gap);
+  padding: var(--settings-card-pad);
+  border-radius: var(--mc-radius-lg);
+}
+
+.shell[data-mode="settings"] .header {
+  align-items: center;
+}
+
+.shell[data-mode="settings"] .headerActions {
+  gap: var(--mc-space-3);
+}
+
+/* --- 화면과 사무실 (DisplayPreferences) --------------------------------- */
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] {
+  gap: var(--mc-space-2);
+  padding: var(--mc-space-4) 0;
+  border-bottom: 1px solid var(--mc-border-subtle);
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space-4);
+  min-height: var(--settings-control-height);
+  margin: 0 0 var(--mc-space-2);
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > div:first-child > strong,
+.shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] > div > strong {
+  color: var(--mc-text-strong);
+  font-size: var(--settings-title-size);
+  font-weight: var(--mc-weight-semibold);
+  line-height: 20px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > div:first-child > button {
+  min-height: var(--settings-control-height-sm);
+  padding: 0 var(--mc-space-4);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--settings-caption-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 16px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > div:first-child > button:hover {
+  border-color: var(--mc-border-strong);
+  color: var(--mc-text-strong);
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space-5);
+  min-height: 48px;
+  padding: var(--mc-space-2) 0;
+  color: var(--mc-text-strong);
+  font-size: var(--settings-label-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 18px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > label > span {
+  display: grid;
+  gap: var(--mc-space-1);
+  min-width: 0;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > label > span > small,
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > p,
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > p,
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > div > p,
+.shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] > div > p {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: var(--settings-caption-size);
+  font-weight: var(--mc-weight-regular);
+  line-height: 16px;
+}
+
+/* 배경 타일 아래 설명 세 줄(선택 배경 설명·자리 배치 안내·저장 안내)은 같은 간격으로 */
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > div + p,
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > p {
+  margin-top: var(--mc-space-2);
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > label > select {
+  flex: 0 0 auto;
+  max-width: 220px;
+  height: var(--settings-control-height);
+  min-height: var(--settings-control-height);
+  padding: 0 var(--mc-space-4) 0 var(--mc-space-5);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  font-size: var(--settings-label-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 18px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > label > input[type="checkbox"] {
+  flex: 0 0 auto;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset {
+  gap: var(--mc-space-2);
+  margin: var(--mc-space-4) 0 0;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > legend {
+  padding: 0;
+  color: var(--mc-text-strong);
+  font-size: var(--settings-label-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 18px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > div {
+  gap: var(--mc-space-4);
+  margin-top: var(--mc-space-2);
+}
+
+/* 배경 타일: 작은 서브카드 → sm, 안쪽 이미지는 xs(= sm - 안쪽 여백) */
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > div > label {
+  padding: var(--mc-space-2);
+  border-radius: var(--mc-radius-sm);
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > div > label > img {
+  border-radius: var(--mc-radius-xs);
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > div > label > span {
+  padding: var(--mc-space-3) var(--mc-space-2) var(--mc-space-2);
+  color: var(--mc-text-strong);
+  font-size: var(--settings-caption-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 16px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="화면 설정"] > fieldset > div > label > span > span {
+  padding-left: var(--mc-space-2);
+}
+
+/* --- 처음 사용 안내 (TutorialSettings) ---------------------------------- */
+.shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space-5);
+  padding: var(--mc-space-4) 0;
+  border-bottom: 1px solid var(--mc-border-subtle);
+}
+
+.shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] > div {
+  flex: 1 1 240px;
+  display: grid;
+  gap: var(--mc-space-1);
+  min-width: 0;
+}
+
+.shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] > button {
+  flex: 0 0 auto;
+  min-height: var(--settings-control-height);
+  padding: 0 var(--mc-space-5);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  font-size: var(--settings-label-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 18px;
+}
+
+.shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] > button:hover {
+  border-color: var(--mc-border-strong);
+  background: var(--mc-surface-muted);
+}
+
+/* --- 내 프로필 섹션: 설명 → 다른 설정 행 → 프로필 카드 ------------------- */
+.shell[data-mode="settings"] > .description {
+  margin: var(--mc-space-4) 0 0;
+  font-size: var(--settings-caption-size);
+  line-height: 16px;
+}
+
+.shell[data-mode="settings"] > .accountViewTabs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  min-height: var(--settings-row-min-height);
+  padding: var(--settings-row-pad-y) var(--settings-row-pad-x);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+}
+
+.shell[data-mode="settings"] .accountViewMore > summary {
+  width: 100%;
+  min-height: var(--settings-control-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space-4);
+  padding: 0;
+  color: var(--mc-text-strong);
+  font-size: var(--settings-label-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 18px;
+}
+
+.shell[data-mode="settings"] .accountViewMore > summary::after {
+  margin-left: auto;
+  color: var(--mc-text-muted);
+  font-size: var(--settings-title-size);
+  font-weight: var(--mc-weight-medium);
+}
+
+.shell[data-mode="settings"] .accountViewMoreOptions {
+  gap: var(--mc-space-3);
+  padding: var(--mc-space-4) 0 var(--mc-space-2);
+}
+
+.shell[data-mode="settings"] .accountViewTabs .accountViewMoreOptions button {
+  min-height: var(--settings-control-height);
+  padding: 0 var(--mc-space-5);
+  border-radius: var(--mc-radius-sm);
+  font-size: var(--settings-label-size);
+  font-weight: var(--mc-weight-medium);
+  line-height: 18px;
+}
+
+.shell[data-mode="settings"] > .panel {
+  min-width: 0;
+}
+
+/* 카드 맨 아래 요소(법적 고지)도 카드 안쪽 여백(24px) 만큼 띄운다 */
+.shell[data-mode="settings"] > .legalFootnote {
+  gap: var(--mc-space-5);
+  padding: var(--mc-space-4) 0 0;
+  border-top: 0;
+  font-size: var(--settings-caption-size);
+  line-height: 16px;
+}
+
+.shell[data-mode="settings"] > .legalFootnote a {
+  color: var(--mc-text-muted);
+  font-size: var(--settings-caption-size);
+  font-weight: var(--mc-weight-medium);
+}
+
+.shell[data-mode="settings"] > .legalFootnote a:hover {
+  color: var(--mc-text-strong);
+}
+
+@media (max-width: 720px) {
+  /* 좁은 화면에서는 바깥 프레임을 접고 카드·행이 직접 페이지 위에 놓인다.
+     카드 안쪽 폭을 유지하면서도 lg 카드 padding 18px 를 지킬 수 있다. */
+  .shell[data-mode="settings"] {
+    --settings-card-pad: var(--mc-space-6);
+    --settings-row-pad-x: var(--mc-space-5);
+    padding: 0 var(--mc-space-2);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .shell[data-mode="settings"] .header {
+    align-items: flex-start;
+  }
+
+  .shell[data-mode="settings"] > section[aria-label="화면 설정"] > label {
+    flex-wrap: wrap;
+  }
+
+  .shell[data-mode="settings"] > section[aria-label="처음 사용 안내 설정"] > button {
+    width: 100%;
+  }
+}

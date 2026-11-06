@@ -1,0 +1,11 @@
+/* 공통 셸에서 한 번 불러오는 형태 토큰. 밝은 화면과 어두운 화면에 함께 적용한다.
+   v3(2026-11-02): 부드러운 모서리는 유지하되 업무 도구답게 한 단계 줄였다.
+   배지 6 · 버튼/입력 8 · 작은 카드 10 · 카드/패널 14 · 입력창/모달 20. */
+html[data-mody-theme] {
+  --mc-radius-xs: 6px;
+  --mc-radius-sm: 8px;
+  --mc-radius-md: 10px;
+  --mc-radius-lg: 14px;
+  --mc-radius-xl: 20px;
+  --mc-radius-pill: 999px;
+}

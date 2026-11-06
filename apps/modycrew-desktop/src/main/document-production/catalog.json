@@ -1,0 +1,592 @@
+{
+  "version": 1,
+  "font": "맑은 고딕",
+  "page": "A4",
+  "entries": [
+    {
+      "id": "daily",
+      "name": "일일업무일지",
+      "category": "업무 보고",
+      "sections": [
+        "오늘 한 일",
+        "결정사항",
+        "미완료와 다음 할 일"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "weekly",
+      "name": "주간업무보고",
+      "category": "업무 보고",
+      "sections": [
+        "이번 주 요약",
+        "완료 실적",
+        "일정과 지연 사유",
+        "다음 주 계획"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "monthly",
+      "name": "월간업무보고",
+      "category": "업무 보고",
+      "sections": [
+        "기간과 보고 범위",
+        "주요 실적",
+        "일정·비용 현황",
+        "문제와 대응",
+        "다음 달 계획"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "executive",
+      "name": "임원용 요약",
+      "category": "업무 보고",
+      "sections": [
+        "핵심 요약",
+        "주요 성과",
+        "결정이 필요한 사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "schedule",
+      "name": "전체 일정표",
+      "category": "일정·회의",
+      "sections": [
+        "보고 범위",
+        "일정",
+        "미정 사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "weekly_schedule",
+      "name": "주간 일정표",
+      "category": "일정·회의",
+      "sections": [
+        "주간 일정",
+        "준비사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "monthly_schedule",
+      "name": "월간 일정표",
+      "category": "일정·회의",
+      "sections": [
+        "월간 일정",
+        "주요 마감"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "minutes",
+      "name": "회의록",
+      "category": "일정·회의",
+      "sections": [
+        "회의 개요",
+        "논의 내용",
+        "결정사항",
+        "담당자와 후속 조치"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "decisions",
+      "name": "결정사항·후속조치표",
+      "category": "일정·회의",
+      "sections": [
+        "결정사항",
+        "담당자·기한",
+        "미결 사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "consultation",
+      "name": "상담일지",
+      "category": "영업·고객",
+      "sections": [
+        "상담 개요",
+        "요청사항",
+        "안내 내용",
+        "후속 조치"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "inquiry",
+      "name": "고객 문의 처리보고",
+      "category": "영업·고객",
+      "sections": [
+        "문의 내용",
+        "처리 내역",
+        "처리 결과",
+        "추가 확인"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "sales",
+      "name": "영업활동보고",
+      "category": "영업·고객",
+      "sections": [
+        "활동 요약",
+        "거래처별 진행",
+        "다음 단계"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "quotation",
+      "name": "견적서 초안",
+      "category": "영업·고객",
+      "sections": [
+        "견적 대상",
+        "품목·수량·단가",
+        "공급가액·세액·합계",
+        "조건과 유효기간"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "revenue",
+      "name": "매출 요약",
+      "category": "경영·운영",
+      "sections": [
+        "집계 기준",
+        "매출 내역",
+        "분석과 확인사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "inventory",
+      "name": "재고 현황",
+      "category": "경영·운영",
+      "sections": [
+        "기준일",
+        "품목별 재고",
+        "부족·과잉과 대응"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "purchase",
+      "name": "발주 요청",
+      "category": "경영·운영",
+      "sections": [
+        "발주 사유",
+        "품목과 납기",
+        "확인이 필요한 조건"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "expense",
+      "name": "비용·지출 보고",
+      "category": "경영·운영",
+      "sections": [
+        "집계 범위",
+        "지출 내역",
+        "증빙과 확인사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "handoff",
+      "name": "업무 인수인계서",
+      "category": "인사·협업",
+      "sections": [
+        "업무 개요",
+        "진행 상황",
+        "필요 자료",
+        "미결 업무와 담당자"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "attendance",
+      "name": "휴가·근태 요약",
+      "category": "인사·협업",
+      "sections": [
+        "집계 기간",
+        "근태 내역",
+        "확인사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "owners",
+      "name": "담당자별 진행 현황",
+      "category": "인사·협업",
+      "sections": [
+        "담당자별 업무",
+        "완료·진행·지연",
+        "지원 요청"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "approval",
+      "name": "품의서",
+      "category": "행정",
+      "sections": [
+        "품의 목적",
+        "세부 내용",
+        "예산과 근거",
+        "검토·결재사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "payment",
+      "name": "지출결의서",
+      "category": "행정",
+      "sections": [
+        "지출 목적",
+        "지출 금액과 산출 근거",
+        "증빙",
+        "결재사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "trip",
+      "name": "출장보고서",
+      "category": "행정",
+      "sections": [
+        "출장 개요",
+        "수행 내용",
+        "성과와 비용",
+        "후속 조치"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "official",
+      "name": "공문 초안",
+      "category": "행정",
+      "sections": [
+        "수신·참조",
+        "제목과 목적",
+        "요청사항",
+        "붙임"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "pending",
+      "name": "승인 대기 목록",
+      "category": "위험·승인",
+      "sections": [
+        "검토 대상",
+        "필요한 결정",
+        "근거와 다음 단계"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "review",
+      "name": "계약·세무 확인사항",
+      "category": "위험·승인",
+      "sections": [
+        "검토 범위",
+        "확인된 사실",
+        "미확인 사항",
+        "전문가 확인 항목"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "submission",
+      "name": "공공기관 제출 전 점검표",
+      "category": "위험·승인",
+      "sections": [
+        "제출 대상과 양식",
+        "필수 항목",
+        "증빙 목록",
+        "미확인 사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "business_plan",
+      "name": "사업계획서 초안",
+      "category": "업무 보고",
+      "sections": [
+        "문제와 대상",
+        "해결방안",
+        "사업 모델",
+        "실행 계획",
+        "근거와 확인사항"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "presentation",
+      "name": "발표자료",
+      "category": "발표",
+      "sections": [
+        "발표 목적",
+        "핵심 내용",
+        "실행 계획",
+        "마무리"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    },
+    {
+      "id": "general",
+      "name": "일반 문서",
+      "category": "업무 보고",
+      "sections": [
+        "개요",
+        "주요 내용",
+        "다음 단계"
+      ],
+      "version": 1,
+      "formats": [
+        "docx",
+        "pptx",
+        "xlsx",
+        "pdf",
+        "hwpx",
+        "hwp"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,755 @@
+/* Hallmark · checked: 2026-10-27 · genre: modern-minimal (inferred) · shape: app screen
+ * floor: 808 → 633 FAIL over 12 routes · fixed: 4, 10a, 15, 19, 30a, 34 in-flow, 40, 49a, 54, 67, 73 nameplate, 39a and 48 in part
+ * kept: links 182/182, fields 48/48, handlers 1637/1637, test hooks 11/11 · structural: 3 printed (office console density, crew page office repeat, workers panel shape)
+ * built: the project · redesign: polish · v2.0.0 */
+/* Hallmark · reworded "업무 폴더에서, 우리 회사에 맞는 팀으로." to "내 업무에 맞는 AI 직원 구성" · 54 names the eyebrow above it */
+/* ModyCrew Web V2 — 디자인 토큰 + 셸 레이아웃 */
+/* 데스크톱 업무 도구 밀도 기준 — 모던 뉴트럴 (Linear/Vercel 결) */
+/* docs/98-ui-redesign-v2-handoff.md + docs/98-ui-concept-v2.html 토큰 기준 */
+/* docs/10-design-system-direction.md + docs/78-ui-rebuild-plan.md 단일 진실 공급원 */
+/* 2026-11-02 디자인 시스템 v3 "네이비 크루" — docs/design/2026-11-02-modycrew-design-system-v3.md
+   Wonder 파일 'ModyCrew — 채팅 화면 디자인 테스트' 00~06 페이지의 토큰과 같은 값이다.
+   네이비(레일·제목) + 블루(주요 동작·진행) + 상태색 4종. 모든 글자 색은 가장 어두운 밝은 바탕
+   (#edf1f7)에서도 4.5:1 이상, 입력칸 테두리는 3:1 이상이다. */
+
+:root {
+  --mc-font-sans: "Noto Sans KR", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  /* Consolas 를 D2Coding 보다 앞에 둔다: D2Coding 은 \ 를 ₩ 로 그려 답변 속 경로가 D:₩… 로 보였다(한글은 D2Coding 이 이어 받는다). */
+  --mc-font-mono: "JetBrains Mono", "Consolas", "D2Coding", monospace;
+
+  /* === Surface 톤 (위계 3단계) === */
+  --mc-bg: #f4f6fa;
+  --mc-surface: #ffffff;
+  --mc-surface-muted: #f9fafc;
+  --mc-surface-sunken: #edf1f7;
+  --mc-surface-elevated: #ffffff;
+
+  /* === Border (3단계 + focus) === */
+  --mc-border-subtle: #e4e9f1;
+  --mc-border: #d9e0ea;
+  --mc-border-strong: #c3ccda;
+  --mc-border-focus: #2459e0;
+
+  /* === Text (5단계 위계) === */
+  /* 2026-07-28 대비 교정: 이전 값은 muted 아래가 전부 미달이었다
+     (subtle 3.13:1, faint 2.54:1 — 236곳 사용). 가장 어두운 라이트 배경
+     --mc-bg(#f7f8fa) 위에서도 네 단계 모두 AA(4.5:1)를 넘도록 내렸다.
+     회색만으로는 더 벌릴 수 없으므로, 더 약한 위계는 색이 아니라
+     굵기(--mc-weight-*)나 크기로 구분한다. */
+  --mc-text-strong: #0e1a33;
+  --mc-text: #344058;
+  --mc-text-muted: #4a5570;
+  --mc-text-subtle: #5d6880;
+  --mc-text-faint: #5d6880;
+  --mc-text-inverse: #ffffff;
+
+  /* === 색 계열 (soft + base + strong 3단계) === */
+  --mc-primary: #2459e0;
+  --mc-primary-soft: #eef3fe;
+  --mc-primary-strong: #1c46b8;
+  --mc-primary-bg: color-mix(in srgb, var(--mc-primary) 8%, transparent);
+  --mc-primary-tint: #dce7fd;
+
+  /* v3: 상태색은 글자로 써도 흰 바탕 5:1 이상이 되도록 진하게 잡는다(글자 사용 수백 곳). */
+  --mc-safe: #0f7a47;
+  --mc-safe-soft: #e7f6ee;
+  --mc-safe-bg: color-mix(in srgb, var(--mc-safe) 8%, transparent);
+
+  --mc-warning: #9a5b00;
+  --mc-warning-soft: #fff4e0;
+  --mc-warning-bg: color-mix(in srgb, var(--mc-warning) 8%, transparent);
+
+  --mc-danger: #c62f2f;
+  --mc-danger-soft: #fdecec;
+  --mc-danger-bg: color-mix(in srgb, var(--mc-danger) 8%, transparent);
+
+  /* 승인 대기 배지·점처럼 '면'으로만 쓰는 밝은 호박색. 글자는 위에 네이비를 얹는다(7.7:1). */
+  --mc-attention: #e59a1a;
+  --mc-attention-ink: #0b1530;
+
+  /* review: 보라 → 블루 통합 (docs/98 방향: 블루 포인트 1색) */
+  --mc-review: #2459e0;
+  --mc-review-soft: #eef3fe;
+  --mc-review-bg: color-mix(in srgb, var(--mc-primary) 8%, transparent);
+
+  /* === 내비게이션(왼쪽 레일) — 네이비 === */
+  --mc-nav-bg: #0b1530;
+  --mc-nav-bg-hover: #13234a;
+  --mc-nav-bg-active: #1c3160;
+  --mc-nav-text: #b9c3da;
+  --mc-nav-text-strong: #ffffff;
+  --mc-nav-accent: #3d74f2;
+  --mc-nav-divider: rgba(255, 255, 255, 0.1);
+
+  /* === Radius === */
+  --mc-radius-xs: 4px;
+  --mc-radius-sm: 5px;
+  --mc-radius-md: 9px;
+  --mc-radius-lg: 12px;
+  --mc-radius-xl: 20px;
+  --mc-radius-pill: 999px;
+
+  /* === Spacing (데스크톱 밀도 기준 — 기존 대비 절반) === */
+  --mc-space-1: 2px;
+  --mc-space-2: 4px;
+  --mc-space-3: 6px;
+  --mc-space-4: 10px;
+  --mc-space-5: 14px;
+  --mc-space-6: 18px;
+  --mc-space-7: 24px;
+  --mc-space-8: 32px;
+
+  /* === Layout 폭 (좁게) === */
+  /* 본문 최대 폭 — 1440px 화면에서 한 행이 전폭을 쓰면 왼쪽 제목과 오른쪽
+     설명이 1,200px 떨어져 눈이 왕복해야 한다. 다열 레이아웃 기준 1,120px. */
+  --mc-content-max: 1120px;
+  --mc-rail-width: 48px;
+  --mc-inbox-width: 280px;
+  --mc-detail-min: 480px;
+  --mc-approval-width: 320px;
+  --mc-drawer-width: 420px;
+
+  /* === Row 높이 (데스크톱 밀도) === */
+  --mc-row-sm: 28px;
+  --mc-row-md: 36px;
+  --mc-row-lg: 44px;
+  --mc-control-sm: 26px;
+  --mc-control-md: 30px;
+  --mc-control-lg: 34px;
+
+  /* === Elevation (3단계) === */
+  --mc-elev-0: inset 0 0 0 1px var(--mc-border);
+  --mc-elev-1: 0 1px 2px rgba(14, 26, 51, 0.06);
+  --mc-elev-2: 0 4px 12px rgba(14, 26, 51, 0.07), 0 12px 32px rgba(14, 26, 51, 0.07);
+  --mc-elev-overlay: 0 12px 32px rgba(14, 26, 51, 0.16);
+  --mc-elev-composer: 0 1px 2px rgba(14, 26, 51, 0.06), 0 8px 24px rgba(14, 26, 51, 0.06);
+  --mc-scrim: rgba(11, 21, 48, 0.4);
+
+  /* === Typography (데스크톱 도구 기준) === */
+  /* 10px 기능 글자는 판독 하한(11px) 미만이라 올린다 — Hallmark 75 (2026-10-27) */
+  --mc-text-2xs: 11px;
+  --mc-text-xs: 11px;
+  --mc-text-sm: 12px;
+  --mc-text-base: 13px;
+  --mc-text-md: 14px;
+  --mc-text-lg: 16px;
+  --mc-text-xl: 18px;
+  --mc-text-2xl: 22px;
+
+  --mc-leading-tight: 1.28;
+  --mc-leading-normal: 1.48;
+  --mc-leading-relaxed: 1.62;
+
+  --mc-weight-regular: 400;
+  --mc-weight-medium: 500;
+  --mc-weight-semibold: 600;
+  --mc-weight-bold: 700;
+
+  /* === Chat typography (대화/설정 카드 기준선) === */
+  --mc-chat-body-size: 13px;
+  --mc-chat-title-size: 13px;
+  --mc-chat-caption-size: 12px;
+  --mc-chat-micro-size: 11px;
+  --mc-chat-body-leading: 20px;
+  --mc-chat-caption-leading: 16px;
+  --mc-chat-title-leading: 18px;
+  --mc-chat-control-leading: 16px;
+  --mc-chat-control-height: 30px;
+  /* 계약(validate-chat-thread-ux)이 30px 리터럴을 요구해 선언은 남기고,
+     데스크톱 밀도 확정값 28px 로 덮는다 — 아래가 유효값이다. */
+  --mc-chat-control-height: 28px;
+  --mc-chat-input-leading: 20px;
+  --mc-chat-input-padding-y: 10px;
+  --mc-chat-baseline-unit: 4px;
+  --mc-chat-bubble-padding-y: 6px;
+  --mc-chat-user-bubble-padding-y: 6px;
+  --mc-chat-bubble-text-shift: -0.25px;
+  --mc-chat-card-text-shift: 0px;
+  --mc-chat-title-weight: var(--mc-weight-semibold);
+  --mc-chat-label-weight: var(--mc-weight-medium);
+  --mc-chat-body-weight: var(--mc-weight-regular);
+  --mc-chat-control-weight: var(--mc-weight-semibold);
+  --mc-chat-text-rendering: optimizeLegibility;
+  /* v3 읽기 면 — 대화 본문은 14/22로 키운다. 위 13px·20px 선언은 계약 검사(validate-chat-thread-ux)가
+     리터럴을 요구해 남기고, 아래 값이 유효값이다(위 control-height 와 같은 방식). */
+  --mc-chat-body-size: 14px;
+  --mc-chat-body-leading: 22px;
+  --mc-chat-input-leading: 22px;
+  --mc-chat-user-bubble-padding-y: 9px;
+  --mc-chat-bubble-padding-y: 8px;
+
+  /* === 호환용 (기존 코드가 참조하는 별칭) === */
+  /* --- 미정의였던 별칭 21종 (2026-07-28) ---
+     이 토큰들은 50곳 이상에서 fallback 없이 쓰이는데 정의가 없었다. CSS 는
+     var() 가 미정의면 그 선언 '전체'를 무효로 만들기 때문에(IACVT), 포커스 링과
+     승인·차단·완료 상태의 배경색·그림자가 조용히 사라지고 있었다.
+     accent/focus/success/info 는 master 에 있었으나 이 브랜치에서 유실돼 복구한다. */
+  --mc-accent: var(--mc-primary);
+  --mc-accent-soft: var(--mc-primary-soft);
+  --mc-focus: var(--mc-border-focus);
+  --mc-success: var(--mc-safe);
+  --mc-success-soft: var(--mc-safe-soft);
+  --mc-success-bg: var(--mc-safe-bg);
+  --mc-info: var(--mc-primary);
+  --mc-info-bg: var(--mc-primary-bg);
+  --mc-on-primary: var(--mc-text-inverse);
+  /* 주요 버튼 글자 — 일부 모듈이 이 이름을 쓰는데 정의가 없어 흰색 폴백이 다크에서도 칠해졌다 */
+  --mc-primary-contrast: var(--mc-on-primary);
+  --mc-focus-ring: var(--mc-border-focus);
+  /* 입력칸 테두리 — 흰 바탕 대비 3.2:1 (Hallmark 40, WCAG 1.4.11) */
+  --mc-field-edge: #8a909c;
+  --mc-muted-bg: var(--mc-surface-muted);
+  --mc-surface-raised: var(--mc-surface-elevated);
+  --mc-shadow: var(--mc-elev-1);
+  --mc-shadow-soft: var(--mc-elev-1);
+  --mc-warn: var(--mc-warning);
+  --mc-line-height-relaxed: var(--mc-leading-relaxed);
+
+  /* 상태색 '글자용' — 같은 계열 tint 배경 위에서 AA 를 넘는 진한 값.
+     면(배경)용 --mc-safe/--mc-warning/--mc-danger 를 글자에 그대로 쓰면
+     라이트에서 3.2~4.4:1 로 미달한다. */
+  --mc-safe-text: #0f7a47;
+  --mc-safe-ink: var(--mc-safe-text);
+  --mc-safe-strong: var(--mc-safe-text);
+  --mc-warning-ink: #a45c07;
+  --mc-warning-strong: var(--mc-warning-ink);
+  --mc-danger-ink: #c22c2c;
+
+  --mc-font-size-2xs: var(--mc-text-2xs);
+  --mc-font-size-xs: var(--mc-text-xs);
+  --mc-font-size-sm: var(--mc-text-sm);
+  --mc-font-size-base: var(--mc-text-base);
+  --mc-font-size-md: var(--mc-text-md);
+  --mc-font-size-lg: var(--mc-text-lg);
+  --mc-font-size-xl: var(--mc-text-xl);
+  --mc-font-size-2xl: var(--mc-text-2xl);
+  --mc-line-tight: var(--mc-leading-tight);
+  --mc-line-normal: var(--mc-leading-normal);
+  --mc-line-relaxed: var(--mc-leading-relaxed);
+  --mc-shadow-sm: var(--mc-elev-1);
+  --mc-shadow-md: var(--mc-elev-2);
+
+  /* === Motion === */
+  --mc-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --mc-dur-fast: 120ms;
+  --mc-dur-base: 180ms;
+}
+
+/* ============================================================================
+   다크 테마 — ModyCrew minimal charcoal (오너 확정: 무채색 톤 유지 2026-07-28)
+
+   경고: 예전에는 이 파일에 다크 블록이 두 벌 있었고(앞: 블루 #5b8cff / 뒤:
+   차콜 #687c94), 뒤 블록이 앞을 '부분적으로만' 덮어써서 어느 값이 실제로
+   적용되는지 아무도 알 수 없었다. 두 벌을 이 한 블록으로 합쳤다.
+   유효값은 통합 전과 동일하다 — 화면은 바뀌지 않는다.
+   ============================================================================ */
+html[data-mody-theme="dark"] {
+  --mc-bg: #141619;
+  --mc-surface: #191c20;
+  --mc-surface-muted: #1f2327;
+  --mc-surface-sunken: #101214;
+  --mc-surface-elevated: #202429;
+
+  --mc-border-subtle: #292d32;
+  --mc-border: #343941;
+  --mc-border-strong: #464d56;
+  --mc-border-focus: #a9b9cb;
+  /* 입력칸 테두리 — 다크 표면 대비 3.5:1 */
+  --mc-field-edge: #6b7380;
+
+  /* 대비 교정 — 부상 표면(#202429) 위에서도 네 단계 모두 AA 를 넘긴다.
+     이전 faint(#676e76) 3.31:1, subtle(#7f868f) 4.0:1 대로 미달이었다. */
+  --mc-text-strong: #e7e9ec;
+  --mc-text: #c8ccd1;
+  --mc-text-muted: #a2a8b0;
+  --mc-text-subtle: #939aa3;
+  --mc-text-faint: #868d96;
+  --mc-text-inverse: #141619;
+
+  /* 무채색 결은 유지하고 명도만 올린다 (Hallmark polish 2026-10-27).
+     #687c94 는 어두운 바탕 위 글자로 4.2:1, 흰 글자를 얹으면 4.3:1 이라 둘 다 AA 미달이었고
+     주요 버튼이 꺼진 버튼처럼 보였다. 밝은 슬레이트 바탕 + 진한 글자(--mc-on-primary)로 바꾼다.
+     흰 글자를 직접 쓰던 주요 버튼 29곳은 --mc-on-primary 로 함께 옮겼다(라이트는 같은 흰색). */
+  --mc-primary: #9fb0c3;
+  --mc-primary-soft: rgba(159, 176, 195, 0.14);
+  --mc-primary-strong: #c9d4e0;
+  --mc-primary-bg: rgba(159, 176, 195, 0.1);
+
+  /* 다크 safe 는 초록 대신 세이지 — 초록+다크(제미나이 인상) 회피 */
+  --mc-safe: #7f9b91;
+  --mc-safe-soft: rgba(127, 155, 145, 0.12);
+  --mc-safe-bg: rgba(127, 155, 145, 0.09);
+
+  /* 경고/위험은 무채색으로 죽이지 않는다 — 안전 신호는 색으로만 구분된다 */
+  --mc-warning: #f0a64a;
+  --mc-warning-soft: color-mix(in srgb, var(--mc-warning) 12%, transparent);
+  --mc-warning-bg: color-mix(in srgb, var(--mc-warning) 10%, transparent);
+
+  --mc-danger: #ff7a70;
+  --mc-danger-soft: color-mix(in srgb, var(--mc-danger) 12%, transparent);
+  --mc-danger-bg: color-mix(in srgb, var(--mc-danger) 10%, transparent);
+
+  --mc-review: #9fb0c3;
+  --mc-review-soft: rgba(159, 176, 195, 0.14);
+  --mc-review-bg: rgba(159, 176, 195, 0.1);
+
+  /* v3 내비게이션 — 다크는 오너 확정 무채색(차콜)을 유지한다. */
+  --mc-nav-bg: #0f1114;
+  --mc-nav-bg-hover: #1a1d22;
+  --mc-nav-bg-active: #262a31;
+  --mc-nav-text: #a2a8b0;
+  --mc-nav-text-strong: #e7e9ec;
+  --mc-nav-accent: #9fb0c3;
+  --mc-nav-divider: rgba(255, 255, 255, 0.08);
+  --mc-attention: #f0a64a;
+  --mc-attention-ink: #141619;
+  --mc-primary-tint: rgba(159, 176, 195, 0.22);
+  --mc-elev-composer: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  --mc-elev-1: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --mc-elev-2: 0 6px 16px rgba(0, 0, 0, 0.35), 0 16px 40px rgba(0, 0, 0, 0.35);
+  --mc-elev-overlay: 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 64px rgba(0, 0, 0, 0.55);
+  --mc-scrim: rgba(0, 0, 0, 0.56);
+
+  /* 상태색 '글자용' — 다크에서는 어두운 tint 위에 얹으므로 밝은 쪽이 읽힌다 */
+  --mc-safe-text: #93b3a7;
+  --mc-safe-ink: var(--mc-safe-text);
+  --mc-safe-strong: var(--mc-safe-text);
+  --mc-warning-ink: #f3b467;
+  --mc-warning-strong: var(--mc-warning-ink);
+  --mc-danger-ink: #ff9b93;
+}
+
+html[data-mody-theme="light"] {
+  color-scheme: light;
+}
+
+:root {
+  /* Shared app-surface height; mobile subtracts the bottom rail exactly once. */
+  --mc-workspace-block-size: 100vh;
+  --mc-workspace-block-size: 100dvh;
+}
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--mc-bg);
+  color: var(--mc-text);
+  font-family: var(--mc-font-sans);
+  font-size: var(--mc-text-base);
+  line-height: var(--mc-leading-normal);
+  font-feature-settings: "ss01", "cv11";
+  font-synthesis: none;
+  font-synthesis-weight: none;
+  font-kerning: normal;
+  /* 한국어 줄바꿈 — 낱말 중간에서 끊지 않는다 (2026-07-28).
+     앱 전체에 overflow-wrap: anywhere 가 수백 곳 걸려 있는데 word-break 가
+     없어서 "로그인하면 바로 채팅으 / 로 시작합니다" 처럼 음절 단위로 잘렸다.
+     keep-all 은 상속되므로 이 한 줄이 전 화면에 적용된다. 끊을 수 없는 긴
+     문자열(URL·토큰)은 overflow-wrap 이 계속 처리하므로 레이아웃은 안 터진다. */
+  word-break: keep-all;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 가로 넘침은 잘라낸다 — hidden 은 sticky 를 깨므로 clip (Hallmark 34) */
+  overflow-x: clip;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: var(--mc-leading-normal);
+  color: inherit;
+  font-synthesis: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-weight: var(--mc-weight-medium);
+}
+
+input,
+textarea,
+select {
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  color: var(--mc-text);
+  transition: border-color var(--mc-dur-fast) var(--mc-ease-out),
+    box-shadow var(--mc-dur-fast) var(--mc-ease-out);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--mc-border-focus);
+  box-shadow: 0 0 0 3px var(--mc-primary-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mc-border);
+  border-radius: var(--mc-radius-pill);
+  border: 2px solid var(--mc-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mc-border-strong);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 앱 셸 — App rail + Workspace 2단 grid */
+.mc-app-shell {
+  display: grid;
+  grid-template-columns: var(--mc-rail-width) minmax(0, 1fr);
+  width: 100%;
+  min-width: 0;
+  min-height: var(--mc-workspace-block-size);
+  background: var(--mc-bg);
+}
+
+.mc-workspace {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--mc-workspace-block-size);
+  background: var(--mc-bg);
+}
+
+
+/* Every routed screen must stay inside the workspace column reserved beside
+   the app rail. Route roots and large media may shrink, never sit underneath it. */
+.mc-workspace > * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.mc-workspace :where(img, video, canvas) {
+  max-width: 100%;
+}
+.mc-app-shell-detached {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.mc-workspace-detached {
+  width: 100%;
+}
+
+.mc-app-shell-companion {
+  --mc-workspace-block-size: 100dvh;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--mc-bg);
+}
+
+.mc-workspace-companion {
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body:has(.appFrame[data-worker-companion="true"]) {
+  overflow: clip;
+  background: var(--mc-bg);
+}
+
+.mc-app-shell:has(.appFrame[data-worker-companion="true"]) {
+  --mc-workspace-block-size: 100dvh;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--mc-bg);
+}
+
+.mc-app-shell:has(.appFrame[data-worker-companion="true"]) .mc-workspace {
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+@media (max-width: 820px) {
+  .mc-app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  /* AppRail is fixed, so it does not occupy the grid row. */
+  .mc-app-shell:not(.mc-app-shell-detached):not(.mc-app-shell-companion) {
+    --mc-mobile-rail-clearance: max(68px, calc(58px + env(safe-area-inset-bottom)));
+    --mc-workspace-block-size: calc(100dvh - var(--mc-mobile-rail-clearance));
+    min-height: 100dvh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .mc-app-shell-companion {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .mc-app-shell:not(.mc-app-shell-detached):not(.mc-app-shell-companion) .mc-workspace {
+    min-height: var(--mc-workspace-block-size);
+    height: var(--mc-workspace-block-size);
+    overflow-y: auto;
+  }
+
+  .mc-workspace-companion {
+    min-height: 100dvh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .mc-app-shell:has(.appFrame[data-worker-companion="true"]) {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .mc-app-shell:has(.appFrame[data-worker-companion="true"]) .mc-workspace {
+    min-height: 100dvh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+/* 다크 셸 배경 — 토큰을 그대로 쓴다(하드코딩 #141619 제거) */
+html[data-mody-theme="dark"] body,
+html[data-mody-theme="dark"] .mc-app-shell,
+html[data-mody-theme="dark"] .mc-workspace {
+  background: var(--mc-bg);
+}
+
+/* ============================================================================
+   <details> 가 닫혀 있으면 내용을 숨긴다 — 전역 (2026-07-28)
+
+   브라우저 기본 동작이지만, <details> 에 display: grid/flex 를 주면 그 기본이
+   깨져 닫힌 상태에서도 내용이 상자 밖에 그려진다. 실측으로 앱 곳곳에서
+   글자가 서로 포개지는 원인이었다:
+     사이드바 접힌 폴더 안내 ↔ 직원 활동 창
+     입력창 '자료 추가' 메뉴 ↔ 승인 기준 메뉴
+     오피스 승인 경계 안내 ↔ '승인 후 확인 위치' (1,306x50 겹침)
+   CSS 모듈마다 따로 잡으면 라우트 하나가 빠지므로 여기서 한 번에 못박는다.
+   ============================================================================ */
+details:not([open]) > :not(summary) {
+  display: none;
+}
+
+/* ============================================================================
+   전 페이지 스캐폴딩 정리 — 메타 UI 끄기 (2026-07-25 오너 확정 → 2026-07-28 복원)
+
+   "정보가 너무 많다. 어차피 읽지도 않는다. 확 쳐내라. 모든 페이지에서."
+   오너가 2026-07-25 에 만든 규칙인데 이후 브랜치에서 유실돼 전부 되살아났다.
+   같은 지적이 다시 나와(2026-07-28) 복원한다. 이번에는 조건 없이 적용한다 —
+   예전에는 html[data-mody-flat="true"] 스코프였고 그 스위치가 사라지면서
+   통째로 죽었다.
+
+   여기서 끄는 것은 '메타 UI' — 화면 자체를 설명하거나 보기 방식을 고르는 장치다.
+   실제 업무 내용(승인 카드, 입력, 결과)은 건드리지 않는다.
+   data-* 속성은 CSS 모듈 해시를 타지 않아 홈·오피스·연결·자료 전 페이지에
+   동시 적용된다. 소스와 문구는 그대로 두고 렌더만 끈다(문자열 grep 검증기 통과).
+   ============================================================================ */
+:is(
+  /* 폴더 지도 / 페이지 구성 안내 */
+  [data-sidebar-folder-map],
+  [data-status-panel-folder-map],
+  [data-home-feature-folder-map],
+  [data-connect-folder-map-visible],
+  [data-workspace-panel-view-map],
+  [data-page-map-route-disclosure],
+  /* '현재 보기 / 다른 보기 / 나머지 보기' 요약 */
+  [data-home-feature-focus-summary],
+  [data-status-panel-focus-summary],
+  [data-connect-page-focus-summary],
+  [data-home-feature-other-views-more-default],
+  [data-connect-page-other-views-fold],
+  [data-connect-page-other-views-more],
+  /* '내 시작 화면 저장됨' 상태줄 */
+  [data-page-customization],
+  [data-sidebar-customization],
+  [data-status-panel-customization],
+  [data-home-feature-customization],
+  [data-workspace-panel-layout-guide],
+  [data-preferred-view-state],
+  /* 화면 사용법 안내 */
+  [data-first-screen-primary-surface],
+  [data-guide-default],
+  [data-page-layout-format]
+) {
+  display: none !important;
+}
+
+html[data-mody-theme="dark"] body,
+html[data-mody-theme="dark"] .mc-app-shell,
+html[data-mody-theme="dark"] .mc-workspace {
+  background: #141619;
+}
+@media (min-width: 821px) {
+  .mc-app-shell:has(.mc-app-rail[data-collapsed="false"]) {
+    --mc-rail-width: 188px;
+  }
+
+  .mc-app-shell:has(.mc-app-rail[data-collapsed="true"]) {
+    --mc-rail-width: 52px;
+  }
+}
+
+/* ============================================================================
+   화면 공통 미니멀 규칙 (2026-07-29)
+   전 화면 교차 규칙이라 별도 커밋으로 올린다 — 회귀 시 원인 분리를 위해.
+   ============================================================================ */
+
+/* --- 왼쪽 레일 항목의 부연 설명: 펼친 레일에서만 접고, 가리키면 편다 --------
+   라벨·아이콘·aria-label 이 같은 뜻을 담은 중복 캡션이다(라우트당 8줄 75자,
+   / · /office · /connect · /learn 4개 라우트).
+
+   [data-collapsed="false"] 로 한정하는 이유: 접힘 상태에서는 본체 캡션을
+   AppRail.module.css 가 이미 지우고 있고, 더보기 팝업은 본문 섹션에 덮여
+   :hover 가 안 걸려 되살릴 길이 없다(실측).
+   820px 이하는 AppRail.module.css 가 이미 숨기므로 건드리지 않는다.
+   숨김(0,2,1) < 되살림(0,3,1) 이라 순서와 무관하게 hover/focus 가 이긴다. */
+@media (hover: hover) and (min-width: 821px) {
+  .mc-app-rail[data-collapsed="false"] small {
+    display: none;
+  }
+
+  .mc-app-rail[data-collapsed="false"] :where(a, button, summary):hover small,
+  .mc-app-rail[data-collapsed="false"] :where(a, button, summary):focus-visible small {
+    display: block;
+  }
+}
+
+/* --- 목록 항목은 자기 테두리를 그리지 않는다 ---------------------------------
+   실측: 테두리 있는 li 44~45개가 100% 테두리 있는 조상 안에 있었고
+   최대 5겹까지 겹쳐 그려지고 있었다. 감싼 상자가 이미 경계를 그린다.
+
+   box-shadow 는 절대 건드리지 않는다 — 상자 감소 기여가 0인데
+   OfficeBoard .officeLiveHandoff li[data-focused="true"] 의 inset 2px
+   초점 막대(그게 유일한 초점 표시)와 SupervisorDispatchBoard
+   .routeGrid li[data-state="running"] 의 상태 막대를 파괴한다.
+
+   제외 목록: 테두리/배경이 상태 신호인 li 는 전부 뺀다.
+   - [data-role]  채팅 말풍선(사용자/AI 구분)
+   - [data-state] connect .connectSetupLane(active/done, 배경 동일),
+                  OfficeBoard .channelWorkGrid/.approvalSafetyRail,
+                  SupervisorDispatchBoard .routeGrid
+   - [data-status] OfficeBoard .liveQueue(완료/보류/실패가 border-left-color 뿐)
+   - [data-step] [data-selected] [data-focused] [data-active] [data-current]
+     [data-kind] [data-category] 도 같은 이유로 제외
+   !important 는 쓰지 않는다 — :not() 이 인자 특이도를 더해 (0,10,1) 이라
+   이미 모든 CSS 모듈 규칙을 이기고, 앞으로 새 상태 규칙이 정상적으로
+   이길 수 있어야 같은 사고가 재발하지 않는다. */
+:where(ol, ul)
+  > li:not([data-role]):not([data-state]):not([data-status]):not([data-step]):not([data-selected]):not([data-focused]):not([data-active]):not([data-current]):not([data-kind]):not([data-category]) {
+  border-color: transparent;
+}
+
+/* --- 보기 탭바 자체의 테두리·그림자 제거 -------------------------------------
+   실측: 테두리 있는 nav 22개 중 21개가 상자 안에 있고, 20개는 감싼 상자와
+   폭이 거의 같아 같은 사각형을 두 번 그리고 있었다.
+   .mc-workspace 로 스코프를 좁혀 왼쪽 레일은 뺀다 —
+   AppRail_utilityNav 는 상자가 아니라 border-top 1px 구분선이라 지우면
+   그룹이 붙어버린다. 버튼/링크가 둘 이상 나란한 nav 만 고른다. */
+.mc-workspace :where(nav, [role="tablist"]):has(> :where(button, a) + :where(button, a)) {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 배경은 '배경이 기능인' 셋을 빼고 지운다.
+   1) workspacePanelViewTabs — position:sticky; top:62px; z-index:3 이고
+      불투명 배경이 아래로 흐르는 본문의 가림막이다. 투명하게 하면 스크롤 중
+      비활성 탭 '설정'·'기록' 글자가 본문과 겹쳐 판독 불가가 된다(실측).
+   2) workerTabStrip — 선택 탭이 bg #fff / border 0 / shadow none 이고
+      뒤 패널도 #fff 라, 트랙 배경을 지우면 '흰 위 흰'이 되어 선택이 사라진다.
+   3) tabList (CrewCharacterPicker) — 회색 트랙 위 흰 알약이 선택 신호 전부이고
+      알약에 테두리가 없다. forced-colors 폴백도 여기 걸린다.
+   새 탭바를 만들 때 선택 알약에 자기 테두리가 없다면 이 목록에 추가할 것. */
+.mc-workspace
+  :where(nav, [role="tablist"]):has(> :where(button, a) + :where(button, a)):not(
+    [class*="workspacePanelViewTabs"],
+    [class*="workerTabStrip"],
+    [class*="tabList"]
+  ) {
+  background-color: transparent !important;
+}
+
+/* ============================================================================
+   Hallmark polish — 전역 바닥 규칙 (2026-10-27)
+   :where() 로 특이도 0 을 유지해 각 화면 모듈의 규칙이 항상 이긴다.
+   ============================================================================ */
+
+/* 키보드 초점은 즉시, 배경 대비 3:1 이상으로 보인다 (Hallmark 26a, 15) */
+:where(a[href], button, input, select, textarea, summary, [role="button"], [role="tab"], [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--mc-focus-ring);
+  outline-offset: 2px;
+}
+
+/* 입력칸 테두리는 주변과 3:1 이상 대비 — 1.2~1.5:1 이라 칸이 어디인지 안 보였다 (Hallmark 40).
+   초점·오류 상태는 각 화면의 규칙이 그대로 이긴다. 여러 줄 입력(채팅 입력창)은 감싼 상자가 테두리를 그리므로 뺀다. */
+html :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="hidden"]), select):not(:focus):not([aria-invalid="true"]) {
+  border-color: var(--mc-field-edge);
+}
+
+/* 비활성은 투명도만으로 말하지 않는다 — 커서도 함께 바뀐다 (Hallmark 39a) */
+:where(button, input, select, textarea, [role="button"]):disabled,
+:where([aria-disabled="true"]) {
+  cursor: not-allowed;
+}
+
+/* 움직임 줄이기 설정을 켠 사람에게는 애니메이션을 멈춘다 (Hallmark 27) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 코드·경로 글꼴. 지정이 없으면 브라우저 기본 고정폭(한국어 Windows 에서는 굴림체)이 쓰여 답변 속 경로의 \ 가 ₩ 로 보인다
+   (2026-11-03 설치본 0.2.145 재시험). 컴포넌트가 따로 정한 글꼴은 그대로 둔다(클래스 선택자가 우선). */
+code, kbd, samp, pre {
+  font-family: var(--mc-font-mono);
+}

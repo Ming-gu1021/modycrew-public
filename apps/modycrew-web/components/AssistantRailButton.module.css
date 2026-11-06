@@ -1,0 +1,13 @@
+/* 이 버튼은 왼쪽 레일 안에 있다. 레일(v3 네이비, --mc-nav-*) 위에서 읽히도록 레일 항목과 같은 토큰을 쓴다. */
+.trigger { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 46px; padding: 8px 10px; border: 0; border-radius: 10px; background: color-mix(in srgb, var(--mc-nav-accent) 18%, transparent); color: var(--mc-nav-text-strong); font: inherit; font-size: 13px; text-align: left; text-decoration: none; cursor: pointer; box-sizing: border-box; }
+.trigger:hover { background: var(--mc-nav-bg-hover); }
+.trigger[aria-current="page"] { background: var(--mc-nav-bg-active); box-shadow: inset 3px 0 0 var(--mc-nav-accent); }
+.trigger > span { min-width: 0; overflow-wrap: anywhere; }
+.trigger small { display: block; font-size: 10px; color: var(--mc-nav-text); }
+.trigger[data-attention="true"] small { color: var(--mc-warning); font-weight: 600; }
+.mark { display: grid; place-items: center; width: 24px; flex: none; font-size: 22px; color: var(--mc-nav-text-strong); }
+.badge { display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-left: auto; padding: 0 6px; border-radius: var(--mc-radius-pill); background: var(--mc-primary); color: var(--mc-on-primary); font-size: 11px; font-weight: 700; line-height: 1; }
+.trigger[data-attention="true"] .badge { background: var(--mc-danger); }
+.trigger:focus-visible { outline: 2px solid var(--mc-nav-text-strong); outline-offset: 2px; }
+@media (max-width: 820px) { .trigger { flex: 0 0 48px; width: 48px; min-width: 48px; min-height: 44px; justify-content: center; padding: 6px; } .trigger > span:not(.mark) { display: none; } }
+

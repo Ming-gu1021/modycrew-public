@@ -1,0 +1,18 @@
+{
+  "schema": "modycrew.workspace-skill-package.v1",
+  "skillId": "korean-report-polish",
+  "version": "1.0.0",
+  "installMode": "portable_user_space",
+  "manifest": {
+    "supportedWorkPackIds": ["report_cleanup"],
+    "requestedCapabilities": ["read_selected_workspace", "draft_report"],
+    "networkHosts": [],
+    "folderScope": "selected_workspace_only"
+  },
+  "instructions": [
+    "선택된 업무 자료에서 확인된 사실, 날짜, 수치와 출처를 먼저 분리하고 추측은 사실처럼 쓰지 마세요.",
+    "보고서는 결론, 핵심 근거, 담당자, 기한, 다음 행동 순서로 짧고 명확하게 정리하세요.",
+    "서로 다른 문서의 수치나 일정이 충돌하면 임의로 합치지 말고 확인이 필요한 항목으로 표시하세요.",
+    "보고서 저장, 공유, 제출 같은 외부 변경은 사용자 최종 승인 전에는 초안으로만 준비하세요."
+  ]
+}

@@ -1,0 +1,17 @@
+.trigger { border: 1px solid var(--mc-border); border-radius: 9px; background: var(--mc-surface, white); color: var(--mc-text); padding: 7px 10px; cursor: pointer; font: inherit; font-size: 12px; }
+.dialog { width: min(680px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); padding: 20px; box-sizing: border-box; border: 1px solid var(--mc-border); border-radius: 16px; background: var(--mc-surface, white); color: var(--mc-text); overflow: auto; }
+.dialog::backdrop { background: #1116; }
+.dialog header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.dialog h2 { font-size: 20px; margin: 0; }
+.dialog p { font-size: 13px; line-height: 1.6; }
+.dialog input { width: 100%; box-sizing: border-box; margin: 12px 0; }
+.dialog .check { width: auto; margin: 0 8px 0 0; }
+.dialog button, .dialog input { font: inherit; padding: 8px 10px; border: 1px solid var(--mc-border); border-radius: 8px; color: var(--mc-text); background: var(--mc-bg); }
+.dialog button { cursor: pointer; }
+.dialog button:disabled { opacity: .6; cursor: default; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.list { display: grid; gap: 12px; padding: 0; list-style: none; }
+.list li { padding: 12px 0; border-top: 1px solid var(--mc-border); overflow-wrap: anywhere; }
+.list small { display: block; color: var(--mc-text-muted); font-size: 12px; margin: 6px 0; }
+.list pre { white-space: pre-wrap; font: inherit; font-size: 13px; max-height: 240px; overflow: auto; padding: 12px; background: var(--mc-bg); }
+.dialog :is(button, input, summary):focus-visible, .trigger:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 2px; }

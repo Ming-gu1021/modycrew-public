@@ -1,0 +1,54 @@
+{
+  "name": "modycrew-source",
+  "version": "0.2.159",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node node_modules/electron/install.js",
+    "build:domain": "tsc -p packages/domain/tsconfig.json",
+    "build:web": "node scripts/build-web.mjs",
+    "build": "npm run build:domain && npm run build:web",
+    "dev": "npm run build:domain && npm run dev --prefix apps/modycrew-web",
+    "desktop:start": "node scripts/start-desktop.mjs",
+    "start": "npm run build && npm run desktop:start",
+    "typecheck": "tsc -p packages/domain/tsconfig.json --noEmit && npm run typecheck --prefix apps/modycrew-web"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^25.9.9",
+    "concurrently": "^10.0.6",
+    "cross-env": "^10.1.0",
+    "electron": "^44.7.2",
+    "electron-builder": "^26.15.3",
+    "simple-icons": "^16.35.0",
+    "typescript": "^6.0.3",
+    "wait-on": "^9.5.1"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.12",
+    "docx": "^9.11.0",
+    "electron-updater": "^6.8.9",
+    "exceljs": "^4.4.0",
+    "firebase": "^13.0.0",
+    "ics": "^3.12.1",
+    "imapflow": "^2.4.0",
+    "jszip": "^3.10.2",
+    "mailparser": "^3.9.38",
+    "mammoth": "^1.13.0",
+    "pdf-parse": "^2.4.5",
+    "pdfkit": "^0.20.2"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.14.6",
+    "exceljs": {
+      "uuid": "^11.1.1"
+    }
+  },
+  "description": "ModyCrew — Korean-first AI workspace by the Mody team",
+  "license": "Apache-2.0",
+  "author": "Mody team",
+  "main": "scripts/source-main.mjs"
+}

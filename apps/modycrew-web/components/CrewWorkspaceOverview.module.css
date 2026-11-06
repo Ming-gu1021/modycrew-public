@@ -1,0 +1,25 @@
+.workspace{color:var(--mc-text,#202b3e);font-size:14px;line-height:1.55;display:grid;gap:20px;min-width:0;padding:4px 0 16px}
+.workspace *{box-sizing:border-box;min-width:0}
+.workspace h2,.workspace h3,.workspace p{margin:0}
+.workspace h2{font-size:19px;letter-spacing:-.4px}.workspace h3{font-size:20px;overflow-wrap:anywhere}
+.workspace button{font:inherit;color:inherit;cursor:pointer;border:1px solid var(--mc-border,#e0e4ec);border-radius:9px;background:var(--mc-surface,#fff);padding:9px 12px;white-space:normal;text-align:left}
+.workspace button:focus-visible{outline:2px solid var(--mc-primary,#315ce0);outline-offset:2px}
+.workspace button:disabled{opacity:.5;cursor:default}
+.header{display:flex;align-items:start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.header p,.master span,.crew small,.empty{color:var(--mc-text-muted,#68758a);font-size:12px}
+.master{display:grid;gap:3px;background:var(--mc-surface-hover,var(--mc-surface-sunken))!important}
+.roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px}
+.workspace .crew{display:flex;gap:10px;align-items:center;padding:10px;box-shadow:none}
+.crew[aria-pressed=true]{border-color:var(--mc-primary,#315ce0);background:var(--mc-surface-hover,var(--mc-surface-sunken))}
+.crew>span{display:grid;gap:2px;overflow-wrap:anywhere}.crew strong{font-size:14px}.crew small{display:block}
+.profile{display:grid;gap:18px;border-top:1px solid var(--mc-border,#e0e4ec);padding-top:20px}
+.hero{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:start;gap:14px}
+.hero>div>span{font-size:12px;color:var(--mc-text-muted,#68758a)}.hero p{margin-top:8px;overflow-wrap:anywhere}
+.current{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:13px;padding:12px 0;border-top:1px solid var(--mc-border,#e0e4ec);border-bottom:1px solid var(--mc-border,#e0e4ec)}
+.current>span{color:var(--mc-text-muted,#68758a)}.current p{grid-column:1/-1;color:var(--mc-text-muted,#68758a);overflow-wrap:anywhere}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions>button{flex:1 1 130px;text-align:center}
+.advanced{border-top:1px solid var(--mc-border,#e0e4ec);padding-top:12px;font-size:13px;min-width:0}
+.advanced>summary{cursor:pointer;padding:8px 0;color:var(--mc-text-muted,#68758a)}
+.advanced[open]>div{padding-top:14px;min-width:0}
+.advanced[open] :where(section,nav,form,ol,div){min-width:0;max-width:100%}
+.advanced[open] button{min-width:0;white-space:normal;overflow-wrap:anywhere}

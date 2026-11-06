@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="680" viewBox="0 0 1600 680" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">소규모 조직의 반복 업무 병목</title>
+  <desc id="desc">메일과 문의, 일정과 마감, 문서와 파일이 대표 또는 소수 실무자에게 집중되어 같은 판단을 반복하고 답장 지연, 일정과 자료 누락, 오발송 불안으로 이어지는 흐름</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1L11 6L1 11" stroke="#8791A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="card-shadow" x="-10%" y="-12%" width="120%" height="130%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#101319" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <g font-family="Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic, sans-serif" text-rendering="geometricPrecision">
+    <!-- Inputs -->
+    <g filter="url(#card-shadow)">
+      <rect x="54" y="74" width="320" height="116" rx="24" fill="#FFFFFF" stroke="#DDE0E7" stroke-width="3"/>
+      <rect x="54" y="282" width="320" height="116" rx="24" fill="#FFFFFF" stroke="#DDE0E7" stroke-width="3"/>
+      <rect x="54" y="490" width="320" height="116" rx="24" fill="#FFFFFF" stroke="#DDE0E7" stroke-width="3"/>
+    </g>
+
+    <rect x="82" y="100" width="64" height="64" rx="18" fill="#EEF3FE"/>
+    <path d="M96 116H132C135.314 116 138 118.686 138 122V144C138 147.314 135.314 150 132 150H96C92.6863 150 90 147.314 90 144V122C90 118.686 92.6863 116 96 116Z" stroke="#2E63F6" stroke-width="3"/>
+    <path d="M92 120L114 136L136 120" stroke="#2E63F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="170" y="143" fill="#101319" font-size="31" font-weight="700">메일 · 문의</text>
+
+    <rect x="82" y="308" width="64" height="64" rx="18" fill="#EEF3FE"/>
+    <rect x="92" y="320" width="44" height="40" rx="7" stroke="#2E63F6" stroke-width="3"/>
+    <path d="M92 332H136M103 315V325M125 315V325" stroke="#2E63F6" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="104" cy="343" r="2.5" fill="#2E63F6"/>
+    <circle cx="114" cy="343" r="2.5" fill="#2E63F6"/>
+    <circle cx="124" cy="343" r="2.5" fill="#2E63F6"/>
+    <circle cx="104" cy="352" r="2.5" fill="#2E63F6"/>
+    <circle cx="114" cy="352" r="2.5" fill="#2E63F6"/>
+    <text x="170" y="351" fill="#101319" font-size="31" font-weight="700">일정 · 마감</text>
+
+    <rect x="82" y="516" width="64" height="64" rx="18" fill="#EEF3FE"/>
+    <path d="M98 526H124L136 538V568C136 571.314 133.314 574 130 574H98C94.6863 574 92 571.314 92 568V532C92 528.686 94.6863 526 98 526Z" stroke="#2E63F6" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M124 526V538H136M101 549H127M101 559H127" stroke="#2E63F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="170" y="559" fill="#101319" font-size="31" font-weight="700">문서 · 파일</text>
+
+    <!-- Converging arrows -->
+    <path d="M392 132C458 132 464 214 520 214" stroke="#8791A0" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M392 340H520" stroke="#8791A0" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M392 548C458 548 464 466 520 466" stroke="#8791A0" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+    <!-- Bottleneck -->
+    <g filter="url(#card-shadow)">
+      <rect x="548" y="76" width="536" height="528" rx="34" fill="#FFFFFF" stroke="#101319" stroke-width="4"/>
+    </g>
+    <rect x="590" y="120" width="202" height="46" rx="23" fill="#EEF3FE"/>
+    <circle cx="617" cy="143" r="7" fill="#2E63F6"/>
+    <text x="638" y="151" fill="#1E4FD6" font-size="23" font-weight="700">판단이 몰리는 곳</text>
+
+    <text x="816" y="247" text-anchor="middle" fill="#101319" font-size="43" font-weight="750">대표 · 소수 실무자</text>
+    <text x="816" y="326" text-anchor="middle" fill="#343B47" font-size="29" font-weight="500">요청을 다시 읽고</text>
+    <text x="816" y="378" text-anchor="middle" fill="#343B47" font-size="29" font-weight="500">마감 · 자료 · 실행 위험을 판단</text>
+
+    <rect x="612" y="452" width="408" height="94" rx="22" fill="#FBFBFD" stroke="#DDE0E7" stroke-width="2"/>
+    <path d="M649 481V517M639 507L649 517L659 507" stroke="#2E63F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="675" y="514" fill="#101319" font-size="29" font-weight="700">업무마다 같은 판단 반복</text>
+
+    <!-- Result arrow -->
+    <path d="M1108 340H1184" stroke="#8791A0" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+    <!-- Outcomes -->
+    <g filter="url(#card-shadow)">
+      <rect x="1210" y="76" width="336" height="528" rx="34" fill="#FBFBFD" stroke="#DDE0E7" stroke-width="3"/>
+    </g>
+    <circle cx="1261" cy="143" r="25" fill="#FCEDED"/>
+    <path d="M1261 129V146M1261 155V157" stroke="#D93B3B" stroke-width="4" stroke-linecap="round"/>
+    <text x="1302" y="156" fill="#101319" font-size="36" font-weight="750">결과</text>
+    <path d="M1248 201H1508" stroke="#E8EAEF" stroke-width="3" stroke-linecap="round"/>
+
+    <circle cx="1262" cy="277" r="7" fill="#D93B3B"/>
+    <text x="1290" y="287" fill="#343B47" font-size="31" font-weight="600">답장 지연</text>
+
+    <circle cx="1262" cy="363" r="7" fill="#D93B3B"/>
+    <text x="1290" y="373" fill="#343B47" font-size="31" font-weight="600">일정 · 자료 누락</text>
+
+    <circle cx="1262" cy="449" r="7" fill="#D93B3B"/>
+    <text x="1290" y="459" fill="#343B47" font-size="31" font-weight="600">오발송 불안</text>
+
+    <text x="1378" y="545" text-anchor="middle" fill="#6B7280" font-size="22" font-weight="500">업무가 쌓일수록 위험이 커집니다</text>
+  </g>
+</svg>

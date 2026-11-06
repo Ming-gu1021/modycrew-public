@@ -1,0 +1,430 @@
+.shell {
+  height: 100dvh;
+  min-height: 100dvh;
+  min-width: 0;
+  /* grid 는 트랙 수가 자식 수보다 적으면 새 자식이 0px 로 붕괴한다
+     (실행 잠금 패널이 열리면 자식 4개). flex 로 전환해 구조적으로 방지 (2026-07-25) */
+  display: flex;
+  flex-direction: column;
+  /* 페이지 전체 세로 스크롤 — 씬 아래 보드까지 굴려서 볼 수 있어야 한다 (2026-07-26) */
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--mc-bg);
+  color: var(--mc-text);
+}
+
+.topbar {
+  /* 스크롤해도 상단바는 남아 있게 */
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--mc-bg);
+  flex: 0 0 auto;
+  min-height: 54px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space-4);
+  padding: 0 var(--mc-space-5);
+  border-bottom: 1px solid var(--mc-border-subtle);
+  background: var(--mc-surface);
+}
+
+.brand {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mc-space-3);
+}
+
+.brand img {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--mc-radius-md);
+}
+
+.brand div {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.brand strong {
+  overflow: hidden;
+  color: var(--mc-text-strong);
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 형제 strong 과 같은 처리 — 없으면 좁은 폭에서 부제만 조각 줄바꿈되어
+   상단바 높이가 들쭉날쭉해진다. */
+.brand span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--mc-text-subtle);
+  font-size: var(--mc-font-size-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mc-space-2);
+  flex: 0 1 auto;
+}
+
+.actions a,
+.actions button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--mc-space-4);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-pill);
+  background: color-mix(in srgb, var(--mc-surface) 84%, transparent);
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-semibold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.actions a:hover,
+.actions button:hover {
+  border-color: var(--mc-border);
+  background: var(--mc-surface-elevated);
+  color: var(--mc-text-strong);
+}
+
+.layout {
+  /* 내용 높이만큼 자라고, 스크롤은 .shell 이 담당한다 */
+  flex: 0 0 auto;
+  display: flex;
+  min-height: 0;
+  overflow: visible;
+}
+
+.layout > * {
+  min-width: 0;
+  overflow: visible;
+}
+
+.layoutSingle {
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.layoutSingle > section {
+  min-height: 0;
+  height: 100%;
+}
+
+/* 씬 + 보드를 세로로 묶는 메인 컬럼 — 감사 로그(우측 패널)가 있어도 사무실 씬은 항상 보인다 */
+.mainColumn {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.layout:not(.layoutSingle) .mainColumn {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* AI 오피스 사무실 보기 마운트 — 보드 위에 얹되 min-height:100% 규칙을 피하려고 div로 감쌈 */
+.sceneMount {
+  padding: var(--mc-space-5) var(--mc-space-5) 0;
+  min-width: 0;
+  /* AI 오피스의 첫 화면 — flex 부모(.layout flex:1)에 눌리지 않게 고정 (2026-07-25) */
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    padding: 0 var(--mc-space-4);
+    gap: var(--mc-space-2);
+  }
+
+  .brand {
+    flex: 1 1 auto;
+  }
+
+  .actions {
+    flex: 0 0 auto;
+    gap: 5px;
+  }
+
+  .actions a,
+  .actions button {
+    min-height: 28px;
+    padding: 0 8px;
+    font-size: var(--mc-font-size-xs);
+  }
+
+  .layout {
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+/* 실제 외부 실행(발송/등록) 잠금 해제 패널 — 기본 잠김, 책임 문구로만 해제 */
+.liveUnlockPanel {
+  margin: var(--mc-space-3) var(--mc-space-5) 0;
+  padding: var(--mc-space-4) var(--mc-space-5);
+  border: 1px solid var(--mc-warning, #b45309);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-warning-bg, color-mix(in srgb, var(--mc-warning) 8%, transparent));
+  display: grid;
+  gap: var(--mc-space-3);
+}
+
+.liveUnlockPanel strong {
+  font-size: var(--mc-text-md);
+  color: var(--mc-text-strong);
+}
+
+.liveUnlockPanel p {
+  margin: 0;
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text-muted);
+  line-height: var(--mc-leading-normal);
+}
+
+.liveUnlockRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-3);
+  align-items: center;
+}
+
+.liveUnlockRow input {
+  flex: 1 1 240px;
+  min-width: 0;
+  height: var(--mc-control-md);
+  padding: 0 var(--mc-space-4);
+}
+
+.liveUnlockRow button {
+  height: var(--mc-control-md);
+  padding: 0 var(--mc-space-5);
+  border-radius: var(--mc-radius-md);
+  border: 1px solid var(--mc-border-strong);
+  background: var(--mc-surface);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.liveUnlockRow button[data-variant="danger"] {
+  border-color: var(--mc-danger, #b91c1c);
+  color: var(--mc-danger, #b91c1c);
+}
+
+.commandHierarchy {
+  margin: var(--mc-space-5);
+  padding: var(--mc-space-5);
+  display: grid;
+  gap: var(--mc-space-4);
+  border: 1px solid color-mix(in srgb, var(--mc-accent, #2563eb) 36%, var(--mc-border-subtle));
+  border-radius: var(--mc-radius-lg);
+  background: var(--mc-surface);
+}
+
+.commandHierarchy > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space-4);
+}
+
+.commandHierarchy > header > div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.commandHierarchy > header span,
+.commandHierarchyTree span,
+.commandHierarchy footer > span {
+  color: var(--mc-accent, #2563eb);
+  font-size: var(--mc-font-size-xs);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.commandHierarchy > header strong {
+  color: var(--mc-text-strong);
+  font-size: var(--mc-font-size-lg);
+}
+
+.commandHierarchy > header small,
+.commandHierarchy footer small,
+.commandHierarchyTree small {
+  color: var(--mc-text-muted);
+  line-height: var(--mc-leading-normal);
+}
+
+.commandHierarchy > header button {
+  flex: 0 0 auto;
+  min-height: var(--mc-control-md);
+  padding: 0 var(--mc-space-5);
+  border: 1px solid var(--mc-accent, #2563eb);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-accent, #2563eb);
+  color: var(--mc-on-primary);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.commandHierarchy > header button:disabled {
+  border-color: var(--mc-border-subtle);
+  background: var(--mc-surface-elevated);
+  color: var(--mc-text-muted);
+}
+
+.commandHierarchyTree {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 2fr);
+  gap: var(--mc-space-4);
+  align-items: stretch;
+}
+
+.commandMasterCard {
+  display: grid;
+  align-content: center;
+  gap: var(--mc-space-2);
+  padding: var(--mc-space-5);
+  border: 1px solid color-mix(in srgb, var(--mc-accent, #2563eb) 48%, var(--mc-border));
+  border-radius: var(--mc-radius-md);
+  background: color-mix(in srgb, var(--mc-accent, #2563eb) 11%, var(--mc-surface));
+}
+
+.commandMasterCard strong {
+  color: var(--mc-text-strong);
+  font-size: var(--mc-font-size-lg);
+}
+
+.commandMasterCard b {
+  color: var(--mc-text-muted);
+  font-size: var(--mc-font-size-sm);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.commandHierarchyTree ol {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--mc-space-2);
+  list-style: none;
+}
+
+.commandHierarchyTree li {
+  display: grid;
+  grid-template-columns: 18px minmax(136px, 0.7fr) minmax(0, 1.3fr);
+  gap: var(--mc-space-3);
+  align-items: center;
+  padding: var(--mc-space-3);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+}
+
+.commandHierarchyTree li[data-state="planned"] {
+  border-style: dashed;
+  background: color-mix(in srgb, var(--mc-surface-elevated) 72%, transparent);
+}
+
+.commandHierarchyArrow {
+  display: inline-grid;
+  place-items: center;
+  color: var(--mc-accent, #2563eb);
+  font-size: var(--mc-font-size-lg);
+}
+
+.commandHierarchyTree button {
+  min-width: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+
+.commandHierarchyTree button:not(:disabled) {
+  cursor: pointer;
+}
+
+.commandHierarchyTree button:not(:disabled):hover strong {
+  color: var(--mc-accent, #2563eb);
+}
+
+.commandHierarchyTree button:disabled {
+  opacity: 0.72;
+ background-color: var(--mc-surface-sunken); color: var(--mc-text-faint); border-color: var(--mc-border-subtle); cursor: not-allowed; }
+
+.commandHierarchyTree button > strong,
+.commandHierarchyTree li > div > strong {
+  color: var(--mc-text-strong);
+  font-size: var(--mc-font-size-sm);
+}
+
+.commandHierarchyTree li > div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.commandHierarchyTree li > div > strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.commandHierarchy footer {
+  display: grid;
+  gap: 3px;
+  padding-top: var(--mc-space-3);
+  border-top: 1px solid var(--mc-border-subtle);
+}
+
+.commandHierarchy footer strong {
+  color: var(--mc-text-strong);
+  font-size: var(--mc-font-size-sm);
+}
+
+@media (max-width: 820px) {
+  .commandHierarchy {
+    margin: var(--mc-space-4);
+    padding: var(--mc-space-4);
+  }
+
+  .commandHierarchy > header,
+  .commandHierarchyTree {
+    grid-template-columns: 1fr;
+  }
+
+  .commandHierarchy > header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .commandHierarchy > header button {
+    width: 100%;
+  }
+
+  .commandHierarchyTree li {
+    grid-template-columns: 14px minmax(0, 1fr);
+  }
+
+  .commandHierarchyTree li > div {
+    grid-column: 2;
+    padding-top: var(--mc-space-2);
+    border-top: 1px solid var(--mc-border-subtle);
+  }
+}

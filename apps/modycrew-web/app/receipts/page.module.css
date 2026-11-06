@@ -1,0 +1,344 @@
+.page {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+  color: var(--mc-text-strong);
+}
+
+.header,
+.sectionHeader,
+.reviewHeader,
+.actionRow,
+.uploadArea,
+.driveActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header {
+  align-items: flex-end;
+  border-bottom: 1px solid var(--mc-border);
+  padding-bottom: 18px;
+}
+
+.eyebrow,
+.header h1,
+.header p,
+.sectionHeader h2,
+.reviewHeader h3,
+.reviewHeader p,
+.draftList p {
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+.header h1 {
+  margin-top: 4px;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.status {
+  max-width: 520px;
+  color: var(--mc-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.workspace,
+.documents,
+.drive {
+  border-bottom: 1px solid var(--mc-border);
+  padding: 26px 0;
+}
+
+.uploadArea {
+  align-items: flex-start;
+}
+
+.uploadButton,
+.page button {
+  min-height: 36px;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+}
+
+.uploadButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  font-weight: 650;
+  background: var(--mc-primary-strong);
+  border-color: var(--mc-primary-strong);
+  color: var(--mc-text-inverse);
+}
+
+.uploadButton input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.page button {
+  padding: 0 12px;
+}
+
+.page button:hover:not(:disabled),
+.uploadButton:hover {
+  border-color: var(--mc-primary-strong);
+}
+
+.uploadButton:hover {
+  color: var(--mc-text-inverse);
+}
+
+.page button:disabled,
+.uploadButton:has(input:disabled) {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.fileList {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 36px;
+  align-items: center;
+}
+
+.fileList span {
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  padding: 7px 10px;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+.templateGrid,
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.templateGrid label,
+.fields label {
+  display: grid;
+  gap: 6px;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+.templateGrid input,
+.templateGrid select,
+.fields input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 14px;
+}
+
+.wideField {
+  grid-column: 1 / -1;
+}
+
+.actionRow {
+  justify-content: flex-start;
+  margin-top: 18px;
+}
+
+.actionRow button,
+.reviewActions button:last-child,
+.driveActions button:nth-child(2),
+.driveList > button {
+  background: var(--mc-primary-strong);
+  border-color: var(--mc-primary-strong);
+  color: var(--mc-text-inverse);
+}
+
+.actionRow span {
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+.sectionHeader h2 {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.documentLayout {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.8fr) minmax(0, 2.2fr);
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.draftList {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.draftList button {
+  display: grid;
+  min-height: 0;
+  gap: 4px;
+  padding: 11px;
+  text-align: left;
+}
+
+.draftList button strong,
+.draftList button span,
+.draftList button small {
+  overflow-wrap: anywhere;
+}
+
+.draftList button span,
+.draftList button small {
+  color: var(--mc-text-muted);
+  font-size: 12px;
+}
+
+.draftList .selectedDraft {
+  border-color: var(--mc-primary-strong);
+  background: var(--mc-primary-soft);
+}
+
+.reviewPanel {
+  border-left: 2px solid var(--mc-border);
+  padding-left: 22px;
+}
+
+.reviewHeader {
+  align-items: flex-start;
+}
+
+.reviewHeader h3 {
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.reviewHeader p {
+  margin-top: 4px;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+.reviewActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.warning {
+  margin: 16px 0 0;
+  color: var(--mc-warning-ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.driveActions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.driveList {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.driveList label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  border-bottom: 1px solid var(--mc-border-subtle);
+  color: var(--mc-text);
+  font-size: 14px;
+}
+
+.driveList label span {
+  overflow-wrap: anywhere;
+}
+
+.driveList label small {
+  color: var(--mc-text-muted);
+}
+
+.driveList > button {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(calc(100% - 28px), 1180px);
+    padding-top: 20px;
+  }
+
+  .header,
+  .uploadArea,
+  .reviewHeader,
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .status {
+    text-align: left;
+  }
+
+  .templateGrid,
+  .fields,
+  .documentLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewPanel {
+    border-left: 0;
+    border-top: 2px solid var(--mc-border);
+    padding: 18px 0 0;
+  }
+
+  .reviewActions,
+  .driveActions {
+    justify-content: flex-start;
+  }
+
+  .driveList label {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .driveList label small {
+    grid-column: 2;
+  }
+}
+
+.page :is(button, input, select):focus-visible, .uploadButton:focus-within { outline: 2px solid var(--mc-border-focus); outline-offset: 3px; }
+.actionRow, .uploadArea { flex-wrap: wrap; }

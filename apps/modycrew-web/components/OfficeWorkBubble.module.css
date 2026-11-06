@@ -1,0 +1,22 @@
+.bubble { position: fixed; inset: auto; margin: 0; box-sizing: border-box; width: min(260px, var(--bubble-available-width, calc(100dvw / var(--mc-ui-scale, 1) - 24px))); max-height: var(--bubble-available-height, calc(var(--mc-scaled-viewport-height, 100dvh) - 24px)); padding: 12px; border: 1px solid var(--mc-border); border-radius: 16px; background: var(--mc-surface); color: var(--mc-text); box-shadow: var(--mc-elev-overlay); overflow: visible; }
+.bubble:popover-open { display: flex; flex-direction: column; }
+.bubble:popover-open:not([data-positioned]) { opacity: 0; }
+.bubble::after { content: ""; position: absolute; left: var(--bubble-arrow-x, 50%); width: 10px; height: 10px; background: var(--mc-surface); transform: translateX(-50%) rotate(45deg); pointer-events: none; }
+.bubble[data-side="above"]::after { bottom: -6px; border-bottom: 1px solid var(--mc-border); border-right: 1px solid var(--mc-border); }
+.bubble[data-side="below"]::after { top: -6px; border-top: 1px solid var(--mc-border); border-left: 1px solid var(--mc-border); }
+.heading { display: flex; flex: none; align-items: flex-start; gap: 8px; }
+.heading > div { flex: 1; min-width: 0; display: grid; gap: 4px; }
+.heading strong { font-size: 13px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.heading span { color: var(--mc-text-muted); font-size: 11px; }
+.heading span[data-state="working"], .heading span[data-state="moving"] { color: var(--mc-primary-strong); }
+.heading span[data-state="waiting"] { color: var(--mc-warning-ink); }
+.heading span[data-state="done"] { color: var(--mc-safe-ink); }
+.bubble .heading button { flex: 0 0 32px; display: grid; place-items: center; width: 32px; height: 32px; min-height: 32px; padding: 0; border: 0; border-radius: 9px; background: transparent; color: var(--mc-text-muted); cursor: pointer; }
+.bubble svg { display: block; width: 16px; height: 16px; flex: 0 0 16px; }
+.bubble .task { flex: 0 1 auto; min-height: 0; margin: 10px 0 12px; max-height: 160px; overflow: auto; overscroll-behavior: contain; color: var(--mc-text); font-size: 13px; font-weight: 400; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+.footer { display: flex; flex: none; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding-top: 8px; border-top: 1px solid var(--mc-border-subtle); }
+.footer > span { min-width: 0; flex: 1 1 110px; color: var(--mc-text-muted); font-size: 11px; overflow-wrap: anywhere; }
+.bubble .footer button { display: inline-flex; align-items: center; justify-content: center; gap: 3px; min-height: 32px; margin-left: auto; padding: 5px 8px; border: 0; border-radius: 9px; background: var(--mc-primary-soft); color: var(--mc-primary-strong); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.bubble button:hover { background: var(--mc-surface-sunken); }
+.bubble button:focus-visible, .bubble .task:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 2px; }
+@media (max-width: 560px) { .bubble .heading button { width: 40px; height: 40px; flex-basis: 40px; } .bubble .footer button { min-height: 40px; } }

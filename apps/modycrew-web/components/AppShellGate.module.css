@@ -1,0 +1,50 @@
+.fullscreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--mc-bg);
+}
+
+.loadingShell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mc-bg);
+}
+
+/* v3: 빈 점 하나 대신 로고 + 진행 표시 + 한 줄 안내 */
+.loadingBrand {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  color: var(--mc-text-subtle);
+  font-size: 13px;
+}
+
+.loadingBrand img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--mc-radius-md);
+  box-shadow: var(--mc-elev-1);
+}
+
+.loadingDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mc-primary);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source": "https://registry.npmjs.org/pptxgenjs/-/pptxgenjs-4.0.1.tgz",
+  "upstreamFile": "dist/pptxgen.es.js",
+  "reason": "Unmodified ESM build imports JSZip only. Excludes the unused vulnerable image-size npm dependency. Rendering accepts text and tables, not input images. Update this pinned snapshot and license deliberately.",
+  "name": "PptxGenJS",
+  "version": "4.0.1",
+  "modified": false,
+  "sha256": "05844c5625e2cda3b449eb967c2246dd57ca57341886a7c28eeebca263b29bd4"
+}

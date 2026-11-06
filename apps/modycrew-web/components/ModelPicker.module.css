@@ -1,0 +1,227 @@
+/* 채팅 입력칸 아래 한 줄. 대화를 방해하지 않게 낮게 두되, 지금 누가 답하는지는
+   항상 읽히게 이름만 진하게 둔다. */
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.root > button.trigger[type="button"] {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 32px;
+  gap: 6px;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 4px 8px;
+  border-radius: var(--mc-radius-pill);
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--mc-text-faint, #94a3b8);
+  font-weight: 400;
+  line-height: 1.5;
+  justify-content: center;
+  transition: background-color 120ms ease;
+}
+
+.root > button.trigger[type="button"]:hover:not(:disabled) {
+  background: var(--mc-surface-hover, rgba(148, 163, 184, 0.12));
+}
+
+.trigger:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.trigger strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mc-text-subtle, #64748b);
+}
+
+.triggerCaption {
+  display: none;
+}
+
+.caret {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Native popover uses the top layer, outside the composer's clipped scroll area. */
+.menu {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  box-sizing: border-box;
+  width: min(360px, calc(100dvw / var(--mc-ui-scale, 1) - 24px));
+  min-width: 0;
+  max-height: min(480px, calc(var(--mc-scaled-viewport-height, 100dvh) - 24px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding: 8px;
+  border-radius: var(--mc-radius-lg);
+  border: 1px solid var(--mc-line-soft, rgba(148, 163, 184, 0.28));
+  background: var(--mc-surface-raised, #ffffff);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+  color: var(--mc-text);
+}
+
+.menu:popover-open:not([data-positioned="true"]) { visibility: hidden; }
+.preferences { border-top: 1px solid var(--mc-border); margin-top: 8px; padding: 10px 8px; font-size: 12px; }
+.preferences summary { cursor: pointer; font-weight: 600; min-height: 28px; }
+.preferences p, .empty { color: var(--mc-text-muted); font-size: 12px; line-height: 1.6; padding: 4px 8px; }
+.preferences label { display: flex; align-items: center; gap: 10px; min-height: 40px; }
+.preferences input { flex: none; width: 16px; height: 16px; }
+.preferences small { display: block; color: var(--mc-text-muted); }
+.root .preferences button { margin-top: 8px; padding: 7px 10px; border: 1px solid var(--mc-border); border-radius: 8px; background: var(--mc-surface); color: var(--mc-text); font: inherit; cursor: pointer; }
+.settingsLink { display: block; padding: 10px 8px; color: var(--mc-accent-text, var(--mc-primary-strong)); font-size: 12px; }
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 0 6px 8px;
+}
+
+.heading h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.root .menu .heading button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--mc-radius-sm);
+  background: transparent;
+  color: var(--mc-text-muted);
+  cursor: pointer;
+  min-height: 36px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.heading button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.root button:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: -2px;
+}
+
+.group + .group {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--mc-line-soft, rgba(148, 163, 184, 0.2));
+}
+
+.group h4 {
+  margin: 0;
+  padding: 5px 8px 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mc-text-faint, #94a3b8);
+}
+
+.root .menu .group button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1px;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 7px 26px 7px 8px;
+  border-radius: var(--mc-radius-sm);
+  cursor: pointer;
+  text-align: left;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.root .menu .group button:hover, .root .menu .heading button:hover {
+  background: var(--mc-surface-hover, rgba(148, 163, 184, 0.12));
+}
+
+.name {
+  font-size: 13px;
+  color: var(--mc-text-strong, #0f172a);
+}
+
+.root .menu .group button[data-active="true"] {
+  background: var(--mc-primary-bg, #eff6ff);
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--mc-text-faint, #94a3b8);
+}
+
+/* 아직 못 쓰는 모델도 목록에 남긴다 — 숨기면 "클로드는 안 되나?" 를 알 수 없다.
+   대신 흐리게 두고 무엇이 필요한지 적는다. */
+.group button[data-ready="false"] .name {
+  color: var(--mc-text-subtle, #64748b);
+}
+
+.needs {
+  font-size: 11px;
+  color: var(--mc-accent-text, var(--mc-primary-strong));
+}
+
+.check {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--mc-accent-text, var(--mc-primary-strong));
+}
+
+.scanning {
+  margin: 4px 0 2px;
+  padding: 0 8px;
+  font-size: 11px;
+  color: var(--mc-text-faint, #94a3b8);
+}
+
+@media (max-width: 760px) {
+  .root > button.trigger[type="button"] { min-height: 44px; }
+  .root .menu .heading button { width: 44px; height: 44px; min-height: 44px; }
+}
+
+/* v3: 연결된 AI가 없으면 모델 칩이 '연결 필요' 상태를 분명히 보여 준다(호박색 + 열쇠). */
+.root > button.trigger[data-needs-connection="true"] {
+  border: 1px solid color-mix(in srgb, var(--mc-warning) 45%, transparent);
+  border-radius: var(--mc-radius-sm);
+  background: var(--mc-warning-soft);
+  color: var(--mc-warning);
+}
+
+.root > button.trigger[data-needs-connection="true"] strong {
+  color: var(--mc-warning);
+}

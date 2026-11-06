@@ -1,0 +1,8 @@
+{
+  "firstScreen": "simple inbox",
+  "primaryActions": ["process work", "review approvals", "connect AI", "connect tools"],
+  "advancedPanelsCollapsedByDefault": true,
+  "copyPrinciple": "show business language, never internal type names",
+  "requiredStates": ["empty", "loading", "success", "warning", "blocked", "approval_required"],
+  "designPrinciple": "minimal buttons, all features available through focused actions"
+}

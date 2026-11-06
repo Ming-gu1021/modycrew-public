@@ -1,0 +1,435 @@
+/* 사이드 캘린더 + 포스트잇 — 상자 대신 여백과 톤으로 구분한다 (2026-07-26) */
+
+.board {
+  display: grid;
+  gap: 12px;
+  padding: 4px 2px 10px;
+  min-width: 0;
+}
+
+/* ── 월 이동 헤더 ── */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.head strong {
+  color: var(--mc-text-strong);
+  font-size: 13.5px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.head button {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mc-text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.head button:hover {
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-strong);
+}
+
+/* ── 요일 + 날짜 격자 ── */
+.weekRow,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.weekRow span {
+  text-align: center;
+  color: var(--mc-text-faint);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.weekRow span:first-child {
+  color: color-mix(in srgb, var(--mc-danger) 70%, var(--mc-text-faint));
+}
+
+.day {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mc-text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 120ms var(--mc-ease-out);
+}
+
+.day[data-in-month="false"] {
+  color: var(--mc-text-faint);
+  opacity: 0.55;
+}
+
+.day:hover {
+  background: var(--mc-surface-muted);
+}
+
+.day[data-today="true"] {
+  color: var(--mc-primary);
+  font-weight: var(--mc-weight-bold);
+}
+
+.day[data-selected="true"] {
+  background: color-mix(in srgb, var(--mc-primary) 14%, transparent);
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-semibold);
+}
+
+/* 일정 표시 점 */
+.dots {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+}
+
+.dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--mc-text-faint);
+}
+
+.dots i[data-kind="mail"] { background: var(--mc-primary); }
+.dots i[data-kind="work"] { background: var(--mc-safe); }
+.dots i[data-kind="meeting"] { background: var(--mc-warning); }
+.dots i[data-kind="note"] { background: color-mix(in srgb, var(--mc-warning) 60%, #f3c969); }
+
+/* ── 선택한 날짜 상세 ── */
+.detail {
+  display: grid;
+  gap: 8px;
+}
+
+.detail h3 {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-size: 12px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.eventList {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.eventList li {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+  padding-left: 8px;
+  border-left: 2px solid var(--mc-border);
+}
+
+.eventList li[data-kind="mail"] { border-left-color: var(--mc-primary); }
+.eventList li[data-kind="work"] { border-left-color: var(--mc-safe); }
+.eventList li[data-kind="meeting"] { border-left-color: var(--mc-warning); }
+
+.eventKind {
+  flex: 0 0 auto;
+  color: var(--mc-text-faint);
+  font-size: 12px;
+}
+
+.eventTitle {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--mc-text);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eventTime {
+  flex: 0 0 auto;
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.empty {
+  display: none;
+  margin: 0;
+  color: var(--mc-text-faint);
+  font-size: 11.5px;
+}
+
+/* ── 포스트잇 ── */
+.noteWall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(112px, 100%), 1fr));
+  gap: 7px;
+}
+
+.note {
+  position: relative;
+  min-width: 0;
+  padding: 9px 20px 9px 10px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.16);
+  transform: rotate(-0.5deg);
+}
+
+.note:nth-child(even) {
+  transform: rotate(0.6deg);
+}
+
+.note[data-color="yellow"] { background: #fdf3b8; }
+.note[data-color="pink"] { background: #ffd9e3; }
+.note[data-color="blue"] { background: #cfe4ff; }
+.note[data-color="green"] { background: #cdf0d5; }
+
+.note p {
+  margin: 0;
+  color: #2b2b26;
+  font-size: 11.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.note button {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(43, 43, 38, 0.5);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.note button:hover {
+  background: rgba(43, 43, 38, 0.1);
+  color: #2b2b26;
+}
+
+/* ── 일정 등록 ── */
+.eventComposer {
+  display: grid;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--mc-border-subtle);
+}
+
+.eventComposerRow {
+  display: flex;
+  gap: 6px;
+}
+
+.eventComposer input[type="text"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 28px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--mc-surface-muted);
+  color: var(--mc-text);
+  font-size: 12px;
+}
+
+.eventComposer input[type="time"] {
+  flex: 0 0 auto;
+  width: 88px;
+  height: 28px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--mc-surface-muted);
+  color: var(--mc-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.eventComposer input::placeholder {
+  color: var(--mc-text-faint);
+}
+
+.eventComposerActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eventComposerActions > button {
+  flex: 0 0 auto;
+  height: 26px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mc-primary) 16%, var(--mc-surface-muted));
+  color: var(--mc-primary);
+  font-size: 11.5px;
+  font-weight: var(--mc-weight-semibold);
+  cursor: pointer;
+}
+
+.eventComposerActions > button:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--mc-primary) 26%, var(--mc-surface-muted));
+}
+
+.eventComposerActions > button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.alarmToggle {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.alarmToggle input {
+  width: 13px;
+  height: 13px;
+  accent-color: var(--mc-primary);
+}
+
+.alarmNotice {
+  margin: 0;
+  color: var(--mc-text-faint);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* 내가 등록한 일정은 삭제 가능 */
+.eventList li button {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--mc-text-faint);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.eventList li button:hover {
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-strong);
+}
+
+/* ── 메모 작성 ── */
+.composer {
+  display: grid;
+  gap: 7px;
+}
+
+.composer textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--mc-surface-muted);
+  color: var(--mc-text);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.composer textarea::placeholder {
+  color: var(--mc-text-faint);
+}
+
+.composerRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.colors {
+  display: flex;
+  gap: 4px;
+  margin-right: auto;
+}
+
+.colors button {
+  width: 15px;
+  height: 15px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  outline-offset: 2px;
+}
+
+.colors button[data-color="yellow"] { background: #fdf3b8; }
+.colors button[data-color="pink"] { background: #ffd9e3; }
+.colors button[data-color="blue"] { background: #cfe4ff; }
+.colors button[data-color="green"] { background: #cdf0d5; }
+
+.colors button[data-active="true"] {
+  outline: 2px solid var(--mc-primary);
+}
+
+.composerRow > button {
+  flex: 0 0 auto;
+  height: 26px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-muted);
+  font-size: 11.5px;
+  font-weight: var(--mc-weight-medium);
+  cursor: pointer;
+}
+
+.composerRow > button:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--mc-primary) 16%, var(--mc-surface-muted));
+  color: var(--mc-text-strong);
+}
+
+.composerRow > button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* 일정 제목과 시간만 먼저 보이고, 출처는 날짜 점 색으로 구분한다. */
+.eventKind {
+  display: none;
+}

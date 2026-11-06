@@ -1,0 +1,220 @@
+{
+  "schema": "modycrew.managed_runtime.v1",
+  "product": "ModyCrew",
+  "appVersionSource": "apps/modycrew-desktop/package.json",
+  "updateModel": {
+    "appUpdater": "electron-updater generic provider",
+    "feedDirectory": "dist/firebase-update-feed",
+    "feedManifest": "firebase-update-manifest.json",
+    "rule": "bundled runtimes and local adapters ship with the app version; external account permissions stay user-owned and are rechecked by health checks"
+  },
+  "installPolicy": {
+    "defaultUserExpectation": "install_app_then_connect_only_when_needed",
+    "globalInstallAllowedByDefault": false,
+    "rawSecretBundlingAllowed": false,
+    "externalMutationDuringInstallAllowed": false,
+    "dangerousActionsRequireApproval": true
+  },
+  "managedCapabilities": [
+    {
+      "id": "web_office_shell",
+      "userFacingLabel": "오늘 업무 화면",
+      "installMode": "bundled_with_app",
+      "versionSource": "apps/modycrew-web/out",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "approvalBoundary": "none"
+    },
+    {
+      "id": "domain_work_runtime",
+      "userFacingLabel": "업무 분석과 승인함 엔진",
+      "installMode": "bundled_with_app",
+      "versionSource": "packages/domain/dist",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "approvalBoundary": "external_send_calendar_file_share_tax_contract_public_agency"
+    },
+    {
+      "id": "mail_calendar_runtime_dependencies",
+      "userFacingLabel": "메일과 일정 처리 도구",
+      "installMode": "bundled_with_app",
+      "versionSource": "apps/modycrew-desktop/package-lock.json",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "approvalBoundary": "send_or_calendar_write_requires_approval",
+      "packages": [
+        "imapflow",
+        "ics"
+      ],
+      "smtpImplementation": "apps/modycrew-desktop/src/main/smtp-sender.mjs"
+    },
+    {
+      "id": "document_learning_dependencies",
+      "userFacingLabel": "문서 읽기 도구",
+      "installMode": "bundled_with_app",
+      "versionSource": "apps/modycrew-desktop/package-lock.json",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "approvalBoundary": "file_write_or_share_requires_approval",
+      "packages": [
+        "exceljs",
+        "mammoth",
+        "pdf-parse"
+      ]
+    },
+    {
+      "id": "desktop_bridge",
+      "userFacingLabel": "내 PC 작업 도우미",
+      "installMode": "bundled_with_app",
+      "versionSource": "apps/modycrew-desktop/src/main",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "activationPolicy": "auto_ready_safe_read_only_on_first_launch",
+      "scopeSelectionRequiredBeforeAccess": true,
+      "externalMutationApprovalRequired": true,
+      "approvalBoundary": "write_click_type_hotkey_requires_approval"
+    },
+    {
+      "id": "ai_provider_connection",
+      "userFacingLabel": "AI 연결",
+      "installMode": "external_user_connection",
+      "versionSource": "provider_api",
+      "updateWithApp": false,
+      "userSetupRequired": true,
+      "secretRequired": true,
+      "secretStorage": "os_keychain_or_local_env_reference",
+      "approvalBoundary": "no_raw_secret_in_app_state"
+    },
+    {
+      "id": "google_microsoft_oauth",
+      "userFacingLabel": "Gmail, Outlook, 캘린더 연결",
+      "installMode": "external_user_connection",
+      "versionSource": "provider_oauth_policy",
+      "updateWithApp": false,
+      "userSetupRequired": true,
+      "secretRequired": true,
+      "secretStorage": "os_keychain_or_provider_reference",
+      "approvalBoundary": "external_send_or_calendar_write_requires_approval"
+    },
+    {
+      "id": "messenger_channel_bots",
+      "userFacingLabel": "메신저 알림과 승인 채널",
+      "installMode": "external_user_connection",
+      "versionSource": "provider_bot_policy",
+      "updateWithApp": false,
+      "userSetupRequired": true,
+      "secretRequired": true,
+      "secretStorage": "os_keychain_or_server_secret_manager",
+      "approvalBoundary": "channel_command_cannot_bypass_app_approval"
+    },
+    {
+      "id": "codex_cli_recovery",
+      "userFacingLabel": "AI 연결 복구 도구",
+      "installMode": "guided_user_approved_install_or_official_fallback",
+      "versionSource": "external_official_tool",
+      "updateWithApp": true,
+      "redistributionRequired": true,
+      "userSetupRequired": true,
+      "secretRequired": false,
+      "guidedInstall": {
+        "command": "npm install -g @openai/codex",
+        "requiresUserApproval": true,
+        "runsOnlyAfterExplicitButtonClick": true,
+        "fallbackRoute": "official_app_or_api_connection"
+      },
+      "bundledFallback": {
+        "path": "resources/toolchain/codex/bin/codex.exe",
+        "source": "npm:@openai/codex",
+        "version": "0.162.1",
+        "license": "Apache-2.0",
+        "licenseReviewed": true
+      },
+      "approvalBoundary": "bundled_binary_ships_openly_with_license_notice_and_login_secret_stays_user_owned"
+    },
+    {
+      "id": "python_automation_runtime",
+      "userFacingLabel": "파일 분석 실행 도구",
+      "installMode": "bundled_with_app",
+      "versionSource": "scripts/stage-python-toolchain.mjs",
+      "version": "3.15.0",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "approvalBoundary": "file_write_or_external_actions_require_approval",
+      "license": "PSF-2.0",
+      "windowsBundleOnly": true,
+      "path": "resources/toolchain/python/python.exe",
+      "globalInstall": false
+    },
+    {
+      "id": "git_dev_toolchain",
+      "userFacingLabel": "Git (코드 변경 기록)",
+      "installMode": "bundled_with_app",
+      "versionSource": "scripts/stage-git-toolchain.mjs",
+      "version": "2.56.0.windows.4",
+      "path": "resources/toolchain/git/cmd/git.exe",
+      "source": "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.4/MinGit-2.56.0.4-64-bit.zip",
+      "sha256": "e3bf78351fe777fba47ddee5950082f8a98bb0f02604fdc7ba3ee2cb68ffa877",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "windowsBundleOnly": true,
+      "approvalBoundary": "push_or_remote_writes_require_approval",
+      "license": "GPL-2.0-only",
+      "licenseNotice": "THIRD_PARTY_NOTICES.md#git-for-windows-mingit",
+      "sourceOffer": "resources/toolchain/git/MODYCREW-NOTICE.txt",
+      "globalInstall": false
+    },
+    {
+      "id": "node_dev_toolchain",
+      "userFacingLabel": "Node.js (개발 도구 실행)",
+      "installMode": "bundled_with_app",
+      "versionSource": "scripts/stage-node-toolchain.mjs",
+      "version": "24.22.2",
+      "path": "resources/toolchain/node/node.exe",
+      "source": "https://nodejs.org/dist/v24.22.2/node-v24.22.2-win-x64.zip",
+      "sha256": "ca1bff5d8ead13c9f2ea404a176db46bd430704d5b5113734049fa365e7799e2",
+      "includes": [
+        "npm",
+        "npx"
+      ],
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "windowsBundleOnly": true,
+      "approvalBoundary": "package_publish_or_global_install_requires_approval",
+      "license": "MIT",
+      "bundledComponentLicenses": {
+        "npm": "Artistic-2.0"
+      },
+      "globalInstall": false
+    },
+    {
+      "id": "ripgrep_dev_toolchain",
+      "userFacingLabel": "빠른 파일 검색 (ripgrep)",
+      "installMode": "bundled_with_app",
+      "versionSource": "scripts/stage-ripgrep-toolchain.mjs",
+      "version": "15.2.0",
+      "path": "resources/toolchain/ripgrep/rg.exe",
+      "source": "https://github.com/BurntSushi/ripgrep/releases/download/15.2.0/ripgrep-15.2.0-x86_64-pc-windows-msvc.zip",
+      "sha256": "71b2fef860abe467217a538ff31de02f5258807c0129f771846f87bd029aafc5",
+      "updateWithApp": true,
+      "userSetupRequired": false,
+      "secretRequired": false,
+      "windowsBundleOnly": true,
+      "approvalBoundary": "read_only_search",
+      "license": "MIT OR Unlicense",
+      "globalInstall": false
+    }
+  ],
+  "releaseGate": {
+    "sourceContractCommand": "npm run verify:managed-runtime-install",
+    "packageArtifactCommand": "npm run verify:desktop-package-artifacts",
+    "fullReleaseCommand": "npm run package:test-release"
+  }
+}

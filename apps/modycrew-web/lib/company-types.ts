@@ -1,0 +1,17 @@
+export type CompanyRole = 'owner' | 'admin' | 'member';
+export type CompanyMemberStatus = 'active' | 'removed';
+export type CompanyInfo = { id: string; name: string; ownerUid: string; createdAtEpochMs: number; updatedAtEpochMs: number };
+export type CompanyMembership = { uid: string; companyId: string; companyName: string; role: CompanyRole; status: CompanyMemberStatus; updatedAtEpochMs: number };
+export type CompanyMember = { uid: string; email: string; displayName: string; role: CompanyRole; status: CompanyMemberStatus; inviteHash: string; createdAtEpochMs: number; updatedAtEpochMs: number };
+export type CompanyTeam = { id: string; name: string; visibility: 'company' | 'private'; memberIds: string[]; kind?: 'group' | 'direct'; createdBy: string; createdAtEpochMs: number; updatedAtEpochMs: number };
+export type CompanyMessage = { id: string; authorUid: string; authorName: string; kind: 'human' | 'personal_ai' | 'company_ai'; text: string; requestText: string; requestId: string; createdAtEpochMs: number; pending?: boolean };
+export type CompanyResource = { id: string; kind: 'material' | 'work_note'; title: string; text: string; authorUid: string; authorName: string; createdAtEpochMs: number; updatedAtEpochMs: number };
+export type CompanyHost = { uid: string; deviceId: string; label: string; enabled: boolean; heartbeatAtEpochMs: number; updatedAtEpochMs: number; serverUpdatedAtEpochMs?: number };
+export type CompanyAIRequest = { id: string; teamId: string; requesterUid: string; requesterName: string; text: string; status: 'queued' | 'running' | 'completed' | 'failed'; hostUid: string; hostDeviceId: string; claimId: string; leaseExpiresAtEpochMs: number; attempts: number; outputText: string; errorMessage: string; createdAtEpochMs: number; updatedAtEpochMs: number };
+export type CompanyInvite = { code: string; expiresAtEpochMs: number };
+export type CompanyAIContext = { messages: CompanyMessage[]; resources: CompanyResource[] };
+export const COMPANY_AI_LEASE_MS = 180_000;
+export type CompanyTaskStatus = 'todo' | 'doing' | 'review' | 'done' | 'canceled';
+export type CompanyTask = { id: string; title: string; description: string; assigneeUid: string; assigneeName: string; creatorUid: string; creatorName: string; dueDate: string; priority: 'normal' | 'high'; status: CompanyTaskStatus; resultText: string; lastEventId: string; createdAtEpochMs: number; updatedAtEpochMs: number };
+export type CompanyTaskEvent = { id: string; authorUid: string; authorName: string; status: CompanyTaskStatus; note: string; createdAtEpochMs: number };
+export type CompanyFile = { id: string; name: string; size: number; sha256: string; storagePath: string; authorUid: string; authorName: string; status: 'uploading' | 'ready'; createdAtEpochMs: number; updatedAtEpochMs: number };

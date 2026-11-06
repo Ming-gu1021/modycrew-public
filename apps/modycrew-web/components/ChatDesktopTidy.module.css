@@ -1,0 +1,13 @@
+.card{margin:12px 0;max-width:640px;min-width:0;color:var(--mc-text-strong,inherit);font-size:14px;line-height:1.6}
+.heading{display:flex;gap:8px;align-items:center}.heading strong{font-weight:600}
+.card p{margin:5px 0 10px;color:var(--mc-text-muted,inherit)}
+.card details{margin:8px 0}.card summary{cursor:pointer;font-size:13px}
+.card ul{padding:0;margin:8px 0;list-style:none;max-height:180px;overflow:auto}
+.card li{display:flex;flex-wrap:wrap;gap:4px 10px;padding:5px 0;border-bottom:1px solid var(--mc-border,#d4d8df);overflow-wrap:anywhere}
+.card li span{min-width:0}.card li small{width:100%;color:var(--mc-text-muted,inherit)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions:empty{display:none}
+.actions button{min-height:36px;padding:6px 12px;border-radius:8px;border:1px solid var(--mc-border,#d4d8df);background:var(--mc-bg-elevated,transparent);color:inherit;cursor:pointer;font:inherit}
+.actions button:disabled{opacity:.5;cursor:default}.actions button:focus-visible{outline:2px solid #5a90e8;outline-offset:2px}
+.pulse{width:7px;height:7px;flex:none;background:#5a90e8;border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}}

@@ -1,0 +1,94 @@
+.chooser {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  color: var(--mc-text);
+}
+
+.heading {
+  display: grid;
+  gap: 2px;
+}
+
+.heading strong {
+  color: var(--mc-text-strong);
+  font-size: 14px;
+  font-weight: var(--mc-weight-semibold);
+  line-height: 1.5;
+}
+
+.chooser .intro {
+  display: block;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.list {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.item {
+  display: block;
+  min-width: 0;
+}
+
+.chooser .choice {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chooser .choice:hover:not(:disabled) {
+  border-color: var(--mc-border-strong);
+  background: var(--mc-surface-elevated);
+}
+
+.chooser .choice:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.chooser .choice:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.chooser .choice[data-recommended="true"] {
+  border-color: var(--mc-border-focus);
+}
+
+.chooser .choiceLabel {
+  display: block;
+  color: var(--mc-text-strong);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.chooser .choiceDetail {
+  display: block;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.notice {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}

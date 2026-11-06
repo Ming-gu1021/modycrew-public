@@ -1,0 +1,194 @@
+/* 정리함.
+   상자를 겹치지 않는다. 갈래 하나만 펼쳐 두고 나머지는 접어, 처음 열었을 때
+   읽을 것이 한 덩어리만 보이게 한다. 글자는 12px 아래로 내려가지 않는다. */
+.shelf {
+  min-width: 0;
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--mc-border-subtle);
+}
+
+.shelf > header > strong {
+  display: block;
+  color: var(--mc-text-strong);
+  font-size: 15px;
+  font-weight: var(--mc-weight-bold);
+}
+
+.shelf > header > p {
+  margin: 4px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.search {
+  display: block;
+  margin: 12px 0 0;
+}
+
+.search > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search > input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  padding: 9px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.search > input::placeholder {
+  color: var(--mc-text-faint);
+}
+
+.search > input:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 1px;
+}
+
+.notice {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+.empty {
+  margin: 14px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.count {
+  margin: 12px 0 6px;
+  color: var(--mc-text-faint);
+  font-size: 12px;
+}
+
+.groups {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.groups section > button {
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 8px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.groups section > button:hover {
+  background: var(--mc-surface-sunken);
+}
+
+.groups section[data-open="true"] > button {
+  background: var(--mc-surface-sunken);
+}
+
+.groups section > button > strong {
+  color: var(--mc-text-strong);
+  font-size: 14px;
+  font-weight: var(--mc-weight-medium);
+}
+
+.groups section > button > small {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--mc-text-faint);
+  font-size: 12.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.groups section > button > b {
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  font-weight: var(--mc-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.groups ul {
+  margin: 2px 0 8px;
+  padding: 0 0 0 10px;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+}
+
+.groups li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.groups li:hover {
+  background: var(--mc-surface-sunken);
+}
+
+.groups li > div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.groups li strong {
+  overflow: hidden;
+  color: var(--mc-text-strong);
+  font-size: 13.5px;
+  font-weight: var(--mc-weight-medium);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.groups li span {
+  color: var(--mc-text-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.groups li small {
+  color: var(--mc-text-faint);
+  font-size: 12px;
+}
+
+.groups li > button {
+  appearance: none;
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.groups li > button:hover {
+  border-color: var(--mc-border-strong);
+  color: var(--mc-text-strong);
+}

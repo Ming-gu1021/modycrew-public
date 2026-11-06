@@ -1,0 +1,106 @@
+/* 승인함 답장 카드의 '어떻게 고칠까요?' 한 줄. 상자를 겹치지 않고 입력 한 줄 + 결과 한 덩어리. */
+.form {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  margin: 6px 0 0;
+}
+
+.form label {
+  color: var(--mc-text-strong);
+  font-size: 13px;
+  font-weight: var(--mc-weight-medium);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  min-width: 0;
+}
+
+.form .row input {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--mc-border);
+  border-radius: 8px;
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  font: inherit;
+  font-size: 13px;
+}
+
+.form .row input::placeholder {
+  color: var(--mc-text-faint);
+}
+
+.form .row button {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--mc-primary);
+  border-radius: 8px;
+  background: var(--mc-primary-soft);
+  color: var(--mc-primary);
+  font-size: 13px;
+  font-weight: var(--mc-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.form .row button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.form .row input:focus-visible,
+.form .row button:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.status {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.draft {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--mc-surface-sunken);
+  min-width: 0;
+}
+
+.draft strong {
+  color: var(--mc-text-strong);
+  font-size: 13px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.form .draft p {
+  margin: 0;
+  color: var(--mc-text);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 16rem;
+  overflow: auto;
+}
+
+.draft small {
+  color: var(--mc-text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

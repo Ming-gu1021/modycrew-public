@@ -1,0 +1,227 @@
+.context {
+  min-width: 0;
+  margin-block: 8px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 14px;
+  background: var(--mc-surface);
+  color: var(--mc-text);
+}
+
+.contextSummary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 12px;
+  border-radius: inherit;
+  list-style: none;
+  cursor: pointer;
+}
+
+.contextSummary::-webkit-details-marker,
+.destinationMenu > summary::-webkit-details-marker,
+.messageMenu > summary::-webkit-details-marker { display: none; }
+
+.avatar[data-size="compact"] { width: 32px; height: 36px; }
+.identity { display: grid; min-width: 0; gap: 2px; }
+.identityLine { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 8px; min-width: 0; }
+.identityLine strong { min-width: 0; font-size: 13px; font-weight: 600; color: var(--mc-text-strong); overflow-wrap: anywhere; text-wrap: balance; }
+.eyebrow { font-size: 11px; line-height: 1.5; color: var(--mc-text-muted); }
+.status { font-size: 11px; line-height: 1.5; color: var(--mc-text-muted); overflow-wrap: anywhere; }
+.chevron { flex: none; color: var(--mc-text-muted); }
+.context[open] > summary > .chevron,
+.destinationMenu[open] > summary > .chevron,
+.messageMenu[open] > summary > .chevron { transform: rotate(180deg); }
+
+.contextBody { display: grid; min-width: 0; gap: 10px; padding: 2px 12px 12px; }
+.contextBody p { margin: 0; line-height: 1.65; overflow-wrap: anywhere; text-wrap: pretty; }
+.role { font-size: 11px; color: var(--mc-text-muted); }
+.assigneePicker { display: grid; gap: 4px; min-width: 0; font-size: 11px; color: var(--mc-text-muted); }
+.assigneePicker select { max-width: 100%; min-height: 32px; padding: 4px 8px; border: 1px solid var(--mc-border); border-radius: 8px; background: var(--mc-surface); color: var(--mc-text-strong); font: inherit; font-size: 12px; }
+.assigneePicker small { font-size: 11px; }
+.context[data-assignment-mode="auto"] .eyebrow { color: var(--mc-primary-strong); }
+.detail { font-size: 12px; color: var(--mc-text); white-space: pre-wrap; }
+.resultPreview { display: grid; min-width: 0; gap: 3px; padding: 10px; border-radius: 10px; background: var(--mc-surface-sunken); }
+.resultPreview p { font-size: 12px; white-space: pre-wrap; }
+.contextActions { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+
+.contextActions button,
+.destinations button,
+.destinations summary,
+.messageActions button,
+.messageActions a,
+.messageMenu > summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 32px;
+  margin: 0;
+  padding: 5px 10px;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.contextActions .primaryAction,
+.primaryActions > :first-child:is(button, a) { border-color: transparent; background: var(--mc-primary-soft); color: var(--mc-primary); }
+.contextActions button:hover:enabled,
+.destinations button:hover:enabled,
+.destinations summary:hover,
+.messageActions button:hover:enabled,
+.messageActions a:hover,
+.messageMenu > summary:hover { background: var(--mc-surface-sunken); color: var(--mc-text-strong); }
+.contextActions button:disabled,
+.messageActions button:disabled { cursor: default; opacity: .5; }
+.context summary:focus-visible,
+.context button:focus-visible,
+.destinations :is(button, summary):focus-visible,
+.messageActions :is(button, a, summary):focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 3px; }
+
+.destinations { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; width: var(--chat-content-width, min(820px, calc(100% - 36px))); max-width: 100%; margin: 6px auto; }
+.destinationMenu > summary,
+.messageMenu > summary { list-style: none; }
+.destinationPanel {
+  position: absolute;
+  z-index: 5;
+  bottom: calc(100% + 8px);
+  left: 0;
+  display: grid;
+  width: min(220px, 100%);
+  max-height: min(320px, calc(var(--mc-scaled-viewport-height, 100dvh) - 160px - env(safe-area-inset-bottom)));
+  padding: 6px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--mc-border);
+  border-radius: 14px;
+  background: var(--mc-surface);
+  box-shadow: var(--mc-elev-overlay);
+}
+.destinationPanel button { justify-content: flex-start; width: 100%; border-color: transparent; text-align: left; }
+
+.messageActions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px; min-width: 0; margin-top: 10px; }
+.primaryActions { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; max-width: 100%; }
+.messageMenu { min-width: 0; max-width: 100%; }
+.messageMenu > summary { width: fit-content; color: var(--mc-text-muted); border-color: var(--mc-border-subtle); }
+.messageMenu[open] { flex-basis: 100%; }
+.additionalActions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; margin-top: 8px; padding: 8px; border: 1px solid var(--mc-border-subtle); border-radius: 12px; }
+.additionalActions > :not(button, a) { max-width: 100%; font-size: 11px; line-height: 1.6; color: var(--mc-text-muted); overflow-wrap: anywhere; text-wrap: pretty; }
+
+.notice { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; padding: 6px 10px; margin-block: 6px; border-radius: 10px; background: var(--mc-surface-sunken); color: var(--mc-text-muted); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; text-wrap: pretty; }
+.notice > :not(button) { min-width: 0; }
+.notice button { display: inline-flex; flex: none; align-items: center; justify-content: center; min-width: 32px; min-height: 32px; padding: 4px 6px; border: 0; border-radius: 8px; background: transparent; color: var(--mc-text-muted); font: inherit; cursor: pointer; }
+.notice button:hover { background: var(--mc-surface); color: var(--mc-text-strong); }
+.notice button:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 2px; }
+
+.calendarFold { min-width: 0; margin-block: 6px; border: 1px solid var(--mc-border-subtle); border-radius: 12px; background: var(--mc-surface); color: var(--mc-text); }
+.calendarFold > summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 40px; padding: 7px 10px; border-radius: inherit; color: var(--mc-text-muted); font-size: 12px; line-height: 1.5; list-style: none; overflow-wrap: anywhere; cursor: pointer; }
+.calendarFold > summary::-webkit-details-marker { display: none; }
+.calendarFold > summary::after { content: ""; flex: 0 0 6px; width: 6px; height: 6px; margin-inline: 3px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.calendarFold[open] > summary::after { transform: translateY(2px) rotate(225deg); }
+.calendarFold > summary:hover { background: var(--mc-surface-sunken); color: var(--mc-text-strong); }
+.calendarFold > summary:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 2px; }
+.calendarFold > :not(summary) { min-width: 0; padding: 4px 10px 10px; }
+
+@media (max-width: 600px) {
+  .contextSummary { padding-inline: 10px; gap: 8px; }
+  .contextBody { padding-inline: 10px; }
+  .contextActions button,
+  .destinations button,
+  .destinations summary,
+  .messageActions button,
+  .messageActions a,
+  .messageMenu > summary { min-height: 40px; }
+  .notice button { min-width: 40px; min-height: 40px; }
+  .destinationPanel { padding-bottom: max(6px, env(safe-area-inset-bottom)); }
+}
+
+/* ============================================================================
+   v3 (2026-11-02) — 담당 크루 줄·바로가기·답변 아래 행동 버튼
+   ============================================================================ */
+.context {
+  margin-block: 8px;
+  border-color: var(--mc-border-subtle);
+  border-radius: var(--mc-radius-lg);
+}
+
+/* 대화 화면 위의 담당 크루 줄은 머리줄의 한 층으로 붙인다(둥근 카드가 화면 끝까지 늘어나지 않게). */
+:global(.mc-workspace) section[aria-label="AI 업무 채팅"] > .context {
+  margin: 0;
+  border-width: 0 0 1px;
+  border-radius: 0;
+  background: var(--mc-surface);
+}
+
+:global(.mc-workspace) section[aria-label="AI 업무 채팅"] > .context > .contextSummary {
+  padding-inline: 20px;
+  border-radius: 0;
+}
+
+.contextSummary {
+  min-height: 44px;
+  padding: 6px 12px;
+}
+
+.contextSummary:hover {
+  background: var(--mc-surface-muted);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 7px;
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-surface-sunken);
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  font-weight: var(--mc-weight-medium);
+}
+
+.contextActions button,
+.destinations button,
+.destinations summary,
+.messageActions button,
+.messageActions a,
+.messageMenu > summary {
+  min-height: 30px;
+  padding: 4px 10px;
+  border-radius: var(--mc-radius-sm);
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-medium);
+}
+
+.destinations button,
+.destinations summary {
+  min-height: 28px;
+  border-radius: var(--mc-radius-pill);
+  color: var(--mc-text-muted);
+}
+
+.contextActions .primaryAction,
+.primaryActions > :first-child:is(button, a) {
+  border-color: color-mix(in srgb, var(--mc-primary) 30%, transparent);
+  background: var(--mc-primary-soft);
+  color: var(--mc-primary-strong);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.destinationPanel {
+  border-radius: var(--mc-radius-lg);
+}
+
+.notice {
+  border-radius: var(--mc-radius-md);
+}

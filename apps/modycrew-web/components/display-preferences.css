@@ -1,0 +1,19 @@
+html[data-ui-scale] { zoom: var(--mc-ui-scale, .9); }
+html[data-ui-scale] .mc-app-shell {
+  --mc-workspace-block-size: var(--mc-scaled-viewport-height, 100dvh);
+  min-height: var(--mc-workspace-block-size);
+}
+html[data-ui-scale] .mc-workspace { min-height: var(--mc-workspace-block-size); }
+html[data-ui-scale] .mc-app-shell-companion,
+html[data-ui-scale] .mc-workspace-companion { height: var(--mc-scaled-viewport-height, 100dvh); }
+@media (min-width: 821px) {
+  html[data-ui-scale] .mc-app-shell > aside { height: var(--mc-scaled-viewport-height, 100dvh); }
+}
+@media (max-width: 820px) {
+  html[data-ui-scale] .mc-app-shell:not(.mc-app-shell-detached):not(.mc-app-shell-companion) {
+    --mc-workspace-block-size: calc(var(--mc-scaled-viewport-height, 100dvh) - var(--mc-mobile-rail-clearance, 68px));
+    height: var(--mc-scaled-viewport-height, 100dvh);
+    min-height: var(--mc-scaled-viewport-height, 100dvh);
+  }
+}
+@media print { html[data-ui-scale] { zoom: 1; } }

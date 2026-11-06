@@ -1,0 +1,199 @@
+{
+  "schema": "mody.reviewed-source-bundle.v1",
+  "id": "im-not-ai",
+  "name": "humanize-korean",
+  "owner": "epoko77-ai",
+  "repo": "im-not-ai",
+  "commit": "b37e0206d31fffd9149bf57168d4d62eb2086bee",
+  "license": "MIT",
+  "entrypoint": "SKILL.md",
+  "runtimeRequirements": "공식 Codex --copy 구성입니다. Python 3 및 파일 실행 가능한 크루 런타임이 필요합니다. 진단·윤문·finalize 역할과 결정적 게이트를 생략하지 않으며 설치 중 스크립트를 실행하지 않습니다.",
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "source": "codex/skills/humanize-korean/agents/openai.yaml",
+      "bytes": 277,
+      "sha256": "1af1a6a40a9f0f28f1447f3897fee425c63b59bd0244854e4ac1c158af37d1f6"
+    },
+    {
+      "path": "LICENSE",
+      "source": "LICENSE",
+      "bytes": 1067,
+      "sha256": "4cc7e8c439fe42f09d98457599c129ea6df9e5d0e622750d75952b441a38343f"
+    },
+    {
+      "path": "references/ai-tell-taxonomy.md",
+      "source": "skills/humanize-korean/references/ai-tell-taxonomy.md",
+      "bytes": 131389,
+      "sha256": "9eebe2a51a46a51edef3c041e3db6a1f8005d239e31ece0f503df277ceeaa729"
+    },
+    {
+      "path": "references/baseline_v2.json",
+      "source": "skills/humanize-korean/references/baseline_v2.json",
+      "bytes": 13487,
+      "sha256": "b5f1725bd02fb4cc40eece68c5b8f1d7c7655775743196d8fd0bc5978f2ed916"
+    },
+    {
+      "path": "references/baseline.json",
+      "source": "skills/humanize-korean/references/baseline.json",
+      "bytes": 8680,
+      "sha256": "6b64904daa27c3f759f39a664bf8e7e6c2ea1f9dcacd6d457e97b10f60f43dc5"
+    },
+    {
+      "path": "references/design-notes.md",
+      "source": "skills/humanize-korean/references/design-notes.md",
+      "bytes": 5943,
+      "sha256": "d24027121d28eefb3f7142b8bd7d81637e048c8050b52829238da09665056f5c"
+    },
+    {
+      "path": "references/diagnosis-rules.md",
+      "source": "skills/humanize-korean/references/diagnosis-rules.md",
+      "bytes": 16396,
+      "sha256": "82d96d7b716a581bf1c57fe9382df960c78dafbfb0b1e65854871fc1c85481a4"
+    },
+    {
+      "path": "references/empirical-validation.md",
+      "source": "skills/humanize-korean/references/empirical-validation.md",
+      "bytes": 15004,
+      "sha256": "9c6c43a7de27b6ea6f3c3789e7c39e78009a2a1e93c891858f8d5942c7043216"
+    },
+    {
+      "path": "references/metrics_v2.py",
+      "source": "skills/humanize-korean/references/metrics_v2.py",
+      "bytes": 34282,
+      "sha256": "6e3ddb40e2789ab37e95ef0bd5974a8fbeb2678919c17ee9afe16e8ae66ca341"
+    },
+    {
+      "path": "references/metrics.py",
+      "source": "skills/humanize-korean/references/metrics.py",
+      "bytes": 16864,
+      "sha256": "4b12b3fcabb48c9d92ec8a051954650750e0199b6e6821ee0b2686575644ebe8"
+    },
+    {
+      "path": "references/quick-rules.footer.md",
+      "source": "skills/humanize-korean/references/quick-rules.footer.md",
+      "bytes": 3008,
+      "sha256": "a5468d492216c90b349bbe0c74926b6660ca28bd946b8d8c470d1ed8b419cbf3"
+    },
+    {
+      "path": "references/quick-rules.header.md",
+      "source": "skills/humanize-korean/references/quick-rules.header.md",
+      "bytes": 2290,
+      "sha256": "7d52500806a7b5c014ed71bf7770ed3e743faf9d66be274f147360f2556c5ed4"
+    },
+    {
+      "path": "references/quick-rules.md",
+      "source": "skills/humanize-korean/references/quick-rules.md",
+      "bytes": 15632,
+      "sha256": "7a8e66c7b9326c1df7413f7a5662d69e89907591e16ba740e5746bf01f544b85"
+    },
+    {
+      "path": "references/rewriting-playbook.md",
+      "source": "skills/humanize-korean/references/rewriting-playbook.md",
+      "bytes": 16112,
+      "sha256": "1f949bb902e6d22027a297c7e820df54a0c14e304e451a607249704dd5e0b381"
+    },
+    {
+      "path": "references/roles/diagnostician.md",
+      "source": "skills/humanize-korean/references/roles/diagnostician.md",
+      "bytes": 726,
+      "sha256": "befa064a7a6d1f350ffb6bbc4ffac333d4ad4e14ac834b026cccb94828f97a3b"
+    },
+    {
+      "path": "references/roles/finalizer.md",
+      "source": "skills/humanize-korean/references/roles/finalizer.md",
+      "bytes": 1209,
+      "sha256": "4eb684b62fce50d78b29bcb28f6a07c5e501398d0af03e1d2cb52b6dec1a02a3"
+    },
+    {
+      "path": "references/roles/monolith.md",
+      "source": "skills/humanize-korean/references/roles/monolith.md",
+      "bytes": 808,
+      "sha256": "a0a4979636066f24da68d0f70eadcdd7a6dbe23d4a9ccd6a4987ee83f1abe158"
+    },
+    {
+      "path": "references/scholarship.md",
+      "source": "skills/humanize-korean/references/scholarship.md",
+      "bytes": 35541,
+      "sha256": "e83346a5b0147a923b725295cbee6b7fa3b22020840b5eee95c35f615b182e64"
+    },
+    {
+      "path": "references/taxonomy-candidates.md",
+      "source": "skills/humanize-korean/references/taxonomy-candidates.md",
+      "bytes": 6359,
+      "sha256": "7b959a5156cfac19d171206ee4d124afd9148eb840b05b38e9118b042f4fa9d8"
+    },
+    {
+      "path": "references/web-service-spec.md",
+      "source": "skills/humanize-korean/references/web-service-spec.md",
+      "bytes": 8010,
+      "sha256": "be887c5e60b9a37e63a4aa8156ada0da4298098a51451925a3a22b9a37e25f6a"
+    },
+    {
+      "path": "scripts/checks.py",
+      "source": "scripts/checks.py",
+      "bytes": 20464,
+      "sha256": "ba51f5c392e00d94cd3549f9bb022d325d1cb504597e38cea187fb1357f08088"
+    },
+    {
+      "path": "scripts/console.py",
+      "source": "scripts/console.py",
+      "bytes": 2378,
+      "sha256": "88615f82f30262a1411ea61ab1ecd29c19b52a841d8fcdcc486c970ec4eb5336"
+    },
+    {
+      "path": "scripts/prepare_monolith_input.py",
+      "source": "scripts/prepare_monolith_input.py",
+      "bytes": 45920,
+      "sha256": "3774a9faecf3791057d4c8e887dd222e701d131ac1605ba4de2e76c7c064a9a2"
+    },
+    {
+      "path": "scripts/reassemble_chunks.py",
+      "source": "scripts/reassemble_chunks.py",
+      "bytes": 6557,
+      "sha256": "03fafb4c92927344a1fd2b626fb90e16a6b3eaf53f0d1d7e5b6e31cf1773fb64"
+    },
+    {
+      "path": "scripts/restore_modality.py",
+      "source": "scripts/restore_modality.py",
+      "bytes": 13441,
+      "sha256": "232fb765e137193135ea8b496438941b13cb5833265b986d9350f6700d9eb7a2"
+    },
+    {
+      "path": "scripts/sanitize_text.py",
+      "source": "scripts/sanitize_text.py",
+      "bytes": 11519,
+      "sha256": "5b7b93d6c5655db31bf489af835575aa12cf8149410d66f604186457ce78dabb"
+    },
+    {
+      "path": "scripts/strip_injected_commas.py",
+      "source": "scripts/strip_injected_commas.py",
+      "bytes": 5228,
+      "sha256": "52af7878a1fc361333f2c2f2a5f1b20b1a3b559d761afbfa1419de11177462cd"
+    },
+    {
+      "path": "scripts/verify_change_rate.py",
+      "source": "scripts/verify_change_rate.py",
+      "bytes": 4400,
+      "sha256": "598367e230a73266e7329d622e41e1dbd37d25e53ee76728adc76dbe9649f7a1"
+    },
+    {
+      "path": "scripts/verify_gates.py",
+      "source": "scripts/verify_gates.py",
+      "bytes": 23133,
+      "sha256": "675b4b4995997b654c7ad5826348258d3420fdaf6e130a44898398064133794c"
+    },
+    {
+      "path": "SKILL.md",
+      "source": "codex/skills/humanize-korean/SKILL.md",
+      "bytes": 8444,
+      "sha256": "bd3494baca18a1a911372a257a6c993b169b4b0bc51ec589f3a24912770caeab"
+    },
+    {
+      "path": "UPSTREAM-INSTALL.md",
+      "source": "INSTALL.md",
+      "bytes": 10675,
+      "sha256": "3c7ef72089524bf91b590ac57b82ef4b2c33386bb40de88a91a841b2527b0b31"
+    }
+  ]
+}

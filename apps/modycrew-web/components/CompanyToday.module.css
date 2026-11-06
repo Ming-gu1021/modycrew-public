@@ -1,0 +1,64 @@
+/* 업무 일정 — 디자인 시스템 v3. 클래스 이름은 agenda 접두사(e2e 번들에서 다른 회사 모듈과 겹치지 않게). */
+.agenda { display: grid; gap: 16px; min-width: 0; color: var(--mc-text); }
+.agenda :where(h2, h3, p) { margin: 0; }
+.agenda button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 32px; padding: 6px 12px; border: 1px solid var(--mc-border); border-radius: var(--mc-radius-sm); background: var(--mc-surface); color: var(--mc-text-strong); font: inherit; font-size: var(--mc-text-base); font-weight: var(--mc-weight-medium); line-height: 1.3; cursor: pointer; }
+.agenda button:hover:enabled { background: var(--mc-surface-muted); border-color: var(--mc-border-strong); }
+.agenda button:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 2px; }
+.agendaHead { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px 16px; }
+.agendaTitle { display: grid; gap: 2px; min-width: 0; flex: 1 1 240px; }
+.agendaTitle h2 { color: var(--mc-text-strong); font-size: var(--mc-text-2xl); font-weight: var(--mc-weight-semibold); line-height: 1.3; }
+.agendaTitle p { color: var(--mc-text-subtle); font-size: var(--mc-text-base); overflow-wrap: anywhere; }
+.agendaFilters { display: inline-flex; gap: 2px; width: fit-content; max-width: 100%; padding: 3px; border-radius: var(--mc-radius-sm); background: var(--mc-surface-sunken); }
+.agenda .agendaFilters > button { min-height: 28px; padding: 0 12px; border: 0; border-radius: var(--mc-radius-xs); background: transparent; color: var(--mc-text-muted); font-size: var(--mc-text-sm); }
+.agenda .agendaFilters > button:hover:enabled { background: transparent; color: var(--mc-text-strong); }
+.agenda .agendaFilters > button[aria-pressed=true] { background: var(--mc-surface); color: var(--mc-text-strong); font-weight: var(--mc-weight-semibold); box-shadow: var(--mc-elev-1); }
+.agendaMetrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--mc-border-subtle); border-radius: var(--mc-radius-lg); background: var(--mc-border-subtle); }
+.agendaMetrics > div { display: grid; gap: 6px; min-width: 0; padding: 14px 16px; background: var(--mc-surface); }
+.agendaMetrics span { color: var(--mc-text-muted); font-size: var(--mc-text-sm); overflow-wrap: anywhere; }
+.agendaMetrics strong { color: var(--mc-text-strong); font-size: var(--mc-text-2xl); font-weight: var(--mc-weight-semibold); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.agendaMetrics > div[data-alert=true] span, .agendaMetrics > div[data-alert=true] strong { color: var(--mc-danger); }
+.agendaCard { display: grid; gap: 8px; min-width: 0; padding: 16px; border: 1px solid var(--mc-border-subtle); border-radius: var(--mc-radius-lg); background: var(--mc-surface); }
+.agendaCalendarHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.agendaCalendarHead h3 { color: var(--mc-text-strong); font-size: var(--mc-text-lg); font-weight: var(--mc-weight-semibold); }
+.agendaCalendarHead > div { display: flex; gap: 4px; }
+.agenda .agendaCalendarHead button { min-width: 32px; padding: 4px 10px; }
+.agendaWeekdays, .agendaCalendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.agendaWeekdays span { padding: 4px; color: var(--mc-text-subtle); font-size: var(--mc-text-sm); text-align: center; }
+.agendaCalendar { gap: 1px; overflow: hidden; border: 1px solid var(--mc-border-subtle); border-radius: var(--mc-radius-md); background: var(--mc-border-subtle); }
+.agenda .agendaCalendar button { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 4px; min-width: 0; min-height: 84px; padding: 8px; border: 0; border-radius: 0; background: var(--mc-surface); text-align: left; }
+.agenda .agendaCalendar button:hover:enabled { background: var(--mc-surface-muted); }
+.agenda .agendaCalendar button[aria-pressed=true] { background: var(--mc-primary-soft); box-shadow: inset 0 0 0 2px var(--mc-primary); }
+.agenda .agendaCalendar button:focus-visible { outline-offset: -2px; }
+.agendaCalendar time { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 4px; border-radius: var(--mc-radius-pill); color: var(--mc-text-strong); font-size: var(--mc-text-base); font-weight: var(--mc-weight-medium); }
+.agendaCalendar button[data-outside=true] time { color: var(--mc-text-subtle); font-weight: var(--mc-weight-regular); }
+.agendaCalendar button[data-today=true] time { background: var(--mc-primary); color: var(--mc-text-inverse); font-weight: var(--mc-weight-semibold); }
+.agendaCount { color: var(--mc-primary-strong); font-size: var(--mc-text-xs); font-weight: var(--mc-weight-semibold); }
+.agendaPreview { display: block; width: 100%; overflow: hidden; color: var(--mc-text); font-size: var(--mc-text-xs); text-overflow: ellipsis; white-space: nowrap; }
+.agendaDayHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.agendaDayHead h3 { color: var(--mc-text-strong); font-size: var(--mc-text-md); font-weight: var(--mc-weight-semibold); }
+.agendaDayHead small { color: var(--mc-text-subtle); font-size: var(--mc-text-sm); }
+.agendaList { margin: 0; padding: 0; list-style: none; border: 1px solid var(--mc-border-subtle); border-radius: var(--mc-radius-lg); background: var(--mc-surface); }
+.agendaList > li { display: flex; align-items: center; gap: 12px; padding: 12px 16px; box-shadow: inset 0 -1px 0 var(--mc-border-subtle); }
+.agendaList > li:last-child { box-shadow: none; }
+.agendaList > li > div { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.agendaList strong { color: var(--mc-text-strong); font-size: var(--mc-text-md); font-weight: var(--mc-weight-semibold); overflow-wrap: anywhere; }
+.agendaList small { color: var(--mc-text-subtle); font-size: var(--mc-text-sm); }
+.agenda .agendaList button { min-height: 28px; padding: 4px 10px; font-size: var(--mc-text-sm); }
+.agendaStatus { display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; height: 22px; padding: 0 8px; border-radius: var(--mc-radius-pill); background: var(--mc-surface-sunken); color: var(--mc-text-muted); font-size: var(--mc-text-xs); font-weight: var(--mc-weight-semibold); white-space: nowrap; }
+.agendaStatus::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.agendaStatus[data-status=doing] { background: var(--mc-primary-soft); color: var(--mc-primary); }
+.agendaStatus[data-status=review] { background: var(--mc-warning-soft); color: var(--mc-warning); }
+.agendaStatus[data-status=done] { background: var(--mc-safe-soft); color: var(--mc-safe); }
+.agendaEmpty { padding: 16px; border-radius: var(--mc-radius-md); background: var(--mc-surface-muted); color: var(--mc-text-muted); font-size: var(--mc-text-base); text-align: center; }
+.agendaError { display: grid; justify-items: start; gap: 10px; padding: 14px 16px; border-radius: var(--mc-radius-md); background: var(--mc-danger-soft); color: var(--mc-danger); font-size: var(--mc-text-base); line-height: 1.5; }
+.agendaNote { color: var(--mc-text-subtle); font-size: var(--mc-text-sm); line-height: 1.6; }
+.agendaNote > summary { width: fit-content; cursor: pointer; }
+.agendaNote > p { margin-top: 6px; }
+@container (max-width: 680px) {
+  .agendaMetrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agendaCard { padding: 12px; }
+  .agenda .agendaCalendar button { min-height: 56px; padding: 5px; }
+  .agendaPreview { display: none; }
+  .agendaList > li { flex-wrap: wrap; }
+  .agendaList > li > button { margin-left: auto; }
+}

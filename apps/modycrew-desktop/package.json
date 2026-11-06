@@ -1,0 +1,36 @@
+{
+  "name": "@modycrew/desktop",
+  "version": "0.2.159",
+  "private": true,
+  "type": "module",
+  "description": "ModyCrew 데스크톱 앱 (V2 web 통합) — 한국형 AI 업무 오피스",
+  "main": "src/main/main.mjs",
+  "author": "Mody team",
+  "scripts": {
+    "postinstall": "node node_modules/electron/install.js",
+    "start": "node ../../scripts/start-desktop.mjs"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.12",
+    "docx": "^9.11.0",
+    "electron-updater": "^6.8.9",
+    "exceljs": "^4.4.0",
+    "firebase": "^13.0.0",
+    "ics": "^3.12.1",
+    "imapflow": "^2.4.0",
+    "jszip": "^3.10.2",
+    "mammoth": "^1.13.0",
+    "pdf-parse": "^2.4.5"
+  },
+  "devDependencies": {
+    "electron": "^44.7.2",
+    "electron-builder": "^26.15.3"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.14.6",
+    "exceljs": {
+      "uuid": "^11.1.1"
+    }
+  },
+  "license": "Apache-2.0"
+}

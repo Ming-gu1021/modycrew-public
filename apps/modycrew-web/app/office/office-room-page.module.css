@@ -1,0 +1,41 @@
+.content { width: min(100%, 1180px); min-width:0; box-sizing:border-box; flex: 0 0 auto; margin-inline: auto; padding: 28px 32px 40px; }
+.auditFold { margin-top:24px; border-top:1px solid var(--mc-border); padding:16px 0; min-width:0; }
+.auditFold > summary { cursor:pointer; font-size:13px; color:var(--mc-text-muted); }
+.auditFold > :not(summary) { width:100%; max-width:100%; margin-top:12px; border:0; }
+.sceneMount { width: 100%; min-width: 0; margin: 0 0 16px; }
+.crewSetup { margin: 0 0 16px; border: 1px solid var(--mc-border-subtle); border-radius: 16px; background: var(--mc-surface); }
+.crewSetup > summary { padding: 12px 16px; color: var(--mc-text-muted); font-size: 12px; cursor: pointer; }
+.crewSetup > section { margin: 0; padding: 4px 16px 16px; border: 0; box-shadow: none; }
+.crewSetup > summary:focus-visible { outline: 2px solid var(--mc-border-focus); outline-offset: 3px; border-radius: 6px; }
+main.shell { height: var(--mc-workspace-block-size, var(--mc-scaled-viewport-height, 100dvh)); min-height: var(--mc-workspace-block-size, var(--mc-scaled-viewport-height, 100dvh)); }
+.shell > header { min-height: 48px; padding-inline: 16px; }
+@media (max-width: 560px) {
+  .content { padding: 12px 0 24px; }
+  .shell[data-mail-review-focused="true"] .content { padding: 16px 12px 24px; }
+  .shell > header { height: auto; min-height: 48px; flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
+  .shell > header > :first-child { flex: 1 0 100%; }
+  .shell > header > [aria-label="업무 오피스 화면 옵션"] { width: 100%; justify-content: space-between; gap: 4px; }
+  .shell > header button { white-space: nowrap; }
+}
+
+.sceneMount{margin:16px 0;border-top:1px solid var(--mc-border);padding:12px 0}.sceneMount>summary{cursor:pointer;font-size:13px;color:var(--mc-text-muted);padding:8px 0}.sceneMount[open]>summary{margin-bottom:12px}.content{padding:24px;}.crewSetup{border-radius:8px}@container workpane (max-width:650px){.content{padding:16px 12px}}
+
+.crewSpace { min-width: 0; width: 100%; }
+.crewSpace h1 { margin: 0 0 6px; font-size: 20px; color: var(--mc-text-strong); }
+.crewSpace > p { margin: 0 0 16px; color: var(--mc-text-muted); font-size: 13px; line-height: 1.5; }
+.crewResults { margin-block: 14px; padding: 12px; border: 1px solid var(--mc-border); border-radius: 12px; }
+.crewResults strong { font-size: 13px; }
+.crewResults p { font-size: 12px; line-height: 1.5; color: var(--mc-text-muted); }
+.crewResults ul { list-style: none; display: grid; gap: 8px; margin: 8px 0 0; padding: 0; }
+.crewResults li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; overflow-wrap: anywhere; }
+.crewResults button { min-height: 36px; padding: 6px 10px; border: 1px solid var(--mc-border); border-radius: 8px; background: var(--mc-surface); color: var(--mc-text); }
+.crewSpace :global([data-office-room="soft-3d"]):not([data-editing="true"]) { width: min(100%, calc(var(--mc-office-room-width, 820px) * 1.2)); }
+.crewSpace :global([data-office-room="soft-3d"]) :global(div:has(> [data-testid="office-scene-floor"])) { max-width: 100%; }
+
+/* 승인함: 결정 막대가 화면 아래에 붙어 있도록, 승인 보기에서는 보드를 감싼 상자가 따로 스크롤 기준이 되지 않게 한다. */
+.content > div:has(> [data-office-board-view="approval"]) { overflow-x: clip; overflow-y: visible; }
+
+/* v3: 좁은 화면 머리줄 버튼(업무판 보기·어둡게·화면·대화로)은 양끝으로 흩지 않고 왼쪽부터 같은 간격으로 묶는다. */
+@media (max-width: 560px) {
+  .shell > header > [aria-label="업무 오피스 화면 옵션"] { justify-content: flex-start; flex-wrap: wrap; gap: 6px; }
+}

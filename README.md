@@ -15,7 +15,17 @@
 
 연결한 서비스와 운영체제에 따라 사용할 수 있는 기능이 다릅니다. 외부 발송·일정 등록처럼 중요한 작업은 확인과 승인을 거쳐 진행합니다.
 
-### 시작하기
+### 소스로 시작하기
+
+[개발 환경과 실행 방법](docs/GETTING_STARTED.md) · [기여 안내](CONTRIBUTING.md)
+
+| 폴더 | 구성 |
+| --- | --- |
+| `apps/modycrew-web` | Next.js 기반 대화·업무 화면 |
+| `apps/modycrew-desktop` | Electron 기반 파일·도구·데스크톱 연결 |
+| `packages/domain` | 업무 처리와 AI 연동 로직 |
+
+### 앱 다운로드
 
 [모디크루 소개 및 다운로드](https://mody.ai.kr/modycrew#desktop-downloads) · [공개 배포 안내](https://github.com/Ming-gu1021/modycrew-downloads)
 
@@ -27,4 +37,4 @@
 
 ---
 
-이 저장소는 제품 소개와 공식 브랜드 자료를 제공합니다. 로고와 제품명에 대한 권리는 Mody에 있습니다.
+코드는 [Apache License 2.0](LICENSE)로 공개합니다. 외부 구성요소의 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)를 참고하세요. Mody·ModyCrew 이름과 로고의 상표 권리는 별도로 유지됩니다.

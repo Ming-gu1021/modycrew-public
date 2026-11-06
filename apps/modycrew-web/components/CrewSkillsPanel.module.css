@@ -1,0 +1,9 @@
+.panel { display: grid; gap: 8px; padding: 12px 0; border-top: 1px solid var(--mc-border-subtle); }
+.title { margin: 0; font-size: 14px; font-weight: 650; }
+.hint, .runtimes { margin: 0; font-size: 12px; color: var(--mc-text-muted); }
+.list { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.item { display: grid; gap: 2px; padding: 8px 10px; border-radius: 10px; background: var(--mc-surface-muted); min-width: 0; }
+.item strong { font-size: 13px; overflow-wrap: anywhere; }
+.item p { margin: 0; font-size: 12px; color: var(--mc-text-muted); overflow-wrap: anywhere; }
+.mode { font-size: 11px; color: var(--mc-primary); }
+

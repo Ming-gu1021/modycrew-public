@@ -1,0 +1,9 @@
+.notice { box-sizing: border-box; padding: 14px 18px 6px; min-width: 0; font-size: 12px; line-height: 1.6; color: var(--mc-text-muted, #64748b); overflow-wrap: anywhere; }
+.notice > p { display: inline; margin: 0; }
+.notice > details { display: inline; margin-left: 8px; }
+.notice > details[open] { display: block; margin-left: 0; }
+.notice p { margin: 6px 0; }
+.notice details { max-height: min(180px, 25dvh); overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.notice summary { cursor: pointer; display: inline; text-decoration: underline; text-underline-offset: 3px; padding-block: 3px; }
+.notice summary:focus-visible { outline: 2px solid var(--mc-border-focus, #2563eb); outline-offset: -2px; }
+@media (max-width: 600px) { .notice { padding: 12px 14px 4px; font-size: 11px; } }

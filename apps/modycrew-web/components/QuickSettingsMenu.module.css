@@ -1,0 +1,383 @@
+.menu {
+  position: absolute;
+  z-index: 90;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 10px);
+  display: grid;
+  gap: 12px;
+  max-height: min(72dvh, 560px);
+  padding: 14px;
+  overflow: auto;
+  border: 1px solid color-mix(in srgb, var(--mc-border-strong) 72%, transparent);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--mc-surface-elevated) 97%, var(--mc-bg));
+  box-shadow: 0 24px 70px rgba(18, 28, 48, 0.22);
+  outline: none;
+  animation: quickSettingsIn 160ms var(--mc-ease-out) both;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header > div {
+  display: grid;
+  gap: 2px;
+}
+
+.header span,
+.actionCopy small {
+  color: var(--mc-text-subtle);
+  font-size: 12px;
+  font-weight: var(--mc-weight-bold);
+}
+
+.header strong {
+  color: var(--mc-text-strong);
+  font-size: 15px;
+  font-weight: var(--mc-weight-bold);
+}
+
+.closeButton {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 11px;
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-muted);
+  padding: 0;
+  line-height: 0;
+}
+
+.closeButton svg, .arrow svg, .chevron svg { display: block; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+.readiness {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.readiness span {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-pill);
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.readiness span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mc-warning);
+}
+
+.readiness span[data-ready="true"]::before {
+  background: var(--mc-safe);
+}
+
+.priorityAction {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 11px;
+  padding: 13px;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 30%, var(--mc-border-subtle));
+  border-radius: 16px;
+  background: var(--mc-primary-bg);
+  text-align: left;
+}
+
+.iconBox {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--mc-surface);
+  color: var(--mc-primary);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mc-primary) 12%, var(--mc-border-subtle));
+}
+
+.iconBox svg,
+.quickActions svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.actionCopy {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.actionCopy strong {
+  color: var(--mc-text-strong);
+  font-size: 14px;
+  font-weight: var(--mc-weight-bold);
+}
+
+.actionCopy em {
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  color: var(--mc-primary);
+  font-size: 18px;
+  font-weight: var(--mc-weight-bold);
+}
+
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quickActions a,
+.quickActions button {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 13px;
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.quickActions svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.moreSettings {
+  border-top: 1px solid var(--mc-border-subtle);
+  padding-top: 4px;
+}
+
+.moreSettings > summary {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 9px;
+  padding: 4px;
+  border-radius: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.moreSettings > summary::-webkit-details-marker {
+  display: none;
+}
+
+.moreSettings > summary .iconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  color: var(--mc-text-muted);
+}
+
+.moreSettings > summary > span:nth-child(2) {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.moreSettings > summary strong {
+  color: var(--mc-text-strong);
+  font-size: 12px;
+}
+
+.moreSettings > summary small {
+  color: var(--mc-text-subtle);
+  font-size: 12px;
+}
+
+.chevron {
+  color: var(--mc-text-subtle);
+  font-size: 17px;
+  transition: transform var(--mc-dur-fast) var(--mc-ease-out);
+}
+
+.moreSettings[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.moreGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.moreGrid button {
+  min-height: 44px;
+  padding: 0 10px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 11px;
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-muted);
+  font-size: 11px;
+  font-weight: var(--mc-weight-semibold);
+  text-align: left;
+}
+
+.menu button:hover,
+.menu a:hover,
+.moreSettings > summary:hover {
+  border-color: color-mix(in srgb, var(--mc-primary) 28%, var(--mc-border-subtle));
+  background-color: color-mix(in srgb, var(--mc-primary-soft) 16%, var(--mc-surface));
+  color: var(--mc-text-strong);
+}
+
+.menu :where(button, a, summary):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--mc-primary) 38%, transparent);
+  outline-offset: 2px;
+}
+
+.scrim {
+  display: none;
+}
+
+.scrim[data-settings-surface="home"] {
+  position: fixed;
+  z-index: 148;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background: rgba(18, 26, 41, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+.menu[data-settings-surface="home"] {
+  position: fixed;
+  z-index: 149;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: min(420px, calc(100vw - 32px));
+  max-height: min(76dvh, 560px);
+  transform: translate(-50%, -50%);
+  animation: quickSettingsHomeIn 160ms var(--mc-ease-out) both;
+}
+
+@keyframes quickSettingsIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes quickSettingsHomeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 8px)) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .scrim {
+    position: fixed;
+    z-index: 88;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    background: rgba(18, 26, 41, 0.3);
+    backdrop-filter: blur(2px);
+  }
+
+  .menu[data-settings-surface="sidebar"] {
+    display: none;
+  }
+
+  .menu[data-settings-surface="mobile"] {
+    position: fixed;
+    z-index: 89;
+    inset: auto 10px max(10px, env(safe-area-inset-bottom)) 10px;
+    max-height: min(76dvh, 620px);
+    padding: 15px;
+    border-radius: 22px;
+  }
+
+  .menu[data-settings-surface="home"] {
+    inset: auto 10px max(10px, env(safe-area-inset-bottom)) 10px;
+    width: auto;
+    max-height: min(76dvh, 620px);
+    padding: 15px;
+    border-radius: 22px;
+    transform: none;
+    animation: quickSettingsIn 160ms var(--mc-ease-out) both;
+  }
+}
+
+@media (min-width: 761px) {
+  .menu[data-settings-surface="mobile"] {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .quickActions,
+  .moreGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .priorityAction {
+    min-height: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    animation: none;
+  }
+
+  .chevron {
+    transition: none;
+  }
+}

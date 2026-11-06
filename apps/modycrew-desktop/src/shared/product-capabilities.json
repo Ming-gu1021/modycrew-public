@@ -1,0 +1,47 @@
+{
+  "desktopInstall": {
+    "windows": ["NSIS installer", "portable exe", "uninstall support"],
+    "macos": ["planned dmg", "planned notarization"]
+  },
+  "updates": {
+    "current": ["update metadata smoke", "developer test signing or unsigned internal distribution", "electron-updater generic feed"],
+    "plannedFeedHost": "Firebase Hosting or Firebase Storage",
+    "requiredBeforePublicRelease": ["Windows code signing certificate", "SmartScreen reputation strategy", "Firebase-hosted update feed", "staged rollout"]
+  },
+  "account": {
+    "current": ["Firebase Auth Email/Password signup", "Firebase Auth login", "desktop session reference"],
+    "planned": ["organization workspace", "device session revocation", "OIDC compatible auth expansion"],
+    "recommendedBase": "Firebase Auth first, OIDC compatible auth service later"
+  },
+  "billing": {
+    "preBusinessMode": ["payment disabled", "private pilot", "invite code", "manual license"],
+    "planned": ["subscription entitlement", "customer portal", "Korean PG adapter"],
+    "koreaCandidatesAfterBusinessRegistration": ["Toss Payments", "PortOne", "KG/NICE PG through contract"],
+    "globalCandidate": "Stripe only when legal entity and supported country requirements fit"
+  },
+  "ai": {
+    "supportedConnectionModes": ["API key", "OAuth PKCE"],
+    "secretStorage": "OS keychain reference only"
+  },
+  "agentRuntime": {
+    "current": [
+      "agent sessions",
+      "work intake",
+      "trigger due checks",
+      "connectivity audit",
+      "desktop control probe",
+      "desktop file chain",
+      "desktop browser chain",
+      "browser action planning",
+      "session history"
+    ],
+    "productPositioning": "business automation setup runtime",
+    "referenceCapabilities": ["OpenClaw tools and sessions", "NanoClaw scheduled tasks", "Hermes skills and messaging gateway"],
+    "userFacingGoal": "connect work tools, configure automations, draft work outputs, and require approval before external actions",
+    "safetyModel": ["read/draft/stage by default", "approval before external mutation", "no raw secret material in renderer or session logs"]
+  },
+  "connectors": {
+    "permissionModel": ["read", "draft", "command", "approval_execution", "health_repair"],
+    "externalMutationPolicy": "approval before external mutation"
+  }
+}

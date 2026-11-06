@@ -1,0 +1,308 @@
+/* 업무판.
+   답이 필요한 것이 맨 위. 끝난 것은 접어 둔다. 상자를 겹치지 않고 갈래(lane)마다
+   제목 한 줄과 목록으로만 나눈다. 글자는 12px 아래로 내려가지 않는다. */
+.board {
+  min-width: 0;
+  margin: 0 0 16px;
+  padding: 18px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 20px;
+  background: var(--mc-surface);
+}
+
+.board > header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.board > header strong {
+  display: block;
+  color: var(--mc-text-strong);
+  font-size: 15px;
+  font-weight: var(--mc-weight-bold);
+}
+
+.board > header p {
+  margin: 4px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.headerActions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+
+.headerActions button,
+.newTask > button,
+.doneToggle,
+.taskActions button,
+.question button {
+  appearance: none;
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  border-radius: 10px;
+  min-height: 32px;
+  padding: 5px 11px;
+  font-size: 12.5px;
+  font-weight: var(--mc-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.headerActions button:hover,
+.doneToggle:hover,
+.taskActions button:hover {
+  border-color: var(--mc-border-strong);
+  color: var(--mc-text-strong);
+}
+
+.board button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.board button:focus-visible,
+.question input:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.notice {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+}
+
+/* 방금 맡긴 일 한 줄 + 진행 보기 · 승인할 것 */
+.receipt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin: 8px 0 0;
+  color: var(--mc-text);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.receipt span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.receipt a {
+  color: var(--mc-primary);
+  font-weight: var(--mc-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.empty {
+  margin: 14px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.lane {
+  margin: 14px 0 0;
+  min-width: 0;
+}
+
+.lane h3 {
+  margin: 0 0 6px;
+  color: var(--mc-text-strong);
+  font-size: 13.5px;
+  font-weight: var(--mc-weight-semibold);
+}
+
+.lane h3 b {
+  margin-left: 6px;
+  color: var(--mc-text-faint);
+  font-weight: var(--mc-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.lane[data-task-lane="blocked"] h3 {
+  color: var(--mc-primary);
+}
+
+.lane ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.lane li {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--mc-surface-sunken);
+  min-width: 0;
+}
+
+.lane li[data-task-status="blocked"] {
+  background: var(--mc-primary-bg);
+}
+
+/* 알림을 눌러 온 업무: 잠깐 테두리로 "여기예요"를 보여 준다. */
+.lane li[data-task-focused="true"] {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.taskHead {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.taskHead strong {
+  color: var(--mc-text-strong);
+  font-size: 14px;
+  font-weight: var(--mc-weight-medium);
+  line-height: 1.4;
+}
+
+.taskHead small {
+  color: var(--mc-text-faint);
+  font-size: 12px;
+}
+
+.taskBody {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.question {
+  display: grid;
+  gap: 6px;
+  margin: 2px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--mc-surface);
+}
+
+.question > span {
+  color: var(--mc-text-strong);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.question > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+
+.question input {
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--mc-border);
+  border-radius: 8px;
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.question input::placeholder {
+  color: var(--mc-text-faint);
+}
+
+.question button {
+  border-color: var(--mc-primary);
+  background: var(--mc-primary-soft);
+  color: var(--mc-primary);
+}
+
+.result {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.taskActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.doneToggle {
+  margin: 12px 0 0;
+}
+
+/* 담당 직원 칩: 누가 이 일을 맡았는지 한눈에. */
+.assigneeChip {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  font-weight: var(--mc-weight-medium);
+  line-height: 1.5;
+}
+
+/* 승인함으로 이어지는 링크 — 이 일은 다시 실행하지 않고 승인함에서 보낼지 정한다. */
+.taskActions .approvalLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 11px;
+  border: 1px solid var(--mc-primary);
+  border-radius: 10px;
+  background: var(--mc-primary-soft);
+  color: var(--mc-primary);
+  font-size: 12.5px;
+  font-weight: var(--mc-weight-medium);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.taskActions .approvalLink:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.headerActions .newTaskButton, .newTask > button {
+  border-color: transparent;
+  background: var(--mc-primary-strong);
+  color: var(--mc-text-inverse);
+}
+
+.headerActions .newTaskButton:hover {
+  color: var(--mc-text-inverse);
+}
+
+.newTask { display: grid; gap: 12px; margin: 12px 0; padding: 16px; border: 1px solid var(--mc-border); border-radius: 16px; background: var(--mc-surface); }
+.newTask label { display: grid; gap: 6px; min-width: 0; font-size: 13px; }
+.newTask textarea, .newTask input, .newTask select { box-sizing: border-box; width: 100%; min-width: 0; padding: 10px; border: 1px solid var(--mc-border); border-radius: 10px; color: var(--mc-text-strong); background: var(--mc-surface); font: inherit; }
+.newTask textarea { resize: vertical; }
+.newTask small { color: var(--mc-text-muted); line-height: 1.5; }
+.schedule { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 12px; }
+.result { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 28rem; overflow: auto; }
+@media (max-width: 480px) {
+  .board { padding: 14px; }
+  .board > header { grid-template-columns: 1fr; gap: 10px; }
+  .headerActions { justify-content: flex-start; }
+  .schedule { grid-template-columns: 1fr; }
+}
+
+.board{border-radius:10px}.lane>ul>li{border-radius:0;border:0;border-top:1px solid var(--mc-border-subtle);background:transparent;padding:12px 0}.taskHead strong{line-height:1.55;overflow-wrap:anywhere}.board>header{grid-template-columns:minmax(0,1fr) auto}@container workpane (max-width:500px){.board{padding:14px}.board>header{display:flex;flex-wrap:wrap;gap:10px}.headerActions{justify-content:flex-start}}

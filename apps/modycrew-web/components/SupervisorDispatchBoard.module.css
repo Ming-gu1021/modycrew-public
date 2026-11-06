@@ -1,0 +1,663 @@
+.board {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  display: grid;
+  gap: 14px;
+  /* overflow: hidden 금지 (2026-07-28).
+     container-type: inline-size 와 함께 쓰면 이 보드가 놓인 그리드 행이
+     38px 로 붕괴하는데 보드 자체는 919px 로 그려져, 아래 두 섹션 위에
+     869px 만큼 겹쳐 글자가 포개졌다(실측).
+     clip 은 스크롤 컨테이너를 만들지 않아 행 높이를 정상으로 되돌리면서도
+     border-radius 클리핑과 .atmosphere 잘림은 그대로 유지한다. */
+  overflow: clip;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 22%, var(--mc-border));
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--mc-surface) 94%, var(--mc-primary) 6%), var(--mc-surface) 54%),
+    var(--mc-surface);
+  box-shadow: var(--mc-elev-1);
+  color: var(--mc-text);
+}
+
+.atmosphere {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 5%, color-mix(in srgb, var(--mc-primary) 13%, transparent) 0 17%, transparent 39%),
+    linear-gradient(90deg, transparent 0 74%, color-mix(in srgb, var(--mc-safe) 5%, transparent) 74% 100%);
+  opacity: 0.9;
+}
+
+.header,
+.identity,
+.commandLane,
+.sectionTitle,
+.footer,
+.footer > div,
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.identity {
+  min-width: 0;
+  gap: 12px;
+}
+
+.monogram {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--mc-primary) 34%, var(--mc-border));
+  border-radius: 13px;
+  background: linear-gradient(145deg, var(--mc-primary), var(--mc-primary-strong));
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--mc-primary) 22%, transparent);
+  color: var(--mc-text-inverse);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.identity div,
+.identity strong,
+.identity p,
+.stateBadge span,
+.stateBadge strong,
+.requestCard,
+.routeCopy,
+.footer p {
+  min-width: 0;
+}
+
+.identity small,
+.requestCard > span,
+.sectionTitle > span,
+.routeCopy > small {
+  display: block;
+  color: var(--mc-primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.identity strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--mc-text-strong);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.identity p {
+  margin: 3px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 11px;
+}
+
+.stateBadge {
+  display: grid;
+  grid-template-columns: 8px auto;
+  column-gap: 7px;
+  flex: 0 0 auto;
+  min-width: 116px;
+  padding: 8px 10px;
+  border: 1px solid var(--mc-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--mc-surface) 85%, transparent);
+}
+
+.stateBadge i {
+  align-self: center;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--mc-text-subtle);
+}
+
+.stateBadge[data-state="routing"] i {
+  background: var(--mc-primary);
+  box-shadow: 0 0 0 4px var(--mc-primary-bg);
+  animation: supervisorPulse 1.5s ease-in-out infinite;
+}
+
+.stateBadge[data-state="review"] i,
+.stateBadge[data-state="approval"] i {
+  background: var(--mc-warning);
+}
+
+.stateBadge span,
+.stateBadge strong {
+  grid-column: 2;
+  line-height: 1.3;
+}
+
+.stateBadge span {
+  color: var(--mc-text-muted);
+  font-size: 12px;
+}
+
+.stateBadge strong {
+  color: var(--mc-text-strong);
+  font-size: 11px;
+}
+
+.commandLane {
+  align-items: stretch;
+  gap: 10px;
+}
+
+.requestCard,
+.readinessCard {
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--mc-surface) 92%, var(--mc-primary-bg));
+}
+
+.requestCard {
+  flex: 1 1 auto;
+  padding: 12px 14px;
+}
+
+.requestCard > strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--mc-text-strong);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.requestCard > small {
+  display: block;
+  margin-top: 5px;
+  color: var(--mc-text-muted);
+  font-size: 12px;
+}
+
+.readinessCard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(82px, 1fr));
+  flex: 0 0 250px;
+  padding: 9px;
+  gap: 7px;
+}
+
+.readinessCard > div {
+  padding: 7px 8px;
+  border-radius: 9px;
+  background: var(--mc-surface-muted);
+}
+
+.readinessCard > div[data-ready="true"] {
+  background: var(--mc-safe-bg);
+}
+
+.readinessCard span,
+.readinessCard strong {
+  display: block;
+}
+
+.readinessCard span {
+  color: var(--mc-text-muted);
+  font-size: 12px;
+}
+
+.readinessCard strong {
+  margin-top: 2px;
+  color: var(--mc-text-strong);
+  font-size: 11px;
+}
+
+.readinessCard p {
+  grid-column: 1 / -1;
+  margin: 0 2px;
+  color: var(--mc-text-subtle);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.routeSection {
+  display: grid;
+  gap: 9px;
+}
+
+.sectionTitle {
+  gap: 8px;
+}
+
+.sectionTitle strong {
+  color: var(--mc-text-strong);
+  font-size: 12px;
+}
+
+.sectionTitle small {
+  margin-left: auto;
+  color: var(--mc-text-subtle);
+  font-size: 12px;
+}
+
+.routeGrid,
+.flow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.routeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.routeGrid li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  gap: 10px;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 11px;
+  background: var(--mc-surface);
+  transition: transform var(--mc-dur-fast) var(--mc-ease-out), border-color var(--mc-dur-fast) var(--mc-ease-out);
+}
+
+.routeGrid li:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--mc-primary) 28%, var(--mc-border));
+}
+
+.routeGrid li[data-state="running"] {
+  border-color: color-mix(in srgb, var(--mc-primary) 45%, var(--mc-border));
+  box-shadow: inset 3px 0 0 var(--mc-primary);
+}
+
+.routeGrid li[data-state="done"] {
+  border-color: color-mix(in srgb, var(--mc-safe) 38%, var(--mc-border));
+}
+
+.routeGrid li[data-state="error"],
+.routeGrid li[data-state="waiting"] {
+  border-color: color-mix(in srgb, var(--mc-warning) 42%, var(--mc-border));
+}
+
+.routeIndex {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 42px;
+  border-right: 1px solid var(--mc-border-subtle);
+}
+
+.routeIndex b {
+  color: var(--mc-text-subtle);
+  font-family: var(--mc-font-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.routeIndex span {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  margin-top: 3px;
+  border-radius: 8px;
+  background: var(--mc-primary-soft);
+  color: var(--mc-primary-strong);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.routeCopy strong,
+.routeCopy p,
+.routeCopy em,
+.routeInput {
+  display: block;
+}
+
+.routeCopy strong {
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--mc-text-strong);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.routeCopy p {
+  margin: 3px 0 0;
+  color: var(--mc-text-muted);
+  font-size: 12px;
+}
+
+.routeCopy em {
+  margin-top: 5px;
+  color: var(--mc-text-subtle);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.routeInput {
+  margin-top: 3px;
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.workerState {
+  align-self: start;
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: var(--mc-surface-sunken);
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.emptyRoutes {
+  display: grid;
+  /* 좁은 작업 패널(내용 폭 ~273px)에서 3열이면 열이 90px 이 돼 한국어 라벨이
+     두 줄로 접힌다. .board 가 container-type: inline-size 이므로 폭에 따라
+     자동으로 접히게 둔다. (2026-07-28) */
+  grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: 11px;
+  background: var(--mc-border-subtle);
+}
+
+.emptyRoutes span {
+  padding: 11px 8px;
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding-top: 3px;
+}
+
+.flow li {
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 7px;
+  padding: 9px;
+  border-radius: 10px;
+  background: var(--mc-surface-muted);
+}
+
+.flow li[data-current="true"] {
+  background: var(--mc-primary-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mc-primary) 22%, transparent);
+}
+
+.flow li > span {
+  display: grid;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--mc-surface-sunken);
+  color: var(--mc-text-muted);
+  font-family: var(--mc-font-mono);
+  font-size: 12px;
+}
+
+.flow li[data-current="true"] > span {
+  background: var(--mc-primary);
+  color: var(--mc-text-inverse);
+}
+
+.flow strong,
+.flow small {
+  display: block;
+}
+
+.flow strong {
+  color: var(--mc-text-strong);
+  font-size: 12px;
+}
+
+.flow small {
+  margin-top: 2px;
+  color: var(--mc-text-subtle);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.footer {
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 11px;
+  border-top: 1px solid var(--mc-border-subtle);
+}
+
+.footer > div:first-child {
+  min-width: 0;
+  gap: 8px;
+}
+
+.footer > div:first-child > span {
+  display: grid;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--mc-safe-bg);
+  color: var(--mc-safe);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.footer p strong {
+  display: block;
+  color: var(--mc-text-strong);
+  font-size: 12px;
+}
+
+.actions {
+  flex: 0 0 auto;
+  gap: 7px;
+}
+
+.actions button {
+  min-height: 32px;
+  padding: 0 11px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryAction {
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+}
+
+.primaryAction {
+  border: 1px solid var(--mc-primary);
+  background: var(--mc-primary);
+  color: var(--mc-text-inverse);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--mc-primary) 18%, transparent);
+}
+
+.actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.actions button:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+@keyframes supervisorPulse {
+  0%, 100% { opacity: 0.72; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 760px) {
+  .board { padding: 14px; }
+  .header,
+  .footer { align-items: stretch; flex-direction: column; }
+  .stateBadge { width: 100%; grid-template-columns: 8px auto 1fr; }
+  .stateBadge span,
+  .stateBadge strong { grid-column: auto; align-self: center; }
+  .stateBadge strong { justify-self: end; }
+  .commandLane { flex-direction: column; }
+  .readinessCard { flex-basis: auto; }
+  .routeGrid { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .actions { width: 100%; }
+  .actions button { flex: 1 1 0; }
+}
+
+@container (max-width: 520px) {
+  .header,
+  .footer { align-items: stretch; flex-direction: column; }
+  .commandLane { flex-direction: column; }
+  .readinessCard { flex-basis: auto; }
+  .routeGrid { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .actions { width: 100%; }
+  .actions button { flex: 1 1 0; }
+}
+
+@media (max-width: 430px) {
+  .identity { align-items: flex-start; }
+  .monogram { flex-basis: 36px; width: 36px; height: 36px; }
+  .identity strong { font-size: 13px; }
+  .emptyRoutes { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .routeGrid li { grid-template-columns: 34px minmax(0, 1fr); }
+  .workerState { grid-column: 2; justify-self: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stateBadge[data-state="routing"] i { animation: none; }
+  .routeGrid li,
+  .actions button { transition: none; }
+}
+
+/* ============================================================================
+   총괄 배정판 미니멀 (2026-07-29)
+
+   .workspacePanel 은 page.module.css 소유라 해시가 달라 참조할 수 없다.
+   data-panel-detail 은 생 속성(page.tsx:36334)이므로 이 모듈에서 그대로 쓴다.
+   ============================================================================ */
+
+/* --- 빈 자리 상자와 부연 문단 접기 ------------------------------------------
+   빈 '담당 배정' 섹션, 빈 요청 카드, 헤더/준비 카드 설명문.
+   :not(:has(li)) 로 실제 배정 결과가 있는 섹션은 건드리지 않는다.
+   재도달: 패널 헤더 '자세히' 토글(실측 460자/39상자 → 2064자/104상자 복원). */
+[data-panel-detail="hidden"] .requestCard[data-empty="true"],
+[data-panel-detail="hidden"] .routeSection:not(:has(li)),
+[data-panel-detail="hidden"] .header p,
+[data-panel-detail="hidden"] .readinessCard p {
+  display: none;
+}
+
+/* --- 하단 안전 문구 줄(footer 첫 div, 53자) — 버튼 줄은 남긴다 -------------- */
+[data-panel-detail="hidden"] .footer > div:first-child {
+  display: none;
+}
+
+/* --- 상태 배지 탈상자 --------------------------------------------------------
+   .stateBadge 는 border 1px + radius 12px + color-mix 배경 + min-width 116px 로
+   헤더 안에 상자를 하나 더 만든다. 점(i)의 상태색과 두 라벨은 그대로 남는다. */
+.stateBadge {
+  border: 0;
+  background: none;
+  padding: 0;
+  min-width: 0;
+}
+
+/* --- idle 에서만 span 과 strong 이 실제로 같은 말을 한다 ---------------------
+   span = STATE_LABELS[state](5종), strong = progressLabel("2명 함께 처리" 등).
+   겹치는 값은 "업무 대기" 하나뿐이다. 무조건 span 을 숨기면 planned/routing/
+   review/approval 4개 상태에서 role="status" aria-live 영역의 유일한
+   상태 문구가 사라진다 — 반드시 [data-state="idle"] 로 좁힌다. */
+[data-panel-detail="hidden"] .stateBadge[data-state="idle"] > span {
+  display: none;
+}
+
+/* --- 그라디언트 3개 제거, 주 CTA 10px → 12px (2026-07-30)
+   .board 의 primary 22% tint, .atmosphere 의 파란 radial haze, .monogram 의
+   #2e63f6 그라디언트는 전부 순수 장식이고 다크 무채색 팔레트와 충돌한다.
+   결합 0건(validate-supervisor-orchestration-ui.mjs 는 파일 목록에만 올림). */
+.board {
+  background: var(--mc-surface);
+  border-color: var(--mc-border-subtle);
+  box-shadow: none;
+}
+
+.atmosphere {
+  display: none;
+}
+
+.monogram {
+  background: var(--mc-primary-soft);
+  color: var(--mc-primary-strong);
+  border-color: transparent;
+}
+
+/* 이 화면에서 10px 인 '컨트롤'은 이 두 버튼뿐이다(나머지 10px 은 눈썹 라벨) */
+.actions button {
+  font-size: 12px;
+}
+
+/* 기본에는 요청·담당자·상태·실행만 남기고 배정 근거는 기존 자세히 보기에서 연다. */
+[data-panel-detail="hidden"] .identity small,
+[data-panel-detail="hidden"] .requestCard > span,
+[data-panel-detail="hidden"] .requestCard > small,
+[data-panel-detail="hidden"] .sectionTitle > span,
+[data-panel-detail="hidden"] .sectionTitle > small,
+[data-panel-detail="hidden"] .routeIndex b,
+[data-panel-detail="hidden"] .routeCopy > small,
+[data-panel-detail="hidden"] .routeCopy p,
+[data-panel-detail="hidden"] .routeCopy em,
+[data-panel-detail="hidden"] .routeInput,
+[data-panel-detail="hidden"] .flow {
+  display: none;
+}
+
+[data-panel-detail="hidden"] .routeGrid li {
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 7px;
+  padding: 8px 10px;
+}
+
+[data-panel-detail="hidden"] .routeIndex {
+  min-height: 24px;
+  border-right: 0;
+}

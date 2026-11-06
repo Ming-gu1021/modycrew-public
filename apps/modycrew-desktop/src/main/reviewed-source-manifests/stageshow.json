@@ -1,0 +1,2245 @@
+{
+  "schema": "mody.reviewed-source-bundle.v1",
+  "id": "stageshow",
+  "name": "stageshow",
+  "owner": "benjitaylor",
+  "repo": "skills",
+  "commit": "ccb6a382ae0bd3c9bdfc010d7fdfaec23ee2be21",
+  "license": "MIT",
+  "entrypoint": "SKILL.md",
+  "runtimeRequirements": "React·Vite·Playwright 및 렌더링 환경은 별도 준비가 필요합니다. 묶음 설치는 이 의존성을 설치하거나 렌더 스크립트를 실행하지 않습니다.",
+  "files": [
+    {
+      "path": "assets/app-icons.ts",
+      "source": "stageshow/assets/app-icons.ts",
+      "bytes": 84454,
+      "sha256": "85774aba3adc1b0b431ac736758985d2b66730ec1d07528cce215d06be765634"
+    },
+    {
+      "path": "examples/ai-cards/cards.css",
+      "source": "stageshow/examples/ai-cards/cards.css",
+      "bytes": 5702,
+      "sha256": "7fbaf1be5fbc1da96565cb3befa14b59b0f4ee1156d0e64c3bac0993722b4107"
+    },
+    {
+      "path": "examples/ai-cards/index.tsx",
+      "source": "stageshow/examples/ai-cards/index.tsx",
+      "bytes": 6671,
+      "sha256": "22ea20dcb30df2af85fe6e9a3046d374aea1c27704aaeb4b0579ac19855f55ba"
+    },
+    {
+      "path": "examples/ai-chat/chat.css",
+      "source": "stageshow/examples/ai-chat/chat.css",
+      "bytes": 1941,
+      "sha256": "beeed86c1762d4038ca4dc7fb93f1eda76f709e9eb8bf68acf374ed1c1ab5d73"
+    },
+    {
+      "path": "examples/ai-chat/index.tsx",
+      "source": "stageshow/examples/ai-chat/index.tsx",
+      "bytes": 4220,
+      "sha256": "a2a32c1685c44682d417f3c6cb09ff86d6c417bc110263e1c89fba1d06f31093"
+    },
+    {
+      "path": "examples/annotations/annotations.css",
+      "source": "stageshow/examples/annotations/annotations.css",
+      "bytes": 21022,
+      "sha256": "3cd5e83ebe17e9ea97dbe273253e942346f5635dec4556eef012062e1e798e60"
+    },
+    {
+      "path": "examples/annotations/composed.css",
+      "source": "stageshow/examples/annotations/composed.css",
+      "bytes": 8791,
+      "sha256": "791e505e445d05cbe56561733f8edb47118e71502100438184b2e3debeed4e6b"
+    },
+    {
+      "path": "examples/annotations/composed.tsx",
+      "source": "stageshow/examples/annotations/composed.tsx",
+      "bytes": 10770,
+      "sha256": "843f74fe370adea9a0c03635da06aafe57f77775a690620f3a6a06edeb2214e1"
+    },
+    {
+      "path": "examples/annotations/index.tsx",
+      "source": "stageshow/examples/annotations/index.tsx",
+      "bytes": 25026,
+      "sha256": "561f4bc6c45b5abf47351cbf8e060c2d84466807c8a40e6f19554724bf773cae"
+    },
+    {
+      "path": "examples/backgrounds/backgrounds.css",
+      "source": "stageshow/examples/backgrounds/backgrounds.css",
+      "bytes": 8240,
+      "sha256": "c5055ad795063aaa453079315def82a0a4d56fc80b23fa329751f2ec85e8c505"
+    },
+    {
+      "path": "examples/backgrounds/index.tsx",
+      "source": "stageshow/examples/backgrounds/index.tsx",
+      "bytes": 6265,
+      "sha256": "75ce55c6b6954c8662715aa28d42a9b007c7f0b0b448dfa3c5a3a63a8c17dcc5"
+    },
+    {
+      "path": "examples/bento/bento.css",
+      "source": "stageshow/examples/bento/bento.css",
+      "bytes": 13516,
+      "sha256": "7ddc9e15c23ad92211091e3c0be684656979cb13369fb027edee636a748ec74b"
+    },
+    {
+      "path": "examples/bento/index.tsx",
+      "source": "stageshow/examples/bento/index.tsx",
+      "bytes": 14320,
+      "sha256": "a507797366fcf148f9929b9a5246677d7965b792c0821484ef35b30ee9c2f798"
+    },
+    {
+      "path": "examples/brand-marks/brands.css",
+      "source": "stageshow/examples/brand-marks/brands.css",
+      "bytes": 811,
+      "sha256": "ccad23d1d1cc23bf3fe95a08041f5e8b767e5b8ed819e2341d54246ab440d000"
+    },
+    {
+      "path": "examples/brand-marks/index.tsx",
+      "source": "stageshow/examples/brand-marks/index.tsx",
+      "bytes": 2072,
+      "sha256": "c01881fa3387394230eccbf03d678a293ae64ea43808904ab68d79fd1406c9b1"
+    },
+    {
+      "path": "examples/buttons/buttons.css",
+      "source": "stageshow/examples/buttons/buttons.css",
+      "bytes": 566,
+      "sha256": "bed2071a70f536c46a27a34e59ca47430bb61ae9d9260dc29351bf7345dd8dbc"
+    },
+    {
+      "path": "examples/buttons/index.tsx",
+      "source": "stageshow/examples/buttons/index.tsx",
+      "bytes": 2927,
+      "sha256": "179077b41db37657e2aa0d059318e31c4550ec807eca0b99c565d86b979861e6"
+    },
+    {
+      "path": "examples/calendar/calendar.css",
+      "source": "stageshow/examples/calendar/calendar.css",
+      "bytes": 6163,
+      "sha256": "078e3eed59b9f8fba7786165b36a08b272bc28438f724f4c6fa462be1dc819e0"
+    },
+    {
+      "path": "examples/calendar/index.tsx",
+      "source": "stageshow/examples/calendar/index.tsx",
+      "bytes": 9020,
+      "sha256": "16c3a8f45fb0179d313816823c2234d9a41867940c4885ce8cf560e328c15412"
+    },
+    {
+      "path": "examples/cards/cards.css",
+      "source": "stageshow/examples/cards/cards.css",
+      "bytes": 767,
+      "sha256": "443a7857ce4dc769648042703e8cdf6020f2f9c62652f889a6b5b2e3b36da722"
+    },
+    {
+      "path": "examples/cards/index.tsx",
+      "source": "stageshow/examples/cards/index.tsx",
+      "bytes": 3108,
+      "sha256": "9b293691d007b5005cdbebbd254d36d8f5627b75a6720b9e5a4a80ccd1b17a77"
+    },
+    {
+      "path": "examples/chart-scrub/index.tsx",
+      "source": "stageshow/examples/chart-scrub/index.tsx",
+      "bytes": 6109,
+      "sha256": "ee6ef85a4e8a2b79dc472d0d96e9fadc650f5fc05d7401db20d718c61f252248"
+    },
+    {
+      "path": "examples/chart-scrub/scrub.css",
+      "source": "stageshow/examples/chart-scrub/scrub.css",
+      "bytes": 1619,
+      "sha256": "35956cfe59be75593a02c01f051bd0047d1d2adb6416a229afac7d54d6374d88"
+    },
+    {
+      "path": "examples/choreography/choreography.css",
+      "source": "stageshow/examples/choreography/choreography.css",
+      "bytes": 7080,
+      "sha256": "3f83ea70f41a5b51a2a32e9e051c79b5de8508127de85395aeb6d822cfbe2cc4"
+    },
+    {
+      "path": "examples/choreography/index.tsx",
+      "source": "stageshow/examples/choreography/index.tsx",
+      "bytes": 7478,
+      "sha256": "fba703ab0d33ea1f96eaae51663ff4edebf9ddf6a6a9e7a05d6c366758d6f85e"
+    },
+    {
+      "path": "examples/chrome/chrome.css",
+      "source": "stageshow/examples/chrome/chrome.css",
+      "bytes": 2785,
+      "sha256": "d673e03a9f06d53641757ae4334bedcc3088228ddbe71d3e0269b28be234654e"
+    },
+    {
+      "path": "examples/chrome/index.tsx",
+      "source": "stageshow/examples/chrome/index.tsx",
+      "bytes": 4853,
+      "sha256": "89e535818653611ae83c469cefb9663de6bb076d2206d1cf782f3ee68b5b7ad5"
+    },
+    {
+      "path": "examples/close-up/close.css",
+      "source": "stageshow/examples/close-up/close.css",
+      "bytes": 860,
+      "sha256": "adf9aaa0612893718319426913eba8e4bde163792e1f02a949e81a5b8135a390"
+    },
+    {
+      "path": "examples/close-up/index.tsx",
+      "source": "stageshow/examples/close-up/index.tsx",
+      "bytes": 3192,
+      "sha256": "7e93f2dcc13cf1f6e2fde7179c866bb53876c9b7cdbf253117087351abdea1aa"
+    },
+    {
+      "path": "examples/controls/controls.css",
+      "source": "stageshow/examples/controls/controls.css",
+      "bytes": 3081,
+      "sha256": "986512ee4bbe6cdb14720e6fec4d51c42efd7fa0cbb6480cb6f4ac741cb0b1d0"
+    },
+    {
+      "path": "examples/controls/index.tsx",
+      "source": "stageshow/examples/controls/index.tsx",
+      "bytes": 7496,
+      "sha256": "b54a25f315607ead7dd1999508db370d0242446bcbee32cc8158b6eb6cdafff4"
+    },
+    {
+      "path": "examples/corner-chip/chip.css",
+      "source": "stageshow/examples/corner-chip/chip.css",
+      "bytes": 1221,
+      "sha256": "845a22adabb1c54de39ee97061a2306dd8569af9ce7dbb85ac8581be0124ad44"
+    },
+    {
+      "path": "examples/corner-chip/index.tsx",
+      "source": "stageshow/examples/corner-chip/index.tsx",
+      "bytes": 2359,
+      "sha256": "a0bfa59c05ec467a5f5465164d4069f68c1fce9b42cf3bf9aeed433004cb65a9"
+    },
+    {
+      "path": "examples/cursor-morph/cursor-morph.css",
+      "source": "stageshow/examples/cursor-morph/cursor-morph.css",
+      "bytes": 1079,
+      "sha256": "011f25d8a5e2947aed3d1c264a3f701488498797fb700bda8a931a57a6324c64"
+    },
+    {
+      "path": "examples/cursor-morph/cursor-morph.tsx",
+      "source": "stageshow/examples/cursor-morph/cursor-morph.tsx",
+      "bytes": 5444,
+      "sha256": "a237b29f00669fe7f96a3e1eb95dbdf9f67dcd6f00ae76b23ce35122cf2b31df"
+    },
+    {
+      "path": "examples/cursor-morph/index.tsx",
+      "source": "stageshow/examples/cursor-morph/index.tsx",
+      "bytes": 1658,
+      "sha256": "f0af083260a7a65335a0cb17c11dc22079bebb89ba62db068e0697fab9c2df5b"
+    },
+    {
+      "path": "examples/cursor-morph/README.md",
+      "source": "stageshow/examples/cursor-morph/README.md",
+      "bytes": 794,
+      "sha256": "c4905b6c502e32747e6007474aec88b7b8927b10a1912543378931734a8f3a49"
+    },
+    {
+      "path": "examples/cursor-resize/cursor-resize.css",
+      "source": "stageshow/examples/cursor-resize/cursor-resize.css",
+      "bytes": 1557,
+      "sha256": "f6377db77496f9b17d709b8810eae575c50711512711cd3661fb2612ea42abd3"
+    },
+    {
+      "path": "examples/cursor-resize/index.tsx",
+      "source": "stageshow/examples/cursor-resize/index.tsx",
+      "bytes": 2696,
+      "sha256": "4fe43f82e6522f2477df4d0b6f54c97416672e4224b0dc3df33c4b910a1ff99a"
+    },
+    {
+      "path": "examples/cursors/cursors.css",
+      "source": "stageshow/examples/cursors/cursors.css",
+      "bytes": 4477,
+      "sha256": "dff10a8a7be8c6b9dbcd3d08ee6e79d00c6babf6b3bde0033710ea6de0a15f5f"
+    },
+    {
+      "path": "examples/cursors/index.tsx",
+      "source": "stageshow/examples/cursors/index.tsx",
+      "bytes": 6137,
+      "sha256": "77ffcf2643103b0c5c2fc1b252eb800a0f630f52a3424c8268b3568a58197ebd"
+    },
+    {
+      "path": "examples/dark-bento/bento.css",
+      "source": "stageshow/examples/dark-bento/bento.css",
+      "bytes": 5800,
+      "sha256": "e845879f28f853945c24c88c7a6a72f526dbd36d0de3f5f9c1b5fe4518a6f76c"
+    },
+    {
+      "path": "examples/dark-bento/index.tsx",
+      "source": "stageshow/examples/dark-bento/index.tsx",
+      "bytes": 4251,
+      "sha256": "fe4008cda99db90148d5ba3ea0e3951a8dcd9239f4ad071670265e58d57af1b4"
+    },
+    {
+      "path": "examples/dark-hero/hero.css",
+      "source": "stageshow/examples/dark-hero/hero.css",
+      "bytes": 4227,
+      "sha256": "69c39ec49c38d91d704d7497d726d7e6d4d6896a8bc9920648eb84fa533877dc"
+    },
+    {
+      "path": "examples/dark-hero/index.tsx",
+      "source": "stageshow/examples/dark-hero/index.tsx",
+      "bytes": 7163,
+      "sha256": "b5953b842194f40f994553042064b40394183c91aab2ea093ae5c168248c032a"
+    },
+    {
+      "path": "examples/device-pair/index.tsx",
+      "source": "stageshow/examples/device-pair/index.tsx",
+      "bytes": 3356,
+      "sha256": "845a8766ac01a83ad60960492fd6a0ff3404d69693f6a40bb8b2443ab9e149ea"
+    },
+    {
+      "path": "examples/device-pair/payments.css",
+      "source": "stageshow/examples/device-pair/payments.css",
+      "bytes": 2877,
+      "sha256": "74ab3a67f9a79c3f559f0d919a736a413349086a88f7754090e88147c9ca9048"
+    },
+    {
+      "path": "examples/dynamic-island/index.tsx",
+      "source": "stageshow/examples/dynamic-island/index.tsx",
+      "bytes": 11354,
+      "sha256": "f01778e0a3280d417b873992e328186dd5e18de76774d146ce1cd0f9212df5e7"
+    },
+    {
+      "path": "examples/dynamic-island/island.css",
+      "source": "stageshow/examples/dynamic-island/island.css",
+      "bytes": 6419,
+      "sha256": "b99b5d5411076a32d0990b34ff4c35b60c6ca676f8310000990c4159ae3dfb64"
+    },
+    {
+      "path": "examples/excel/excel.css",
+      "source": "stageshow/examples/excel/excel.css",
+      "bytes": 10045,
+      "sha256": "cb7197f6d9bb2943d3210291391afe102e925dc01d85ce4417aef34b97ef18e4"
+    },
+    {
+      "path": "examples/excel/index.tsx",
+      "source": "stageshow/examples/excel/index.tsx",
+      "bytes": 13167,
+      "sha256": "0ef06fbcc4bf210bb7503eea5f4e6f1545f98257398a2529243d36844d4e11f1"
+    },
+    {
+      "path": "examples/fade-crop/fade.css",
+      "source": "stageshow/examples/fade-crop/fade.css",
+      "bytes": 1513,
+      "sha256": "62f22f043dba26ff5634edbf88df13a87600b6ac5495504e35ffcc950cdf6f59"
+    },
+    {
+      "path": "examples/fade-crop/index.tsx",
+      "source": "stageshow/examples/fade-crop/index.tsx",
+      "bytes": 2538,
+      "sha256": "31557334b5c9d8c061c2189365a1b174747939f7809ce358159714eb3f80191e"
+    },
+    {
+      "path": "examples/figma/figma.css",
+      "source": "stageshow/examples/figma/figma.css",
+      "bytes": 10799,
+      "sha256": "20e73153a929891619208bf2abc7755b73ffc573b3cf08b5c2b63a924857c1b3"
+    },
+    {
+      "path": "examples/figma/index.tsx",
+      "source": "stageshow/examples/figma/index.tsx",
+      "bytes": 19129,
+      "sha256": "66c4aaa118a53cda2500177c6c07df5465c4985645e68ea9466a6ac72bf085e3"
+    },
+    {
+      "path": "examples/finder-glass/finder-glass.css",
+      "source": "stageshow/examples/finder-glass/finder-glass.css",
+      "bytes": 9597,
+      "sha256": "e55c1ae88b2f21d0ec9512712df6c2c2a20eef30c5ce506507b788a82860c17d"
+    },
+    {
+      "path": "examples/finder-glass/index.tsx",
+      "source": "stageshow/examples/finder-glass/index.tsx",
+      "bytes": 12778,
+      "sha256": "e0989a03a5c63cd8f0a0cdbef8b06ecd3ff0c54690b8561af54b2e0ddbc2be66"
+    },
+    {
+      "path": "examples/finder/finder.css",
+      "source": "stageshow/examples/finder/finder.css",
+      "bytes": 6283,
+      "sha256": "cdf441e761aa75a88c1fcc62d6047d7966578b2a925afa47a73c2cd723c049bc"
+    },
+    {
+      "path": "examples/finder/index.tsx",
+      "source": "stageshow/examples/finder/index.tsx",
+      "bytes": 12929,
+      "sha256": "f2c924d0762395a2b2b433d8fc85745970c9662c68c10db795bf9525590fa989"
+    },
+    {
+      "path": "examples/form-error/form.css",
+      "source": "stageshow/examples/form-error/form.css",
+      "bytes": 2264,
+      "sha256": "50559c0edf7a21ccd205ed56c5b7dadd1e10dcfdda55c2203affd6f360dfacb6"
+    },
+    {
+      "path": "examples/form-error/index.tsx",
+      "source": "stageshow/examples/form-error/index.tsx",
+      "bytes": 4597,
+      "sha256": "6133d17c857b1d1cc2cf05cf1eadde2677f79929d57e242e1aa6dbc8036f2669"
+    },
+    {
+      "path": "examples/freeform-drag/drag.css",
+      "source": "stageshow/examples/freeform-drag/drag.css",
+      "bytes": 3330,
+      "sha256": "708c70e0dd07351d8931c52ce5cc89ee38e84a2ecabf87a96f7f4a7b95eb05bc"
+    },
+    {
+      "path": "examples/freeform-drag/index.tsx",
+      "source": "stageshow/examples/freeform-drag/index.tsx",
+      "bytes": 5277,
+      "sha256": "128d3bd137d484e7529d4951d424dd3661084a5867bcd3e908445647c7a61d84"
+    },
+    {
+      "path": "examples/glass/glass.css",
+      "source": "stageshow/examples/glass/glass.css",
+      "bytes": 1291,
+      "sha256": "88a8863ac957125ea54f8a156f64b85c89a2b77c8db483e46b3c24ecb3a84fc7"
+    },
+    {
+      "path": "examples/glass/index.tsx",
+      "source": "stageshow/examples/glass/index.tsx",
+      "bytes": 1686,
+      "sha256": "6e443a12b52c4bace4017a77ed542261851f7ac96b57b9fca9cc2f62fd7899cb"
+    },
+    {
+      "path": "examples/gmail/gmail.css",
+      "source": "stageshow/examples/gmail/gmail.css",
+      "bytes": 8600,
+      "sha256": "766a5dcae9469abf7de11f02194797bfc431dcff2c6428834059aab5febf8c8a"
+    },
+    {
+      "path": "examples/gmail/index.tsx",
+      "source": "stageshow/examples/gmail/index.tsx",
+      "bytes": 11226,
+      "sha256": "8a5b200b304e3dede21c7306c92a81044d6eb82f6cf73898afb8f9600e1da3ef"
+    },
+    {
+      "path": "examples/google-calendar/gcal.css",
+      "source": "stageshow/examples/google-calendar/gcal.css",
+      "bytes": 12734,
+      "sha256": "1d1b7d801c3905308fe47187caec5e1fd819a39a98e8f220af67d62fa00a95fe"
+    },
+    {
+      "path": "examples/google-calendar/index.tsx",
+      "source": "stageshow/examples/google-calendar/index.tsx",
+      "bytes": 15741,
+      "sha256": "2d0dc2d30f61bd64b69fc6d6a7b084a77ae62a02bffd4be4a7ec0bc08daf80ed"
+    },
+    {
+      "path": "examples/google-docs/docs.css",
+      "source": "stageshow/examples/google-docs/docs.css",
+      "bytes": 8285,
+      "sha256": "8e445c3a01a35386f5b2f8f50ee880bd2b9f80554ee5150fc52001d734cf7469"
+    },
+    {
+      "path": "examples/google-docs/index.tsx",
+      "source": "stageshow/examples/google-docs/index.tsx",
+      "bytes": 20754,
+      "sha256": "f4c7c7aadf468bca16e5e999f08bd71d8d9b41520411c43d69812206ec577cd8"
+    },
+    {
+      "path": "examples/hero-demo/hero.css",
+      "source": "stageshow/examples/hero-demo/hero.css",
+      "bytes": 10176,
+      "sha256": "a4a5117f4264600c9e3489302023030683a949aab4679b21ddf81529111ef07f"
+    },
+    {
+      "path": "examples/hero-demo/HeroDemo.tsx",
+      "source": "stageshow/examples/hero-demo/HeroDemo.tsx",
+      "bytes": 13473,
+      "sha256": "296e8bfa704b0fef23558c302bbf6884a9137e4fe85ebd764b4d9913dce8a146"
+    },
+    {
+      "path": "examples/hero-demo/icons.tsx",
+      "source": "stageshow/examples/hero-demo/icons.tsx",
+      "bytes": 3779,
+      "sha256": "4104d709b7a0e7a4af542e666ce3cbc7f4e0d1ca2600a9aff1e830471b1db2f7"
+    },
+    {
+      "path": "examples/hero-demo/index.tsx",
+      "source": "stageshow/examples/hero-demo/index.tsx",
+      "bytes": 49,
+      "sha256": "72905a0a8025593097fb0019452956c169e5bfa63aab94c71e750293fb942003"
+    },
+    {
+      "path": "examples/hero-grid/grid.css",
+      "source": "stageshow/examples/hero-grid/grid.css",
+      "bytes": 10212,
+      "sha256": "5a21d4d103b70601fe008bc60a514267f8b85129318ba0e070bd8feab4fdbfd8"
+    },
+    {
+      "path": "examples/hero-grid/index.tsx",
+      "source": "stageshow/examples/hero-grid/index.tsx",
+      "bytes": 12781,
+      "sha256": "64c38a7ce43af95fe44a39a3285bebc8ebfb36b921c95874ec9c9ea5ddeef013"
+    },
+    {
+      "path": "examples/imessage/imessage.css",
+      "source": "stageshow/examples/imessage/imessage.css",
+      "bytes": 4188,
+      "sha256": "d80ca4476225049fc6cb89c2c27d8c4d5573cfc142dc6ddca0baa4705801a76a"
+    },
+    {
+      "path": "examples/imessage/index.tsx",
+      "source": "stageshow/examples/imessage/index.tsx",
+      "bytes": 6111,
+      "sha256": "61165f18c5ad3de0f836b0d601c7748e0ed0f5d4f12df393b07f0d596c71f1b0"
+    },
+    {
+      "path": "examples/kit-extras/extras.css",
+      "source": "stageshow/examples/kit-extras/extras.css",
+      "bytes": 1884,
+      "sha256": "effbe883acbf29bc428ea39494fe91401582381739f7e20565950e358a9dff78"
+    },
+    {
+      "path": "examples/kit-extras/index.tsx",
+      "source": "stageshow/examples/kit-extras/index.tsx",
+      "bytes": 5124,
+      "sha256": "65aaf975402dd44d83063abb9452f2f74536a0f81fb1a6e010337087361ab445"
+    },
+    {
+      "path": "examples/linear/index.tsx",
+      "source": "stageshow/examples/linear/index.tsx",
+      "bytes": 14845,
+      "sha256": "973279d0f283c2c974e2921bc8cf6833f7f869851ef2535ac43ba07180959976"
+    },
+    {
+      "path": "examples/linear/linear.css",
+      "source": "stageshow/examples/linear/linear.css",
+      "bytes": 13551,
+      "sha256": "f342f76b9a32e8ca8eac32a20d2ac6a337a617a4a5dcf81e6ae57935906133f8"
+    },
+    {
+      "path": "examples/loading/index.tsx",
+      "source": "stageshow/examples/loading/index.tsx",
+      "bytes": 4720,
+      "sha256": "651858d70c7e45c1b720e70501087da13b9d167d6ad89ab1ea8fcec885fcabda"
+    },
+    {
+      "path": "examples/loading/loading.css",
+      "source": "stageshow/examples/loading/loading.css",
+      "bytes": 2764,
+      "sha256": "a988c807201398f5ac72e09c8c6bf2d40dfb9eb3c3a2fbbe3e8ddf185d8f42b0"
+    },
+    {
+      "path": "examples/looks/index.tsx",
+      "source": "stageshow/examples/looks/index.tsx",
+      "bytes": 3020,
+      "sha256": "726c2e093bf8ef17b39e181757b017a81b455fddcb3acff5127b5b61f48fc76f"
+    },
+    {
+      "path": "examples/looks/looks.css",
+      "source": "stageshow/examples/looks/looks.css",
+      "bytes": 2726,
+      "sha256": "5086add512e67457e5108ae79fb4c22beb7111d85103c16ef35c93d6ec082ccb"
+    },
+    {
+      "path": "examples/looks/radix.css",
+      "source": "stageshow/examples/looks/radix.css",
+      "bytes": 1483,
+      "sha256": "1ca447774200edcdd4a8fc0a634ef42890cf6ffb00e8f656f99daf256417acbc"
+    },
+    {
+      "path": "examples/looks/skeuomorphic.css",
+      "source": "stageshow/examples/looks/skeuomorphic.css",
+      "bytes": 3029,
+      "sha256": "c2705768385ea84734e047f2d2dcbd4bdda0eba79d865eff7177eade3e8e9ca3"
+    },
+    {
+      "path": "examples/looks/skeuomorphic.tsx",
+      "source": "stageshow/examples/looks/skeuomorphic.tsx",
+      "bytes": 1257,
+      "sha256": "63f1704f1e9d16c68f39883e9ad42abe5790002e84ba23fcdc9ec98c809a5e2e"
+    },
+    {
+      "path": "examples/looks/studies.css",
+      "source": "stageshow/examples/looks/studies.css",
+      "bytes": 11461,
+      "sha256": "e396e287a14b5ce0f941aff228f3ca86e311b28309e359475a7150360f0ab008"
+    },
+    {
+      "path": "examples/looks/studies.tsx",
+      "source": "stageshow/examples/looks/studies.tsx",
+      "bytes": 5752,
+      "sha256": "8ef7c9b1daa2088fcfd096a598566344fd24c32248c1b1c4803ea17c15422425"
+    },
+    {
+      "path": "examples/many-of-one/index.tsx",
+      "source": "stageshow/examples/many-of-one/index.tsx",
+      "bytes": 2583,
+      "sha256": "c15df6ef38502549d539af54e6d32ae0c9deddfe8f75b81f9df05d7fa1e8ad89"
+    },
+    {
+      "path": "examples/many-of-one/many.css",
+      "source": "stageshow/examples/many-of-one/many.css",
+      "bytes": 1630,
+      "sha256": "96138ccde33c58c1976e913633a8e9199a079495b75c3b4bb3b6482d7b69a04a"
+    },
+    {
+      "path": "examples/messages/index.tsx",
+      "source": "stageshow/examples/messages/index.tsx",
+      "bytes": 3675,
+      "sha256": "815d25962450aa404cefdf5d15ced78d7c6095ff026f0bb62b6224bff3bdc1db"
+    },
+    {
+      "path": "examples/messages/messages.css",
+      "source": "stageshow/examples/messages/messages.css",
+      "bytes": 2467,
+      "sha256": "62bf332c2024e73fa46ce42ce387ea634a9b59dfb75b0d1b17a5012164d8a847"
+    },
+    {
+      "path": "examples/monochrome/index.tsx",
+      "source": "stageshow/examples/monochrome/index.tsx",
+      "bytes": 2310,
+      "sha256": "1fee778dd090824c7db3daab8c0a05b7ca3b0cfd8684ca837233580b9ef589b4"
+    },
+    {
+      "path": "examples/monochrome/mono.css",
+      "source": "stageshow/examples/monochrome/mono.css",
+      "bytes": 1920,
+      "sha256": "943125b5eb4d867cdbeb85b6de51efdbdf3fb2e376931a39bf684ab06b8ac85d"
+    },
+    {
+      "path": "examples/notion/index.tsx",
+      "source": "stageshow/examples/notion/index.tsx",
+      "bytes": 8706,
+      "sha256": "21cd50879a998c1663e9d953c8fe982bb9a92a5554106b871600eb4e5e09bb42"
+    },
+    {
+      "path": "examples/notion/notion.css",
+      "source": "stageshow/examples/notion/notion.css",
+      "bytes": 7403,
+      "sha256": "f59f05a2fb48014852deaf0d6ac4169f22b1e76ca438362b47e302e54165b718"
+    },
+    {
+      "path": "examples/opposite-corners/corners.css",
+      "source": "stageshow/examples/opposite-corners/corners.css",
+      "bytes": 887,
+      "sha256": "083095dba74dd65b41a4fdfae3e2c3c04256ab8018eb182bf88fbd11e413c84a"
+    },
+    {
+      "path": "examples/opposite-corners/index.tsx",
+      "source": "stageshow/examples/opposite-corners/index.tsx",
+      "bytes": 2266,
+      "sha256": "69a048ecdfcf6f7751ddbad7c8f1c850f244b096cddd954b7dcd04c9e051099b"
+    },
+    {
+      "path": "examples/overlap/index.tsx",
+      "source": "stageshow/examples/overlap/index.tsx",
+      "bytes": 3672,
+      "sha256": "e98c25dd92a9349a44dcdcb2afb12b024de8c7f36c50c7b0ff4ba483c97be98e"
+    },
+    {
+      "path": "examples/overlap/overlap.css",
+      "source": "stageshow/examples/overlap/overlap.css",
+      "bytes": 2390,
+      "sha256": "4e12b269bc1c7d1a8c8b81c12dd9ed29191561f15b9ceed918e86a3bcc5c91f0"
+    },
+    {
+      "path": "examples/panel-annotation/index.tsx",
+      "source": "stageshow/examples/panel-annotation/index.tsx",
+      "bytes": 4869,
+      "sha256": "ff56c93c8639b892b78d5dd7431b9288402b183c82b66f60a18cded44d7b2125"
+    },
+    {
+      "path": "examples/panel-annotation/panel.css",
+      "source": "stageshow/examples/panel-annotation/panel.css",
+      "bytes": 2844,
+      "sha256": "15ab4899b8fdb582e4b9efc94e9e7af9114d18663d0d4d0f36a4a593ea8c12a0"
+    },
+    {
+      "path": "examples/parts/index.tsx",
+      "source": "stageshow/examples/parts/index.tsx",
+      "bytes": 6309,
+      "sha256": "b5e7d12b13123e06166b3d02917a047ce9f0142f9daa95d67e673c484495e2e2"
+    },
+    {
+      "path": "examples/parts/parts.css",
+      "source": "stageshow/examples/parts/parts.css",
+      "bytes": 3032,
+      "sha256": "598b4164aff4ac7dc00646501de08e93677d2922c93ee5a7385437396162b224"
+    },
+    {
+      "path": "examples/payout-flow/index.tsx",
+      "source": "stageshow/examples/payout-flow/index.tsx",
+      "bytes": 6087,
+      "sha256": "e81a2c83dfda0c9130b0a10ce0bd16acc6243652f00829ac52d0febc43e9db8d"
+    },
+    {
+      "path": "examples/payout-flow/pace.css",
+      "source": "stageshow/examples/payout-flow/pace.css",
+      "bytes": 7271,
+      "sha256": "109d9a883082017ca013c38185ecf03650137ef9af7e5f7792d7b07b765cf544"
+    },
+    {
+      "path": "examples/phone-touch/fitness.css",
+      "source": "stageshow/examples/phone-touch/fitness.css",
+      "bytes": 9245,
+      "sha256": "9aef1edbb15edeb0e206664d11827bae05f86c6455a9edf2612d893979638106"
+    },
+    {
+      "path": "examples/phone-touch/index.tsx",
+      "source": "stageshow/examples/phone-touch/index.tsx",
+      "bytes": 9555,
+      "sha256": "19d730097bc404f866042ec12acd013c5728040f8a937057050901ed12b5ae13"
+    },
+    {
+      "path": "examples/phones/index.tsx",
+      "source": "stageshow/examples/phones/index.tsx",
+      "bytes": 2892,
+      "sha256": "7176202be172f4a341061e4b0bb79a723c6e8031d8cf722dec008c0226cd9184"
+    },
+    {
+      "path": "examples/powerpoint/index.tsx",
+      "source": "stageshow/examples/powerpoint/index.tsx",
+      "bytes": 14297,
+      "sha256": "89dab893f4a89165bd463c8149ce912ff89735e253ceac567df264bc717ef3cb"
+    },
+    {
+      "path": "examples/powerpoint/pp.css",
+      "source": "stageshow/examples/powerpoint/pp.css",
+      "bytes": 9933,
+      "sha256": "146d617265b8e23dae7b2d3e45b9582aebdefb449f12ecdefa79d5947ad0a6c5"
+    },
+    {
+      "path": "examples/presence/index.tsx",
+      "source": "stageshow/examples/presence/index.tsx",
+      "bytes": 5930,
+      "sha256": "40e5880cdee7b0190a809fb05517b8883c5ee8f63fe165d196be8a87d9e803fd"
+    },
+    {
+      "path": "examples/presence/presence.css",
+      "source": "stageshow/examples/presence/presence.css",
+      "bytes": 2972,
+      "sha256": "287f0f60f71331bcab531b44cfd8e4b3083e344c6122eb2030eb723013939b3b"
+    },
+    {
+      "path": "examples/raycast/index.tsx",
+      "source": "stageshow/examples/raycast/index.tsx",
+      "bytes": 9744,
+      "sha256": "0e032265b1109db26ef8cddda4b0caa500ac58d42f077434d03762598c5f1bfa"
+    },
+    {
+      "path": "examples/raycast/raycast.css",
+      "source": "stageshow/examples/raycast/raycast.css",
+      "bytes": 7606,
+      "sha256": "ddc9a7a2caefe2e40dddd30ebb85d411eca34ddab94c20254d65c3b8f1289b26"
+    },
+    {
+      "path": "examples/reorder/index.tsx",
+      "source": "stageshow/examples/reorder/index.tsx",
+      "bytes": 3797,
+      "sha256": "5df33ae6ab5089801e2af780a04ac2f29e7087aa73eb44c35f7808f6fa13f669"
+    },
+    {
+      "path": "examples/reorder/reorder.css",
+      "source": "stageshow/examples/reorder/reorder.css",
+      "bytes": 1659,
+      "sha256": "6cfb6ba0e6afc96766cee9e6f8e035d5a29b7178f9b1a49ce4ed80ec46a1950b"
+    },
+    {
+      "path": "examples/ruled-bento/grid.css",
+      "source": "stageshow/examples/ruled-bento/grid.css",
+      "bytes": 12802,
+      "sha256": "daa7bfc2ff83255a56d4c0ada4ed12399c607efc885c74189f6dffbe1ee4c65d"
+    },
+    {
+      "path": "examples/ruled-bento/index.tsx",
+      "source": "stageshow/examples/ruled-bento/index.tsx",
+      "bytes": 13242,
+      "sha256": "498cee5f7728a60fede3f9e294ae60bd4c1bd94ed9e4462a1c8d96e9f8804498"
+    },
+    {
+      "path": "examples/share/index.tsx",
+      "source": "stageshow/examples/share/index.tsx",
+      "bytes": 9056,
+      "sha256": "6e53aeca895c262936576e57ed00f02c5088c0f9165907e3bc86feb3c9ad6a78"
+    },
+    {
+      "path": "examples/share/share.css",
+      "source": "stageshow/examples/share/share.css",
+      "bytes": 3721,
+      "sha256": "a6306cd973691a44f7843faad64a804e2400ee17dc61bd21129d0c8b9b7bbf5e"
+    },
+    {
+      "path": "examples/slack/index.tsx",
+      "source": "stageshow/examples/slack/index.tsx",
+      "bytes": 16076,
+      "sha256": "d1aab7e6b49004b0471cee61333fdfbbca505cca1276ae5557f86f0779451467"
+    },
+    {
+      "path": "examples/slack/slack.css",
+      "source": "stageshow/examples/slack/slack.css",
+      "bytes": 14700,
+      "sha256": "3f6f6bea70941b6ad2f89b347880647738c2aee262dbd8e4ea37f11606795dbd"
+    },
+    {
+      "path": "examples/spotify/index.tsx",
+      "source": "stageshow/examples/spotify/index.tsx",
+      "bytes": 13125,
+      "sha256": "23b9510366d69861639e69d9d207fab0c4475011117b4e09dba1e4ee6304c283"
+    },
+    {
+      "path": "examples/spotify/spotify.css",
+      "source": "stageshow/examples/spotify/spotify.css",
+      "bytes": 13372,
+      "sha256": "6c15bcbce37e8b222639211f8130be2db8542eb1f28f988a50eda34870f1a72f"
+    },
+    {
+      "path": "examples/stacked-cards/index.tsx",
+      "source": "stageshow/examples/stacked-cards/index.tsx",
+      "bytes": 2310,
+      "sha256": "32010bc535cd38eab5f4e3fbb000f983a621fbc25e0cb02ae8569457bf776232"
+    },
+    {
+      "path": "examples/stacked-cards/stacked.css",
+      "source": "stageshow/examples/stacked-cards/stacked.css",
+      "bytes": 1452,
+      "sha256": "a04a977f0cd8ec4494f98bbd262348dbeb10fa330dec0db665d0591698550075"
+    },
+    {
+      "path": "examples/staggered-bento/grid.css",
+      "source": "stageshow/examples/staggered-bento/grid.css",
+      "bytes": 11916,
+      "sha256": "ed85656d02a15c98fa326ba602384a0afd42ea5fb631c27f5ec04f8659074a49"
+    },
+    {
+      "path": "examples/staggered-bento/index.tsx",
+      "source": "stageshow/examples/staggered-bento/index.tsx",
+      "bytes": 14641,
+      "sha256": "1896be414cb9e034e6b93d2c5fb8c513d6532ffd19f77707bfe58a2859fca907"
+    },
+    {
+      "path": "examples/static-card/card.css",
+      "source": "stageshow/examples/static-card/card.css",
+      "bytes": 4129,
+      "sha256": "fb62020add191adf09ec10c41ea89a0cf9715aad049738d00f75a581deb4ade9"
+    },
+    {
+      "path": "examples/static-card/index.tsx",
+      "source": "stageshow/examples/static-card/index.tsx",
+      "bytes": 3740,
+      "sha256": "e019e2295555210c7f40ecb5bb63fbbd726f561ac646ecd318daf9d2292469ae"
+    },
+    {
+      "path": "examples/story/index.tsx",
+      "source": "stageshow/examples/story/index.tsx",
+      "bytes": 6629,
+      "sha256": "cb48629cc564e9da5087be3da7c4fc0ada2339efde7f7a2a439b0378622267a9"
+    },
+    {
+      "path": "examples/story/story.css",
+      "source": "stageshow/examples/story/story.css",
+      "bytes": 5074,
+      "sha256": "23164a433a118aee6b85a1d31e32f7d118e23294b22a70636a37cec9926aa6fb"
+    },
+    {
+      "path": "examples/subscriptions/index.tsx",
+      "source": "stageshow/examples/subscriptions/index.tsx",
+      "bytes": 10101,
+      "sha256": "e8e3980f3dfe6e12771520463991648ac9deace910aa4030173cf6b3eb57f5af"
+    },
+    {
+      "path": "examples/subscriptions/subs.css",
+      "source": "stageshow/examples/subscriptions/subs.css",
+      "bytes": 8253,
+      "sha256": "651661af019f08c5062baf65109e962dd1dc4422c4139304d7fb8469199a8bc7"
+    },
+    {
+      "path": "examples/swipe/index.tsx",
+      "source": "stageshow/examples/swipe/index.tsx",
+      "bytes": 8952,
+      "sha256": "84e494d9e4cdb96a3508d898723dfe1592c9dafd4baa0310e9a7a66339e536c5"
+    },
+    {
+      "path": "examples/swipe/swipe.css",
+      "source": "stageshow/examples/swipe/swipe.css",
+      "bytes": 3536,
+      "sha256": "5e21553cce1e6cb7b449ab9021f4a88a51cd791af557f9608afb81b125c15e3c"
+    },
+    {
+      "path": "examples/table-edit/index.tsx",
+      "source": "stageshow/examples/table-edit/index.tsx",
+      "bytes": 5015,
+      "sha256": "6995870c7a5b4caf7fa1c669546258b3eed3e2811b53797f52e2b8c035bfed15"
+    },
+    {
+      "path": "examples/table-edit/table.css",
+      "source": "stageshow/examples/table-edit/table.css",
+      "bytes": 2488,
+      "sha256": "9a5d4deea96e04bd8717575af6e141a7e4deaf20400773ebef119d75830eaca1"
+    },
+    {
+      "path": "examples/telegram/index.tsx",
+      "source": "stageshow/examples/telegram/index.tsx",
+      "bytes": 8111,
+      "sha256": "f0b63cdcfa7f18428223913b43de36b4d0911616e6d844cc562a1f03eda3aff4"
+    },
+    {
+      "path": "examples/telegram/telegram.css",
+      "source": "stageshow/examples/telegram/telegram.css",
+      "bytes": 12285,
+      "sha256": "95e5339aa7922c737bdd1803e729196bd0f981bbbf22e6bd01949aefa7e92add"
+    },
+    {
+      "path": "examples/tilted-stack/index.tsx",
+      "source": "stageshow/examples/tilted-stack/index.tsx",
+      "bytes": 2185,
+      "sha256": "c04c8c763b12084deac87c7a3552981a3a6d4e22f7891a10610543b0352779ab"
+    },
+    {
+      "path": "examples/tilted-stack/tilted.css",
+      "source": "stageshow/examples/tilted-stack/tilted.css",
+      "bytes": 1206,
+      "sha256": "a0e96ae3fb47ac22b44dc5d3e9ac6aba7a32370aa09040611fede3be87e146d8"
+    },
+    {
+      "path": "examples/upload/index.tsx",
+      "source": "stageshow/examples/upload/index.tsx",
+      "bytes": 9956,
+      "sha256": "32d180937080415a2f8784240f13ea91736fc6d7162a2b059c1f885dae9d27c8"
+    },
+    {
+      "path": "examples/upload/upload.css",
+      "source": "stageshow/examples/upload/upload.css",
+      "bytes": 5269,
+      "sha256": "03d99dd4ac79528f883bdf2b79d0b40ea7af9e636b0628c2c2a28c071676f3a0"
+    },
+    {
+      "path": "examples/wikipedia/fuji.jpg",
+      "source": "stageshow/examples/wikipedia/fuji.jpg",
+      "bytes": 23667,
+      "sha256": "f32c436481c31fba250bd2cd8b913d02795866e0986c549efbcc1776baad7667"
+    },
+    {
+      "path": "examples/wikipedia/index.tsx",
+      "source": "stageshow/examples/wikipedia/index.tsx",
+      "bytes": 17594,
+      "sha256": "3a9d47d23ac25e990c28ce4094ffdbdc81ace03972f13f1988f872ab085f756a"
+    },
+    {
+      "path": "examples/wikipedia/kawaguchiko.jpg",
+      "source": "stageshow/examples/wikipedia/kawaguchiko.jpg",
+      "bytes": 30233,
+      "sha256": "cf6ec2dcb01d9edf1889b6752fb58aa585a68d8bfa3c1d8383b0e296abe24249"
+    },
+    {
+      "path": "examples/wikipedia/PHOTOS.md",
+      "source": "stageshow/examples/wikipedia/PHOTOS.md",
+      "bytes": 1116,
+      "sha256": "16e81a6e71bae04bae21435890647e0c76bc905efc59e21e2e166c0d7e1098cb"
+    },
+    {
+      "path": "examples/wikipedia/wiki.css",
+      "source": "stageshow/examples/wikipedia/wiki.css",
+      "bytes": 10982,
+      "sha256": "349c8330e45c3a212150a2ed2d905bdbd63441b3463d177ef2f04c6382ddba8e"
+    },
+    {
+      "path": "examples/window-row/index.tsx",
+      "source": "stageshow/examples/window-row/index.tsx",
+      "bytes": 3633,
+      "sha256": "8a0bbbaace6c7275c2439e93dbf2b0673f78ae0462ce8f6f46680c8e1cceb469"
+    },
+    {
+      "path": "examples/window-row/row.css",
+      "source": "stageshow/examples/window-row/row.css",
+      "bytes": 1150,
+      "sha256": "5fd244a88f8907a05160d96f054c800937e33de323be952328a2fece0e4f58f7"
+    },
+    {
+      "path": "kit/act.ts",
+      "source": "stageshow/kit/act.ts",
+      "bytes": 31369,
+      "sha256": "2f2835e6600cd62022467ab8b67534f4f478b8eed4122deffdfc21901e3da573"
+    },
+    {
+      "path": "kit/brands/1password-dark.svg",
+      "source": "stageshow/kit/brands/1password-dark.svg",
+      "bytes": 1217,
+      "sha256": "ad593cc8ca4fb8e3ae066fdd4dd3d86cb9084cad8b9092275e3ecd27fb35cc65"
+    },
+    {
+      "path": "kit/brands/1password.svg",
+      "source": "stageshow/kit/brands/1password.svg",
+      "bytes": 1219,
+      "sha256": "36ef31dc8e1ea5a2a7f4a1a53dc874c61170056bdacacd24ea4fa4c8cd050af8"
+    },
+    {
+      "path": "kit/brands/amex-tile.svg",
+      "source": "stageshow/kit/brands/amex-tile.svg",
+      "bytes": 1643,
+      "sha256": "56b8e90244c34621e294d3357edfef9a1467e501773ed21b25dc6367ab3d7803"
+    },
+    {
+      "path": "kit/brands/amex.svg",
+      "source": "stageshow/kit/brands/amex.svg",
+      "bytes": 2402,
+      "sha256": "028f643755987211bf2f3add6c62ae1870a888cf2f4fe3040a4fac7dce2543ab"
+    },
+    {
+      "path": "kit/brands/bankofamerica-dark.svg",
+      "source": "stageshow/kit/brands/bankofamerica-dark.svg",
+      "bytes": 1341,
+      "sha256": "7b1a2e68596037f8eebcb87372dfb68cddd89a8223ab254b63c7ae0f2d8fc450"
+    },
+    {
+      "path": "kit/brands/bankofamerica.svg",
+      "source": "stageshow/kit/brands/bankofamerica.svg",
+      "bytes": 1341,
+      "sha256": "333b8ad593ea8436cceb3f8b2011043df14380eaf57e26f2c41c301662a2db5e"
+    },
+    {
+      "path": "kit/brands/barclays.svg",
+      "source": "stageshow/kit/brands/barclays.svg",
+      "bytes": 2331,
+      "sha256": "3ad7b3bb0a3e7da08c1a38b048752370fb09ad8b6237da98982568868b53c6b7"
+    },
+    {
+      "path": "kit/brands/bitcoin.svg",
+      "source": "stageshow/kit/brands/bitcoin.svg",
+      "bytes": 953,
+      "sha256": "5a8131ecdf855b12cb56080aeeeefea266976529c45b2d58c284a13b7519f4ca"
+    },
+    {
+      "path": "kit/brands/chase.svg",
+      "source": "stageshow/kit/brands/chase.svg",
+      "bytes": 377,
+      "sha256": "01c68fb6240d0d6dadb3d570f80fefe592c23e3ae75c2b8a2ac4686d4b5b9f87"
+    },
+    {
+      "path": "kit/brands/discover.svg",
+      "source": "stageshow/kit/brands/discover.svg",
+      "bytes": 2078,
+      "sha256": "8ef8d5002bc7364c2468f24156a6cb5bd9321a4461f4fda5de5aa21cfc9a13ca"
+    },
+    {
+      "path": "kit/brands/dropbox-glyph.svg",
+      "source": "stageshow/kit/brands/dropbox-glyph.svg",
+      "bytes": 368,
+      "sha256": "2ca2ec8c063b1769a8955b4401d5798455881e553d38fe8f47b28b0480e5096b"
+    },
+    {
+      "path": "kit/brands/dropbox.svg",
+      "source": "stageshow/kit/brands/dropbox.svg",
+      "bytes": 408,
+      "sha256": "ef6eeed72f74fcd89674afd62dcf451eaf48c360da516679b08c1e99a8ea0819"
+    },
+    {
+      "path": "kit/brands/ethereum.svg",
+      "source": "stageshow/kit/brands/ethereum.svg",
+      "bytes": 525,
+      "sha256": "1f94df8533f61806f7b17eaf9cd28678cdba66e1d82a9ca8f9fb38d35a907e9c"
+    },
+    {
+      "path": "kit/brands/figma.svg",
+      "source": "stageshow/kit/brands/figma.svg",
+      "bytes": 1087,
+      "sha256": "5bcdea3417293412845b8298fe357fce3b192e8ff112d9b3fef315bc5cd127f6"
+    },
+    {
+      "path": "kit/brands/github-dark.svg",
+      "source": "stageshow/kit/brands/github-dark.svg",
+      "bytes": 939,
+      "sha256": "83adf1cacb564250654ccf60caadd8aaf852d9de47936befb7cb61b674ace7e8"
+    },
+    {
+      "path": "kit/brands/github.svg",
+      "source": "stageshow/kit/brands/github.svg",
+      "bytes": 997,
+      "sha256": "64568845c83d5e840e6a1fb7af1939fed14709636427ce9be2fbcdc14ac5e021"
+    },
+    {
+      "path": "kit/brands/gmail.svg",
+      "source": "stageshow/kit/brands/gmail.svg",
+      "bytes": 720,
+      "sha256": "6e0a1db3ce3893a809c3293bf0780902cad270ed443bb118cfcbc40647e272ab"
+    },
+    {
+      "path": "kit/brands/google-calendar.svg",
+      "source": "stageshow/kit/brands/google-calendar.svg",
+      "bytes": 2535,
+      "sha256": "643e0b6b34b278cf062bedcf798f894b7e8fa7b665793736664c5cf57f9f7873"
+    },
+    {
+      "path": "kit/brands/google-docs.svg",
+      "source": "stageshow/kit/brands/google-docs.svg",
+      "bytes": 393,
+      "sha256": "0813258b7d8370832436aee23fcdda458fdb7d311a95c039c3c95934846386e9"
+    },
+    {
+      "path": "kit/brands/google-drive.svg",
+      "source": "stageshow/kit/brands/google-drive.svg",
+      "bytes": 734,
+      "sha256": "2a0272583e3ea138ba5b809d9fa7d099b7b31e18221d5550c4e6f0d8866d4f84"
+    },
+    {
+      "path": "kit/brands/google-meet.svg",
+      "source": "stageshow/kit/brands/google-meet.svg",
+      "bytes": 1292,
+      "sha256": "78740599528aa18810c9ab7e854fd1607679bccf3ee7a00a622f9dce2b5d8473"
+    },
+    {
+      "path": "kit/brands/google-sheets.svg",
+      "source": "stageshow/kit/brands/google-sheets.svg",
+      "bytes": 5073,
+      "sha256": "1e610a408605d9cfc1e90683ef25f360e7eaa6eb89c4c54dcab40a19b5c72562"
+    },
+    {
+      "path": "kit/brands/google-slides.svg",
+      "source": "stageshow/kit/brands/google-slides.svg",
+      "bytes": 5083,
+      "sha256": "328414886ebfaeea95e460cdda3fd015c143c910399799654b0f73e1e9b1c558"
+    },
+    {
+      "path": "kit/brands/hsbc.svg",
+      "source": "stageshow/kit/brands/hsbc.svg",
+      "bytes": 282,
+      "sha256": "de8b6eb50dfe4fd7942f29945fdd90bf873353da2fef3bac860ae2eb74f5f562"
+    },
+    {
+      "path": "kit/brands/index.ts",
+      "source": "stageshow/kit/brands/index.ts",
+      "bytes": 8106,
+      "sha256": "56df62f84f193a4daee70de3cfdcf8ca5171626965e69001971d093ee9c44021"
+    },
+    {
+      "path": "kit/brands/LICENSE-CRYPTO-FLAT.txt",
+      "source": "stageshow/kit/brands/LICENSE-CRYPTO-FLAT.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "kit/brands/LICENSE-PAYMENT-ICONS.txt",
+      "source": "stageshow/kit/brands/LICENSE-PAYMENT-ICONS.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "kit/brands/LICENSE-SIMPLE-ICONS.txt",
+      "source": "stageshow/kit/brands/LICENSE-SIMPLE-ICONS.txt",
+      "bytes": 6569,
+      "sha256": "9046848b63a5c92bff14e4accca80bd987e0623b74adf9226ce5198d312b79d5"
+    },
+    {
+      "path": "kit/brands/LICENSE-SVGL.txt",
+      "source": "stageshow/kit/brands/LICENSE-SVGL.txt",
+      "bytes": 1067,
+      "sha256": "8140f413cb8bf477735c35b7b1c1e0a5731a5b41406c042304a98c39e6b8ba47"
+    },
+    {
+      "path": "kit/brands/linear-dark.svg",
+      "source": "stageshow/kit/brands/linear-dark.svg",
+      "bytes": 1057,
+      "sha256": "32f9883452188b39787f8242c7bfce723ded255f35f13254e727871d3dae2fd1"
+    },
+    {
+      "path": "kit/brands/linear.svg",
+      "source": "stageshow/kit/brands/linear.svg",
+      "bytes": 1060,
+      "sha256": "e683e95a5eb9b360ae06360c0350fd1b5fcf3d2222ef9de8e71fa0bc413dccc3"
+    },
+    {
+      "path": "kit/brands/mastercard.svg",
+      "source": "stageshow/kit/brands/mastercard.svg",
+      "bytes": 813,
+      "sha256": "1c8f56fb410ec06e8467423cec0fb9fe54d6b18eba703591548d3159e744496b"
+    },
+    {
+      "path": "kit/brands/monzo-dark.svg",
+      "source": "stageshow/kit/brands/monzo-dark.svg",
+      "bytes": 556,
+      "sha256": "670af41770f6824f34b6688f3b0ff4ce13d219153782706e846fe7045c3cc8b9"
+    },
+    {
+      "path": "kit/brands/monzo.svg",
+      "source": "stageshow/kit/brands/monzo.svg",
+      "bytes": 556,
+      "sha256": "1da09cc4f3c1685ead01c8c2c2cb567138c5c256a9f201c3de6e4e137b155935"
+    },
+    {
+      "path": "kit/brands/notion.svg",
+      "source": "stageshow/kit/brands/notion.svg",
+      "bytes": 1579,
+      "sha256": "0d94471649fb9badd434394846079c279876fdd224cf49ed46b6c09fbd3a041f"
+    },
+    {
+      "path": "kit/brands/paypal.svg",
+      "source": "stageshow/kit/brands/paypal.svg",
+      "bytes": 692,
+      "sha256": "be46ba3ede93ac6d513f00947d6aba825e450497b1a47a8bd408e90d6ee829c7"
+    },
+    {
+      "path": "kit/brands/revolut-dark.svg",
+      "source": "stageshow/kit/brands/revolut-dark.svg",
+      "bytes": 467,
+      "sha256": "3b41bd2c68f7ef6c534b3827640f0645cb21d56b53090cb80bc98a42ac9af789"
+    },
+    {
+      "path": "kit/brands/revolut.svg",
+      "source": "stageshow/kit/brands/revolut.svg",
+      "bytes": 467,
+      "sha256": "44ca5d80af421f8cf86839f1fbd3f4841ad75c6eb3f81602ce044b29e036779f"
+    },
+    {
+      "path": "kit/brands/shopify.svg",
+      "source": "stageshow/kit/brands/shopify.svg",
+      "bytes": 1714,
+      "sha256": "86e19afda708cead229b714d25de147ef0b920cfea807c5b2933b30d17a234db"
+    },
+    {
+      "path": "kit/brands/slack.svg",
+      "source": "stageshow/kit/brands/slack.svg",
+      "bytes": 1497,
+      "sha256": "29734796b3a85f9d0e03150d53142fab0b7f994ae80c7e3e1efd0bef52c12f5d"
+    },
+    {
+      "path": "kit/brands/solana.svg",
+      "source": "stageshow/kit/brands/solana.svg",
+      "bytes": 1290,
+      "sha256": "d5ae3179116a3e643c131489e305cd71a6eb2f0d58e20f3c4189f741eed9ac91"
+    },
+    {
+      "path": "kit/brands/SOURCES.md",
+      "source": "stageshow/kit/brands/SOURCES.md",
+      "bytes": 11156,
+      "sha256": "e9bd80489054039ea224e239ffbc371025cf0697b702b2ca852e085176a4c3a5"
+    },
+    {
+      "path": "kit/brands/stripe.svg",
+      "source": "stageshow/kit/brands/stripe.svg",
+      "bytes": 212,
+      "sha256": "d1dd829f330c3c17a02c7356e2e41f77f6ecad3f72a9b2bf11b649703c66e30a"
+    },
+    {
+      "path": "kit/brands/tether.svg",
+      "source": "stageshow/kit/brands/tether.svg",
+      "bytes": 806,
+      "sha256": "14c4ce4de02e430893b51b6fd6c814d1c32a2001d5a0f8962304652f30773a17"
+    },
+    {
+      "path": "kit/brands/usdc.svg",
+      "source": "stageshow/kit/brands/usdc.svg",
+      "bytes": 1309,
+      "sha256": "fe4f9d5f34ef4ebeb5d80e1f5ff63dcaf5a0d5495f4adf206e4c3011d1f5c57d"
+    },
+    {
+      "path": "kit/brands/vercel-dark.svg",
+      "source": "stageshow/kit/brands/vercel-dark.svg",
+      "bytes": 169,
+      "sha256": "a9ae5ad4ea10c39122cc6b07927132f9c684dd2f1a7bef5337b0eb7364e139ae"
+    },
+    {
+      "path": "kit/brands/vercel.svg",
+      "source": "stageshow/kit/brands/vercel.svg",
+      "bytes": 169,
+      "sha256": "565f40e56abbd9c9f31e113c45e90ce456cc112d4811f2f49d1d5041fe501b7c"
+    },
+    {
+      "path": "kit/brands/visa.svg",
+      "source": "stageshow/kit/brands/visa.svg",
+      "bytes": 1204,
+      "sha256": "8d837bb887be5ac1a959c8bfc8874dc35d1571d5953efa560b1f317ed6f56bb4"
+    },
+    {
+      "path": "kit/brands/wellsfargo.svg",
+      "source": "stageshow/kit/brands/wellsfargo.svg",
+      "bytes": 2446,
+      "sha256": "9bdc94d13013564576f14ae3829b0fe9454a5517b60a92fe478f8e6368328c2b"
+    },
+    {
+      "path": "kit/brands/zoom.svg",
+      "source": "stageshow/kit/brands/zoom.svg",
+      "bytes": 1377,
+      "sha256": "5d1bf4d38bc5fc437578292dafc3cb4a678682e3124f1e2910d817aee9658615"
+    },
+    {
+      "path": "kit/chart.css",
+      "source": "stageshow/kit/chart.css",
+      "bytes": 1446,
+      "sha256": "50749dfe283565eeb881599a08b11f34c2fb1e0307950f70bfdd9f4adcb9f64c"
+    },
+    {
+      "path": "kit/chart.tsx",
+      "source": "stageshow/kit/chart.tsx",
+      "bytes": 9469,
+      "sha256": "e8f3b8a60a39b88c2e2ed8fe04697cc5c64837ae14ea5be6f4e5c5beac5cad4f"
+    },
+    {
+      "path": "kit/clock.ts",
+      "source": "stageshow/kit/clock.ts",
+      "bytes": 10819,
+      "sha256": "06f30986325edbd8d26273c94d3d92a0e68ce4bce09eb711aad68994d06bbc47"
+    },
+    {
+      "path": "kit/code.css",
+      "source": "stageshow/kit/code.css",
+      "bytes": 2311,
+      "sha256": "aa8a222394318305f3c6bfbe33ce73e95f39f686144f3a3c15579378990102bd"
+    },
+    {
+      "path": "kit/code.tsx",
+      "source": "stageshow/kit/code.tsx",
+      "bytes": 3387,
+      "sha256": "e7b9a2b545e7f457ec58602bcf5c9d534479e5a425ac1ee24d43f24431cbe5fb"
+    },
+    {
+      "path": "kit/controls/Badge.css",
+      "source": "stageshow/kit/controls/Badge.css",
+      "bytes": 1798,
+      "sha256": "d71505b85615abe1160de5196a830ce30b73e449bbb43c6d2e57b8e300cb6093"
+    },
+    {
+      "path": "kit/controls/Badge.tsx",
+      "source": "stageshow/kit/controls/Badge.tsx",
+      "bytes": 822,
+      "sha256": "55edfeec962ff1bf139af7d0868760f63a9d0e438d83f8f6d0a88a003c644816"
+    },
+    {
+      "path": "kit/controls/Button.css",
+      "source": "stageshow/kit/controls/Button.css",
+      "bytes": 3944,
+      "sha256": "90eb1e53abce9894a4bef5e308403197b46eab196d99b30be5f52065685e8518"
+    },
+    {
+      "path": "kit/controls/Button.tsx",
+      "source": "stageshow/kit/controls/Button.tsx",
+      "bytes": 3307,
+      "sha256": "281cef3e8c6a0f506d774f478565d37900e600fdf07e0ad01a64fa4cc7e81a95"
+    },
+    {
+      "path": "kit/controls/Draft.css",
+      "source": "stageshow/kit/controls/Draft.css",
+      "bytes": 2225,
+      "sha256": "13b1a90f243f9d212e2e5e103c80b48c2ea5b75ac1c39dd9128d5804c14b74f5"
+    },
+    {
+      "path": "kit/controls/Draft.tsx",
+      "source": "stageshow/kit/controls/Draft.tsx",
+      "bytes": 2128,
+      "sha256": "89bee05d25e557f7c5d12df4ff65be50c001851995fe4430087b1df2332a7345"
+    },
+    {
+      "path": "kit/controls/Field.css",
+      "source": "stageshow/kit/controls/Field.css",
+      "bytes": 5437,
+      "sha256": "d48c35db3f1a7e966d2bc816bb492b6f1a2d69acf4e2f0e01b6fde475de0e54b"
+    },
+    {
+      "path": "kit/controls/Field.tsx",
+      "source": "stageshow/kit/controls/Field.tsx",
+      "bytes": 4377,
+      "sha256": "16dd3a339be85893929c361892a906c389ac24db87a9083291e63a66f15f5d59"
+    },
+    {
+      "path": "kit/controls/index.ts",
+      "source": "stageshow/kit/controls/index.ts",
+      "bytes": 714,
+      "sha256": "64426c3a9a1190de8ac52f082faafd2b1e6208a2bee5dc045f1a022cb99448a9"
+    },
+    {
+      "path": "kit/controls/Segmented.css",
+      "source": "stageshow/kit/controls/Segmented.css",
+      "bytes": 903,
+      "sha256": "f9c4f73d3eb2216f2969ac42906418c351471dcf4bb54a0e852fe642f4755e9e"
+    },
+    {
+      "path": "kit/controls/Segmented.tsx",
+      "source": "stageshow/kit/controls/Segmented.tsx",
+      "bytes": 1048,
+      "sha256": "dcca115941880408e1616d57ab0e13fac260d832320afc445b299e7f1b604527"
+    },
+    {
+      "path": "kit/controls/Slot.css",
+      "source": "stageshow/kit/controls/Slot.css",
+      "bytes": 1014,
+      "sha256": "a7be1de89da119dc8dc48190defcd31c23235c8074476fb6f750201e397f858e"
+    },
+    {
+      "path": "kit/controls/Slot.tsx",
+      "source": "stageshow/kit/controls/Slot.tsx",
+      "bytes": 971,
+      "sha256": "80b5239315bee28b2c738ef1cd8a3bb24997d9418e8ec6888ba4970370f28765"
+    },
+    {
+      "path": "kit/controls/Tabs.css",
+      "source": "stageshow/kit/controls/Tabs.css",
+      "bytes": 613,
+      "sha256": "7b562dcdcbd73b00c4eea7b9be4e860af1a40b27904b41554e107499ee4af213"
+    },
+    {
+      "path": "kit/controls/Tabs.tsx",
+      "source": "stageshow/kit/controls/Tabs.tsx",
+      "bytes": 1273,
+      "sha256": "2c4170ac5a88ef426e2e4dc3307c49c5854b85e7de115a9453e0d970fad6d612"
+    },
+    {
+      "path": "kit/controls/Toggle.css",
+      "source": "stageshow/kit/controls/Toggle.css",
+      "bytes": 1151,
+      "sha256": "df236dd3b3f71804d4431892e77ee9c9fa13c9110bc4bf947bc5ddd83816fc81"
+    },
+    {
+      "path": "kit/controls/Toggle.tsx",
+      "source": "stageshow/kit/controls/Toggle.tsx",
+      "bytes": 454,
+      "sha256": "bd83679a2b7462d450eea9a6e5895f00dbc0d797b085d3668a3fff7d1314d8de"
+    },
+    {
+      "path": "kit/cursor.css",
+      "source": "stageshow/kit/cursor.css",
+      "bytes": 8303,
+      "sha256": "40c69aaff8c7c970f49ef9f9f4c6d8c3f89fdf4218d8aa703cf5b36483a9e42d"
+    },
+    {
+      "path": "kit/cursor.tsx",
+      "source": "stageshow/kit/cursor.tsx",
+      "bytes": 4357,
+      "sha256": "e3c73976b0cc132af659c6079470a5fd22709f894058a044dceddcdd761b12f4"
+    },
+    {
+      "path": "kit/cursors.tsx",
+      "source": "stageshow/kit/cursors.tsx",
+      "bytes": 14894,
+      "sha256": "cc5100bfe6393fb2635b644988557ca42589457b46faa81274e8683effadaae5"
+    },
+    {
+      "path": "kit/ease.ts",
+      "source": "stageshow/kit/ease.ts",
+      "bytes": 2488,
+      "sha256": "0b1699fa40ff569f2d21f54c910565affed7fed3059b8a04514feacd9ab61636"
+    },
+    {
+      "path": "kit/index.ts",
+      "source": "stageshow/kit/index.ts",
+      "bytes": 2588,
+      "sha256": "5750309079da1ccddaa5b187f06361dadd4af58bb07de4d91c62545805ee7734"
+    },
+    {
+      "path": "kit/ios.css",
+      "source": "stageshow/kit/ios.css",
+      "bytes": 4271,
+      "sha256": "330e880fe6e48d145dc749cfc2134df6ad1b0cb7cf7445137e2b4fdc8b8cb42d"
+    },
+    {
+      "path": "kit/ios.tsx",
+      "source": "stageshow/kit/ios.tsx",
+      "bytes": 5570,
+      "sha256": "61f3dcbdb21c0e28e63c8748dc0e7ff2d817953be7d876cb0bbe7e40262784ae"
+    },
+    {
+      "path": "kit/keys.css",
+      "source": "stageshow/kit/keys.css",
+      "bytes": 1453,
+      "sha256": "929ef94999bfd7fd6bc78c5026c98f5b4ff8483c8aecfa3bc87cfb2e466cfc3c"
+    },
+    {
+      "path": "kit/keys.tsx",
+      "source": "stageshow/kit/keys.tsx",
+      "bytes": 1404,
+      "sha256": "ab45f610aa1c2ccac54a966e8e8c804ed601258cc4e8071278d48cb8bc4f6c59"
+    },
+    {
+      "path": "kit/looks.ts",
+      "source": "stageshow/kit/looks.ts",
+      "bytes": 1011,
+      "sha256": "263a44eaa74b5d7f4efb7868080c1e04cbbd03a224c06ddf88fd27c47c6f92ac"
+    },
+    {
+      "path": "kit/measure.ts",
+      "source": "stageshow/kit/measure.ts",
+      "bytes": 6169,
+      "sha256": "0958237aca2af81015dda8b1c18815b3a30187b8796f809a15f7898c5861c68c"
+    },
+    {
+      "path": "kit/messages.css",
+      "source": "stageshow/kit/messages.css",
+      "bytes": 12402,
+      "sha256": "1836f406438fbe668c97f1fd2b5133ca5e0a598ee9c1f8ad0507002218d1eb72"
+    },
+    {
+      "path": "kit/messages.tsx",
+      "source": "stageshow/kit/messages.tsx",
+      "bytes": 12185,
+      "sha256": "4f9df8004be1548f4bc62f248932caed0e6ef83be58f5378fe17b950d70f278a"
+    },
+    {
+      "path": "kit/motion/Camera.css",
+      "source": "stageshow/kit/motion/Camera.css",
+      "bytes": 718,
+      "sha256": "6bdc4d2b6a11b0275a5b4735c4b23b6839ccf0cf59193b804f3a5aac15688641"
+    },
+    {
+      "path": "kit/motion/Camera.tsx",
+      "source": "stageshow/kit/motion/Camera.tsx",
+      "bytes": 3088,
+      "sha256": "9853ab49e180da4280e4aa8d8431761413b72978434deb837db3785c0b5d5e96"
+    },
+    {
+      "path": "kit/motion/Collapse.css",
+      "source": "stageshow/kit/motion/Collapse.css",
+      "bytes": 4125,
+      "sha256": "2a2c985bb71a8518390c65fd3392827871625d6dd72e67649fee20b2175ff703"
+    },
+    {
+      "path": "kit/motion/Collapse.tsx",
+      "source": "stageshow/kit/motion/Collapse.tsx",
+      "bytes": 3941,
+      "sha256": "fea3a7dc6ac5da0b3d1a4709dc1a1aa97da65c1e7da35895c59fa7c143a6bb5e"
+    },
+    {
+      "path": "kit/motion/Connector.css",
+      "source": "stageshow/kit/motion/Connector.css",
+      "bytes": 3019,
+      "sha256": "3f85813244e8ffa59950beaa93e57a3b4776266299da2b1c8be38a2a55a499ef"
+    },
+    {
+      "path": "kit/motion/Connector.tsx",
+      "source": "stageshow/kit/motion/Connector.tsx",
+      "bytes": 8505,
+      "sha256": "e99cc275971955393bce8f8ebbb9fa0be88562f0079eb77b8d53c70d6627eb46"
+    },
+    {
+      "path": "kit/motion/Count.css",
+      "source": "stageshow/kit/motion/Count.css",
+      "bytes": 2000,
+      "sha256": "1ed5fbf371ff3cec3a68ee695a6d7a16a1837aa423d2efa224b8a12a0ea9f423"
+    },
+    {
+      "path": "kit/motion/Count.tsx",
+      "source": "stageshow/kit/motion/Count.tsx",
+      "bytes": 6456,
+      "sha256": "f28e0546819f1ab19ee32d8318708c389c2f001f5054c7bcd12ed3b31746ed85"
+    },
+    {
+      "path": "kit/motion/Expand.css",
+      "source": "stageshow/kit/motion/Expand.css",
+      "bytes": 2839,
+      "sha256": "4b38026afe2022df97962cec0e307b3f847a86ecef729f4316a66ac51001063d"
+    },
+    {
+      "path": "kit/motion/Expand.tsx",
+      "source": "stageshow/kit/motion/Expand.tsx",
+      "bytes": 5911,
+      "sha256": "ac5baf38ee800a1bf0c7ad9432016f99c5074be615cba3b08f666ea07a1bf706"
+    },
+    {
+      "path": "kit/motion/Fly.css",
+      "source": "stageshow/kit/motion/Fly.css",
+      "bytes": 1295,
+      "sha256": "d15267f457b8dd3700b6b6e4025f1d6dd99a2a07759ebf5014de00357bf83f57"
+    },
+    {
+      "path": "kit/motion/Fly.tsx",
+      "source": "stageshow/kit/motion/Fly.tsx",
+      "bytes": 4644,
+      "sha256": "2e4a56aea275ffb6918807608436af42480eaf0e7a6517e5125f91bbdec14140"
+    },
+    {
+      "path": "kit/motion/Follow.css",
+      "source": "stageshow/kit/motion/Follow.css",
+      "bytes": 256,
+      "sha256": "68be055fb6195a1b28a4aab6edfb8ce1ecb4b9a89f88d0418f48805fdb32b61d"
+    },
+    {
+      "path": "kit/motion/Follow.tsx",
+      "source": "stageshow/kit/motion/Follow.tsx",
+      "bytes": 5740,
+      "sha256": "1b017886add5f0b908b55c5a0020fb379b4c470da17687b042a6f48c84e2f9df"
+    },
+    {
+      "path": "kit/motion/index.ts",
+      "source": "stageshow/kit/motion/index.ts",
+      "bytes": 996,
+      "sha256": "19e0ac13b0743a01b642da5c351abd648f7c186bf307e735f4969d5a99a353e6"
+    },
+    {
+      "path": "kit/motion/Popover.css",
+      "source": "stageshow/kit/motion/Popover.css",
+      "bytes": 2332,
+      "sha256": "4b6e64db3c5e2732d5b1182de07be31eb039624924b5791d688101bf33045cbd"
+    },
+    {
+      "path": "kit/motion/Popover.tsx",
+      "source": "stageshow/kit/motion/Popover.tsx",
+      "bytes": 2005,
+      "sha256": "cc29b9dc759bf7cd2e02d42723a66b4e30d116c43e67a917f0617428f1e8f13f"
+    },
+    {
+      "path": "kit/motion/Roll.css",
+      "source": "stageshow/kit/motion/Roll.css",
+      "bytes": 2777,
+      "sha256": "0e55390fa9984a1dbad543dff66405abc39acae04b78e4366deea34f286bb29a"
+    },
+    {
+      "path": "kit/motion/Roll.tsx",
+      "source": "stageshow/kit/motion/Roll.tsx",
+      "bytes": 8871,
+      "sha256": "8c265a336111a939c946c8dc8e43d3b70474d26abc1ed8baca7e6c13808ac10e"
+    },
+    {
+      "path": "kit/motion/Scroll.css",
+      "source": "stageshow/kit/motion/Scroll.css",
+      "bytes": 1138,
+      "sha256": "75b6e91737672c0e32a3c2ce1e31c174d1be8ab98d3436a767ef25eab47ce9b5"
+    },
+    {
+      "path": "kit/motion/Scroll.tsx",
+      "source": "stageshow/kit/motion/Scroll.tsx",
+      "bytes": 1124,
+      "sha256": "7c6f75e475172958a192e6ff9d7970d26f32716233a1c1b248c40ca2bcceefec"
+    },
+    {
+      "path": "kit/motion/States.css",
+      "source": "stageshow/kit/motion/States.css",
+      "bytes": 1726,
+      "sha256": "6c12b54ce6d6d85182ae7276456921c46cf12281c6176cfb251b94035a50f40f"
+    },
+    {
+      "path": "kit/motion/States.tsx",
+      "source": "stageshow/kit/motion/States.tsx",
+      "bytes": 1707,
+      "sha256": "fd0b87fb68ff207fc43195c48503e566d2860ed39bac27568e536a2d8ec2bf54"
+    },
+    {
+      "path": "kit/motion/Stream.css",
+      "source": "stageshow/kit/motion/Stream.css",
+      "bytes": 665,
+      "sha256": "65044bc4931973bd1f9367496cbec958e60c04034e69e0d90bc655b7870b11e5"
+    },
+    {
+      "path": "kit/motion/Stream.tsx",
+      "source": "stageshow/kit/motion/Stream.tsx",
+      "bytes": 1366,
+      "sha256": "8f5bce032133d0266e16a10dd64f268205c58b212ecad7305b0989516d33253d"
+    },
+    {
+      "path": "kit/motion/Swap.css",
+      "source": "stageshow/kit/motion/Swap.css",
+      "bytes": 1309,
+      "sha256": "2e4e1243f01ccda39601b0298f0642da26d4c45269251890ba3230462ef45861"
+    },
+    {
+      "path": "kit/motion/Swap.tsx",
+      "source": "stageshow/kit/motion/Swap.tsx",
+      "bytes": 5280,
+      "sha256": "a6928707dddb1c0299d76ab00089466af1d2fa15d7b8490f372abcaf861c1da3"
+    },
+    {
+      "path": "kit/parts/Avatar.css",
+      "source": "stageshow/kit/parts/Avatar.css",
+      "bytes": 3108,
+      "sha256": "594951e42d8c0571263d5a460812bf32f8356b985c52f01cc6939bdc5844853e"
+    },
+    {
+      "path": "kit/parts/Avatar.tsx",
+      "source": "stageshow/kit/parts/Avatar.tsx",
+      "bytes": 2705,
+      "sha256": "39e58c3d097fcb7843fb92bdb3700ec3c10ea672a86db82297b7cff1f609403e"
+    },
+    {
+      "path": "kit/parts/BrandMark.css",
+      "source": "stageshow/kit/parts/BrandMark.css",
+      "bytes": 850,
+      "sha256": "580a86b5df5f9707b436c1d2c4139a18848706a4433bdbe55ce0f85e5ed7c869"
+    },
+    {
+      "path": "kit/parts/BrandMark.tsx",
+      "source": "stageshow/kit/parts/BrandMark.tsx",
+      "bytes": 2454,
+      "sha256": "af1ad007252b36c53dc6264b855decb535b79887575b0ff50900db2a5a940e3b"
+    },
+    {
+      "path": "kit/parts/Card.css",
+      "source": "stageshow/kit/parts/Card.css",
+      "bytes": 1404,
+      "sha256": "69e344b3cf920e2ca04c76af2f34dd4b600a431b9ce1116abaf8545e9be18060"
+    },
+    {
+      "path": "kit/parts/Card.tsx",
+      "source": "stageshow/kit/parts/Card.tsx",
+      "bytes": 1838,
+      "sha256": "2fb2c878d98d0766cacd7f24c3c04aac57da180b30aae7861774b3510ac95c6f"
+    },
+    {
+      "path": "kit/parts/Check.css",
+      "source": "stageshow/kit/parts/Check.css",
+      "bytes": 2217,
+      "sha256": "5c4c2080ab705ce4e6febfa560337d7248b00de5381bd0be2be97e6e689734a9"
+    },
+    {
+      "path": "kit/parts/Check.tsx",
+      "source": "stageshow/kit/parts/Check.tsx",
+      "bytes": 1121,
+      "sha256": "e2dd0a7c25d1abeb14f6f091158f95f98fb99e8198bb6613398a39458e6eb762"
+    },
+    {
+      "path": "kit/parts/Chip.css",
+      "source": "stageshow/kit/parts/Chip.css",
+      "bytes": 1809,
+      "sha256": "e4a78bfe8730b0e0d7c775e167a1068dfae9f135c8337e3411e199acfe6187cc"
+    },
+    {
+      "path": "kit/parts/Chip.tsx",
+      "source": "stageshow/kit/parts/Chip.tsx",
+      "bytes": 1571,
+      "sha256": "a9aec63daf359996ee9eab3907f65bdc1fa93ae28078a2795133f9ef2084bad3"
+    },
+    {
+      "path": "kit/parts/Divider.css",
+      "source": "stageshow/kit/parts/Divider.css",
+      "bytes": 259,
+      "sha256": "1f9c5f6a99aa1387a6505ce2d20c7b1983bab11b63add02e8e35577ff65dc3a1"
+    },
+    {
+      "path": "kit/parts/Divider.tsx",
+      "source": "stageshow/kit/parts/Divider.tsx",
+      "bytes": 747,
+      "sha256": "a3d63360cfcde955c4aea01a715b18ec371cd796783e6dce2a00e5d85b9c8244"
+    },
+    {
+      "path": "kit/parts/Facepile.css",
+      "source": "stageshow/kit/parts/Facepile.css",
+      "bytes": 328,
+      "sha256": "5fe132b5bf3b306837e729998041cfed6acbabc9d708ffe0ba683b2834b721f7"
+    },
+    {
+      "path": "kit/parts/Facepile.tsx",
+      "source": "stageshow/kit/parts/Facepile.tsx",
+      "bytes": 1441,
+      "sha256": "738ec4d682566984fa177c4f5923c956f656e504b4ebaf08da88472e80800e94"
+    },
+    {
+      "path": "kit/parts/Icon.css",
+      "source": "stageshow/kit/parts/Icon.css",
+      "bytes": 90,
+      "sha256": "1e4a18b578f68fd23ddd3cdb4b3dcbc0a23c41ee09e546371b72d085c26f08d4"
+    },
+    {
+      "path": "kit/parts/Icon.tsx",
+      "source": "stageshow/kit/parts/Icon.tsx",
+      "bytes": 5671,
+      "sha256": "5876084fa0fbeb0904a31511148acf2daac99b7fa249d83b7a0bced52942b85a"
+    },
+    {
+      "path": "kit/parts/index.ts",
+      "source": "stageshow/kit/parts/index.ts",
+      "bytes": 1005,
+      "sha256": "3103652b8767a0bf70f5c87ce0d5e8e74d224550bde402e9fe13be8861b50198"
+    },
+    {
+      "path": "kit/parts/Kbd.css",
+      "source": "stageshow/kit/parts/Kbd.css",
+      "bytes": 766,
+      "sha256": "3f20a6c4798f33ccd4dcd0eef0f7f1e64fea994ab6c8c69286d19f6a0d55f296"
+    },
+    {
+      "path": "kit/parts/Kbd.tsx",
+      "source": "stageshow/kit/parts/Kbd.tsx",
+      "bytes": 661,
+      "sha256": "b1cde4a893003c8700c991e442b166bcd96df7618b87ce06c0346afe3409f88a"
+    },
+    {
+      "path": "kit/parts/Menu.css",
+      "source": "stageshow/kit/parts/Menu.css",
+      "bytes": 699,
+      "sha256": "46dd111c1a736eeb4ba56eeb1b4ba82cd2509e0abeac67975f47419a48746321"
+    },
+    {
+      "path": "kit/parts/Menu.tsx",
+      "source": "stageshow/kit/parts/Menu.tsx",
+      "bytes": 876,
+      "sha256": "aae8277b0e5662cc6426cbd8f461b59d39dd4856ec866233c457e1c37c4cfe7c"
+    },
+    {
+      "path": "kit/parts/Meter.css",
+      "source": "stageshow/kit/parts/Meter.css",
+      "bytes": 1209,
+      "sha256": "d1da5486b4c9b9dc7910764768cc4aba8c4015e44fb5f1dba1f677227eb84163"
+    },
+    {
+      "path": "kit/parts/Meter.tsx",
+      "source": "stageshow/kit/parts/Meter.tsx",
+      "bytes": 878,
+      "sha256": "b4ce82765556688162e68275cf9c3a53f91e71b8368515acc2b70562adc28495"
+    },
+    {
+      "path": "kit/parts/Pin.css",
+      "source": "stageshow/kit/parts/Pin.css",
+      "bytes": 1670,
+      "sha256": "af95fca4367d175f855892d2e15c2b108c12d546c745c8ff5768ea4116e62f47"
+    },
+    {
+      "path": "kit/parts/Pin.tsx",
+      "source": "stageshow/kit/parts/Pin.tsx",
+      "bytes": 1492,
+      "sha256": "13c999fdb1f90401f06ff847b5000447193684ee3923f1f7669e39d39c3e5746"
+    },
+    {
+      "path": "kit/parts/Row.css",
+      "source": "stageshow/kit/parts/Row.css",
+      "bytes": 6289,
+      "sha256": "00405ccf9d7cc7242f6e8091b338a3d43c3cc34b2625d53d35c0dedee698a832"
+    },
+    {
+      "path": "kit/parts/Row.tsx",
+      "source": "stageshow/kit/parts/Row.tsx",
+      "bytes": 3072,
+      "sha256": "3e67d13c07ad2b24258261f2a38245e6c53b3f2a266d4785f7c7f15fe366ea72"
+    },
+    {
+      "path": "kit/parts/Spinner.css",
+      "source": "stageshow/kit/parts/Spinner.css",
+      "bytes": 203,
+      "sha256": "62c45c9ccd18edf729f09d1a7f5b5a0eb72befe6dd816ae5804ddab1fa30746f"
+    },
+    {
+      "path": "kit/parts/Spinner.tsx",
+      "source": "stageshow/kit/parts/Spinner.tsx",
+      "bytes": 805,
+      "sha256": "7ad961df16662b4a330300850371881367bb53a6d1d279c5c35c5133122559f9"
+    },
+    {
+      "path": "kit/parts/Toast.css",
+      "source": "stageshow/kit/parts/Toast.css",
+      "bytes": 1155,
+      "sha256": "25b8789e8228bab946538f95da0669fd07d10183de0c40169790d069b80ed4dd"
+    },
+    {
+      "path": "kit/parts/Toast.tsx",
+      "source": "stageshow/kit/parts/Toast.tsx",
+      "bytes": 1303,
+      "sha256": "c7d9e9b6cede3160b744362417644c7aa22b7ac04c18ff00b0050892dd10e211"
+    },
+    {
+      "path": "kit/parts/Tooltip.css",
+      "source": "stageshow/kit/parts/Tooltip.css",
+      "bytes": 899,
+      "sha256": "c6933e2a3100965d8c9c29a0e258f60bef9ff0c45b49961398126671ae57642f"
+    },
+    {
+      "path": "kit/parts/Tooltip.tsx",
+      "source": "stageshow/kit/parts/Tooltip.tsx",
+      "bytes": 1157,
+      "sha256": "f833c8f85a159b28643d098210bcf809c4109619f5404ae2e2615ec6a077998e"
+    },
+    {
+      "path": "kit/phone.css",
+      "source": "stageshow/kit/phone.css",
+      "bytes": 15620,
+      "sha256": "c50844fcdb1c2c06fe3c7afa307564350b0ede0f9026d9a7556aabcdb0448a94"
+    },
+    {
+      "path": "kit/phone.tsx",
+      "source": "stageshow/kit/phone.tsx",
+      "bytes": 18395,
+      "sha256": "cfd79ec0173191d0053ebb82f80df15ad450f432c44dcbf7d3d32fb3e4210add"
+    },
+    {
+      "path": "kit/reduced-motion.ts",
+      "source": "stageshow/kit/reduced-motion.ts",
+      "bytes": 710,
+      "sha256": "9f8926f18ce0489f2c4073d7041c82ee3b6cfb6c16ecd75aea3ef76c43581113"
+    },
+    {
+      "path": "kit/stage.css",
+      "source": "stageshow/kit/stage.css",
+      "bytes": 19292,
+      "sha256": "fa1b22a158235b7d3d0a89a46348d216d392a3ebdfd247f2a9a6041045e0f866"
+    },
+    {
+      "path": "kit/stage.tsx",
+      "source": "stageshow/kit/stage.tsx",
+      "bytes": 26034,
+      "sha256": "4eb11c96492d956d84c48c59dfc0967acd44fa5a49eb3264c005dd44871f1725"
+    },
+    {
+      "path": "kit/stageshow.css",
+      "source": "stageshow/kit/stageshow.css",
+      "bytes": 1355,
+      "sha256": "ca006f0c529c16438919b29f131165b09c3f4ab87695ebb3b8a0a3bd17302d34"
+    },
+    {
+      "path": "kit/util.ts",
+      "source": "stageshow/kit/util.ts",
+      "bytes": 849,
+      "sha256": "b999c044ea0022744588ccb56fea58a41dcc94a60c030856bae05a9beb6ad67f"
+    },
+    {
+      "path": "kit/window.css",
+      "source": "stageshow/kit/window.css",
+      "bytes": 15486,
+      "sha256": "f95bae539dd0525d2be41b12de516ce37f0b64901a6ed7889038861ed2c0b4cd"
+    },
+    {
+      "path": "kit/window.tsx",
+      "source": "stageshow/kit/window.tsx",
+      "bytes": 12946,
+      "sha256": "a854067dde2c9c4271bc355d48da45879face6ea2ecec96a16980b238d356783"
+    },
+    {
+      "path": "LICENSE",
+      "source": "stageshow/LICENSE",
+      "bytes": 1069,
+      "sha256": "f9420246652580af24aa2bc48531c17f0f377b064bc7ea218afeb983923ef643"
+    },
+    {
+      "path": "NOTICE.md",
+      "source": "stageshow/NOTICE.md",
+      "bytes": 1776,
+      "sha256": "eb8eb167a987a8d95f4254a504af138368719a7863bf1d11a4a7e3b662b331d3"
+    },
+    {
+      "path": "package-lock.json",
+      "source": "stageshow/package-lock.json",
+      "bytes": 64304,
+      "sha256": "092ee4aa51f4f38df3c5ba35708ef288a533a6c9b7078fcb5b71897d6ac5e731"
+    },
+    {
+      "path": "package.json",
+      "source": "stageshow/package.json",
+      "bytes": 930,
+      "sha256": "46f0183be9ef4f7d0a43651d5185ffe1bd01d5ac63b9f30c8ba92522100fbe59"
+    },
+    {
+      "path": "playground/catalog.ts",
+      "source": "stageshow/playground/catalog.ts",
+      "bytes": 10301,
+      "sha256": "81558f46dc950f4682edd0919a4965f532f1274b3c518c5c3a3128ce593f03be"
+    },
+    {
+      "path": "playground/index.html",
+      "source": "stageshow/playground/index.html",
+      "bytes": 350,
+      "sha256": "9ec7b794d39aa83dd67265e689e17677742d65236d4d03b857439d8eeb1fbc5b"
+    },
+    {
+      "path": "playground/main.tsx",
+      "source": "stageshow/playground/main.tsx",
+      "bytes": 4884,
+      "sha256": "af08211a535a0fb37ad27f40554d25ba40a62f4d412b3999dfc64e597dc6cb49"
+    },
+    {
+      "path": "playground/playback.ts",
+      "source": "stageshow/playground/playback.ts",
+      "bytes": 3717,
+      "sha256": "5517bf0a5632a61634e8ee83b1b89339ddeab924eb460c694158ba305714c06b"
+    },
+    {
+      "path": "playground/preview.css",
+      "source": "stageshow/playground/preview.css",
+      "bytes": 327,
+      "sha256": "c3efd68e93bf71da66822558d20d4774aa1234e239f370e8a755a74893b7922e"
+    },
+    {
+      "path": "playground/preview.tsx",
+      "source": "stageshow/playground/preview.tsx",
+      "bytes": 1335,
+      "sha256": "8d345cbaee381782a9b2069f7f3bd4c01cc4a863f2c2c138417cd8a3f84de8b7"
+    },
+    {
+      "path": "playground/tsconfig.json",
+      "source": "stageshow/playground/tsconfig.json",
+      "bytes": 301,
+      "sha256": "51f5e675941db67aa409b9935a25125dcc2d912efbd2768c56ae2d0c974ad8e3"
+    },
+    {
+      "path": "playground/viewer.css",
+      "source": "stageshow/playground/viewer.css",
+      "bytes": 6769,
+      "sha256": "64b62277be5ed430396a97ec353b02b2c77b55838382d33690d01f352ac50a89"
+    },
+    {
+      "path": "playground/viewer.tsx",
+      "source": "stageshow/playground/viewer.tsx",
+      "bytes": 7333,
+      "sha256": "e40f3dcfc641840e7eeff26825378fe611d6c8e2b39ccd87d6153c6175932360"
+    },
+    {
+      "path": "playground/vite.config.ts",
+      "source": "stageshow/playground/vite.config.ts",
+      "bytes": 257,
+      "sha256": "48394f60d95d72d9a29d5d54b32598280967451a1e31aa7ca04ae850dd1b1b72"
+    },
+    {
+      "path": "README.md",
+      "source": "stageshow/README.md",
+      "bytes": 3026,
+      "sha256": "ecc44e998970ff4b798e31a00b38b9ef273b977b2dd54bc351dcd81cdee97c5e"
+    },
+    {
+      "path": "references/annotations.md",
+      "source": "stageshow/references/annotations.md",
+      "bytes": 11235,
+      "sha256": "1fb2e8bbda27a0e47267ce661a49336ac729bafeb31947fafd197fb6a06fa4ad"
+    },
+    {
+      "path": "references/backgrounds.md",
+      "source": "stageshow/references/backgrounds.md",
+      "bytes": 4726,
+      "sha256": "b3b0775c2a5da5fc9fa53cb7ef2d199aa7d81e94c35960b993313b704119ebb1"
+    },
+    {
+      "path": "references/bento.md",
+      "source": "stageshow/references/bento.md",
+      "bytes": 10964,
+      "sha256": "c57f8206153d5935e5b7af842baec66a120fdfea62f5804491254b9d74f3e075"
+    },
+    {
+      "path": "references/brands.md",
+      "source": "stageshow/references/brands.md",
+      "bytes": 4019,
+      "sha256": "6d2140be308f07ab0da31b118d95163216f40ce63859944f9fb9041ad9b80ac8"
+    },
+    {
+      "path": "references/choreography.md",
+      "source": "stageshow/references/choreography.md",
+      "bytes": 3478,
+      "sha256": "084c09e6815a30c3f1feabd25f9f59da73f2aeaba1f8abc423ec0b9dea806651"
+    },
+    {
+      "path": "references/craft.md",
+      "source": "stageshow/references/craft.md",
+      "bytes": 18567,
+      "sha256": "6b01824cb6e46797cbb57b517e6f31f12149cc3a43cb921aa5b1575cf8a106d1"
+    },
+    {
+      "path": "references/framing.md",
+      "source": "stageshow/references/framing.md",
+      "bytes": 13992,
+      "sha256": "7843aa673d50068ce5ff70c16eaedf4db77cf74dff14d9601b3f4f61bc10cf2b"
+    },
+    {
+      "path": "references/kit.md",
+      "source": "stageshow/references/kit.md",
+      "bytes": 31177,
+      "sha256": "6b8375f67d11f41af4bb8e1b1a0674fb782bb01cca754d0b1545249c29260b30"
+    },
+    {
+      "path": "references/looks.md",
+      "source": "stageshow/references/looks.md",
+      "bytes": 5941,
+      "sha256": "b740348560893e253408c2e86067fdde4517784cf92d95f458c5d4c69135a4de"
+    },
+    {
+      "path": "references/motion.md",
+      "source": "stageshow/references/motion.md",
+      "bytes": 23668,
+      "sha256": "7f9b717e8b2cf1c96186988796717f1cd74f64215ccb68966f6857cf73b22f91"
+    },
+    {
+      "path": "references/products.md",
+      "source": "stageshow/references/products.md",
+      "bytes": 2096,
+      "sha256": "fd8310397b7796a4b7253e7792ddf4e920c32df1f3b6dd28b56441009c18a8ea"
+    },
+    {
+      "path": "references/rehearse.md",
+      "source": "stageshow/references/rehearse.md",
+      "bytes": 12776,
+      "sha256": "3d1e38bf7141fa1b06e7f096577c88fd56b48540c11e70d858ce8fd22c603ba1"
+    },
+    {
+      "path": "references/review.md",
+      "source": "stageshow/references/review.md",
+      "bytes": 3052,
+      "sha256": "76bb8fd33cb77ebcded5bfc9573b5132637ed9a711c1738daeef89de72aa7fe5"
+    },
+    {
+      "path": "references/teaching.md",
+      "source": "stageshow/references/teaching.md",
+      "bytes": 13196,
+      "sha256": "2c06ac6028176c9d7aa13d3eba3f7db3d047d416cc09a43ef083a4f1d6e5f823"
+    },
+    {
+      "path": "references/verify.md",
+      "source": "stageshow/references/verify.md",
+      "bytes": 5115,
+      "sha256": "1151dd3640d5f808cc9f86f2f615a7e8cad173dc73da47327eae70ea80891845"
+    },
+    {
+      "path": "scripts/browser.mjs",
+      "source": "stageshow/scripts/browser.mjs",
+      "bytes": 900,
+      "sha256": "ffce55eb334cdfd670f22578c8cadfe4fa6d06f0659f07e2f1491030bc11f2c6"
+    },
+    {
+      "path": "scripts/class-clash-core.mjs",
+      "source": "stageshow/scripts/class-clash-core.mjs",
+      "bytes": 6433,
+      "sha256": "2265a44c7ce0706267e7191fd144165bacf9b28bbdbb3253f45e6ef599494717"
+    },
+    {
+      "path": "scripts/class-clash.mjs",
+      "source": "stageshow/scripts/class-clash.mjs",
+      "bytes": 3520,
+      "sha256": "47e5c270dc12a129fce43d98458d69906d181020dc9bae61e265a214c9b2a401"
+    },
+    {
+      "path": "scripts/dev.mjs",
+      "source": "stageshow/scripts/dev.mjs",
+      "bytes": 3071,
+      "sha256": "1767132fd02d14adc2a4e51fa4f82b324752881524c59dd73929f58659fefbf8"
+    },
+    {
+      "path": "scripts/film-checks.mjs",
+      "source": "stageshow/scripts/film-checks.mjs",
+      "bytes": 137368,
+      "sha256": "bf35d9f42bd1c66f71ee770ed811e37c695af1088a5c8d567fd4771709aeb1c8"
+    },
+    {
+      "path": "scripts/film.mjs",
+      "source": "stageshow/scripts/film.mjs",
+      "bytes": 38732,
+      "sha256": "961e4e75794192b1ee35fcaee8bb15fe57c4e22588003a1de4fc673e369626d2"
+    },
+    {
+      "path": "scripts/jumps-core.mjs",
+      "source": "stageshow/scripts/jumps-core.mjs",
+      "bytes": 10742,
+      "sha256": "ad2c06db75c97f6216854fd4f214fb9246d3827879bd0968dd467d503e529ecd"
+    },
+    {
+      "path": "scripts/jumps.mjs",
+      "source": "stageshow/scripts/jumps.mjs",
+      "bytes": 3816,
+      "sha256": "05aba89a744f2ab69d326a2a4c6feee8eea4c0886206a102effca57b431df77e"
+    },
+    {
+      "path": "scripts/layout-core.mjs",
+      "source": "stageshow/scripts/layout-core.mjs",
+      "bytes": 11873,
+      "sha256": "28a0e0664932a6a3eededfd7e6ce90bcfd37639161d1cf2cf50e84e26834506e"
+    },
+    {
+      "path": "scripts/layout.mjs",
+      "source": "stageshow/scripts/layout.mjs",
+      "bytes": 3729,
+      "sha256": "8757e59201a5ef134e04b323df22e200bc652618e176dbdaa3785edf4b5db3ee"
+    },
+    {
+      "path": "scripts/motion-watch.mjs",
+      "source": "stageshow/scripts/motion-watch.mjs",
+      "bytes": 31804,
+      "sha256": "0e2522d8f657f969b49b9c9c45cae8ac3d6c9bd1e11bcbb9fe7a4526b5df9c00"
+    },
+    {
+      "path": "scripts/verification.mjs",
+      "source": "stageshow/scripts/verification.mjs",
+      "bytes": 5926,
+      "sha256": "0b1a7ca7aae394b67233c6823026aca5a1d139c8cd8de3e3359531c65672538b"
+    },
+    {
+      "path": "SKILL.md",
+      "source": "stageshow/SKILL.md",
+      "bytes": 19469,
+      "sha256": "918f021f7762be90e4c2eb3881057aefbc348f1f2a779281c92b0db69e794f43"
+    },
+    {
+      "path": "teaching/composition.css",
+      "source": "stageshow/teaching/composition.css",
+      "bytes": 19367,
+      "sha256": "9b1de058af4f0cc5483e5f4106955266cb77fe36609b69de5bb40df280183278"
+    },
+    {
+      "path": "teaching/composition.tsx",
+      "source": "stageshow/teaching/composition.tsx",
+      "bytes": 14398,
+      "sha256": "1e38614742ce627342ae6ae443e62836334e57d49bcc6486692d86d8d32f77bc"
+    },
+    {
+      "path": "teaching/continuity.css",
+      "source": "stageshow/teaching/continuity.css",
+      "bytes": 2726,
+      "sha256": "87679f2e8e2e25f9f519e6f52654dce12303274f898e40d4896284e7efc8b2f4"
+    },
+    {
+      "path": "teaching/continuity.tsx",
+      "source": "stageshow/teaching/continuity.tsx",
+      "bytes": 4204,
+      "sha256": "d270f790f33dade728a6420dac8b6c3e1bbb933f7f4c8768cd6d763ce450e539"
+    },
+    {
+      "path": "teaching/contrasts.css",
+      "source": "stageshow/teaching/contrasts.css",
+      "bytes": 10106,
+      "sha256": "15180516dd2cabea52a42b149e6b25d3a70d0f5af28db02b4f65f37ed7e1cd75"
+    },
+    {
+      "path": "teaching/contrasts.tsx",
+      "source": "stageshow/teaching/contrasts.tsx",
+      "bytes": 14637,
+      "sha256": "99b3fb0ae80418a01ffb04fe9a489edbbd954aaff5d261d6d75166e3c1719527"
+    },
+    {
+      "path": "teaching/details.css",
+      "source": "stageshow/teaching/details.css",
+      "bytes": 7902,
+      "sha256": "6227ed8892545eb327990ead220623d880607999c7f673ee33a328a19448ab39"
+    },
+    {
+      "path": "teaching/details.tsx",
+      "source": "stageshow/teaching/details.tsx",
+      "bytes": 12097,
+      "sha256": "dee4e0f456411fc1dc959b52f720767ec19754105ae2c8015a51f7acf9c9332a"
+    },
+    {
+      "path": "teaching/edges.css",
+      "source": "stageshow/teaching/edges.css",
+      "bytes": 2492,
+      "sha256": "8c51a9409cbbde7870c7dcd6b333bef149202f8f7592e074ae3420760b6c1136"
+    },
+    {
+      "path": "teaching/edges.tsx",
+      "source": "stageshow/teaching/edges.tsx",
+      "bytes": 3743,
+      "sha256": "af2085dcc3207b31b5e00384bb710979f870d3069e52c5eb9c7d350dee0d091a"
+    },
+    {
+      "path": "teaching/relationships.css",
+      "source": "stageshow/teaching/relationships.css",
+      "bytes": 4853,
+      "sha256": "c892a32bb0ef981e42ff9c76507ef5430003bf11acacff44c196bf32e60d4e2c"
+    },
+    {
+      "path": "teaching/relationships.tsx",
+      "source": "stageshow/teaching/relationships.tsx",
+      "bytes": 6657,
+      "sha256": "3ba7008f112d2231a04b2b570be0b5bc11befacec6fa25f9f0d2fe09c6ecc47d"
+    },
+    {
+      "path": "teaching/scenes.css",
+      "source": "stageshow/teaching/scenes.css",
+      "bytes": 21296,
+      "sha256": "843769b85bfc7f2ff574073ea99957a8c0e199592b2497571ceb5268209babda"
+    },
+    {
+      "path": "teaching/scenes.tsx",
+      "source": "stageshow/teaching/scenes.tsx",
+      "bytes": 14193,
+      "sha256": "36e0aa7d4222f593d3fe6a3773bf8136887dac23d4475e3e2903d368dd775a64"
+    },
+    {
+      "path": "teaching/style.css",
+      "source": "stageshow/teaching/style.css",
+      "bytes": 7030,
+      "sha256": "a607b29da70eaa685452dc8446c09964f07ae9b170820e3585486683f9af45f2"
+    },
+    {
+      "path": "teaching/style.tsx",
+      "source": "stageshow/teaching/style.tsx",
+      "bytes": 7974,
+      "sha256": "97f90916087b541b6621dcdf282c1163487046e4e240a2489d017c47145a1e79"
+    },
+    {
+      "path": "teaching/text-settle.css",
+      "source": "stageshow/teaching/text-settle.css",
+      "bytes": 966,
+      "sha256": "7e7364122153256750cc45591ad9fecafab85799778aa865db17f11b4a34d866"
+    },
+    {
+      "path": "teaching/text-settle.tsx",
+      "source": "stageshow/teaching/text-settle.tsx",
+      "bytes": 2336,
+      "sha256": "c2d500c6fba2e1bd552fe92b1251ad0f1151d697d9fea25a7ab43ba507bd84c5"
+    }
+  ]
+}

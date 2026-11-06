@@ -1,0 +1,15 @@
+.queue { min-width: 0; margin: 4px 12px 0; padding: 0; border: 0; border-bottom: 1px solid var(--mc-border, #e5e7eb); color: var(--mc-text-muted, #64748b); font-size: 12px; }
+.queue > summary { display: flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 2px; list-style: none; cursor: pointer; }
+.queue > summary::-webkit-details-marker { display: none; }
+.chevron { flex: none; transition: transform 120ms ease; }
+.queue[open] .chevron { transform: rotate(90deg); }
+.count { flex: none; font-weight: 500; font-variant-numeric: tabular-nums; }
+.preview { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.queue button { flex: none; border: 0; border-radius: 5px; background: transparent; color: inherit; font: inherit; padding: 6px 8px; cursor: pointer; }
+.queue button:hover { background: var(--mc-bg, #f4f5f7); color: var(--mc-text, #1f2937); }
+.queue button:focus-visible, .queue > summary:focus-visible { outline: 2px solid var(--mc-primary, #3467f6); outline-offset: 2px; }
+.queue > ol { display: grid; gap: 4px; max-height: min(160px, 22dvh); overflow-y: auto; overscroll-behavior: contain; list-style: none; margin: 0; padding: 2px 0 6px; }
+.queue li { display: flex; align-items: flex-start; gap: 8px; padding: 4px 2px; }
+.order { flex: none; min-width: 14px; padding-top: 3px; font-variant-numeric: tabular-nums; }
+.queue p { flex: 1; min-width: 0; margin: 0; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--mc-text, #1f2937); }
+@media (prefers-reduced-motion: reduce) { .chevron { transition: none; } }

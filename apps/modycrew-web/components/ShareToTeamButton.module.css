@@ -1,0 +1,276 @@
+/* [팀에 공유] — 올라갈 내용을 그대로 보여 주는 확인 창. 상자는 미리보기 하나만. */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  font: inherit;
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.trigger:hover:not(:disabled) {
+  background: var(--mc-surface-muted);
+  border-color: var(--mc-border-strong);
+}
+
+.trigger:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--mc-scrim);
+}
+
+.dialog {
+  box-sizing: border-box;
+  display: grid;
+  gap: 14px;
+  width: min(600px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: 20px;
+  border-radius: var(--mc-radius-lg);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  box-shadow: var(--mc-elev-overlay);
+  font-size: var(--mc-text-sm);
+  line-height: 1.55;
+}
+
+.dialog:focus {
+  outline: none;
+}
+
+.dialog button,
+.dialog select,
+.dialog input {
+  font: inherit;
+  font-size: var(--mc-text-sm);
+}
+
+.dialog button {
+  min-height: 36px;
+  padding: 7px 14px;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+  cursor: pointer;
+}
+
+.dialog button:hover:not(:disabled) {
+  background: var(--mc-surface-muted);
+}
+
+.dialog button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.dialog button:focus-visible,
+.dialog select:focus-visible,
+.dialog input:focus-visible,
+.previewText:focus-visible {
+  outline: 2px solid var(--mc-border-focus);
+  outline-offset: 2px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-size: var(--mc-text-lg);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.dialog .close {
+  min-height: 32px;
+  padding: 4px 10px;
+  border-color: transparent;
+  color: var(--mc-text-muted);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px 12px;
+}
+
+.fields label {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  color: var(--mc-text-muted);
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-medium);
+}
+
+.fields .wide {
+  grid-column: 1 / -1;
+}
+
+.fields select,
+.fields input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+  color: var(--mc-text-strong);
+}
+
+.preview {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface-sunken);
+}
+
+.previewHeading {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.previewTarget {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: var(--mc-text-xs);
+}
+
+.previewTitle {
+  margin: 4px 0 0;
+  color: var(--mc-text-strong);
+  font-size: var(--mc-text-base);
+  font-weight: var(--mc-weight-semibold);
+  overflow-wrap: anywhere;
+}
+
+.fullRow {
+  flex: 1 0 100%;
+}
+
+.previewText {
+  max-height: min(240px, 34vh);
+  margin: 0;
+  overflow: auto;
+  color: var(--mc-text);
+  font: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.announce {
+  margin: 4px 0 0;
+  color: var(--mc-text-muted);
+  font-size: var(--mc-text-xs);
+}
+
+.facts {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--mc-text-muted);
+  font-size: var(--mc-text-xs);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--mc-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 긴 미리보기에서도 [이대로 팀에 올리기]·[취소]가 창 아래에 늘 보이게. */
+.dialog > .actions {
+  position: sticky;
+  bottom: 0;
+  margin: 0 -20px -20px;
+  padding: 12px 20px 20px;
+  border-top: 1px solid var(--mc-border-subtle);
+  background: var(--mc-surface);
+}
+
+.dialog .primary {
+  border-color: var(--mc-primary);
+  background: var(--mc-primary);
+  color: var(--mc-on-primary);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.dialog .primary:hover:not(:disabled) {
+  background: var(--mc-primary-strong);
+}
+
+.done {
+  display: grid;
+  gap: 8px;
+}
+
+.done p {
+  margin: 0;
+}
+
+.hint {
+  margin: 0;
+  color: var(--mc-text-muted);
+  font-size: var(--mc-text-xs);
+}
+
+.warn {
+  margin: 0;
+  color: var(--mc-warning-ink);
+}
+
+@media (max-width: 520px) {
+  .dialog {
+    padding: 16px;
+  }
+  .dialog > .actions {
+    bottom: 0;
+    margin: 0 -16px -16px;
+    padding: 12px 16px 16px;
+  }
+  .actions button {
+    flex: 1 1 auto;
+  }
+}

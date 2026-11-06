@@ -1,0 +1,10 @@
+/* 왼쪽 메뉴 아래 작은 업데이트 버튼. 받음(ready)일 때만 강조색, 받는 중에는 진행 막대. */
+.button { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: flex-start; gap: 10px; min-height: 40px; width: 100%; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--mc-primary) 35%, var(--mc-border)); border-radius: 8px; background: var(--mc-primary-bg); color: var(--mc-primary); font: inherit; font-size: 13px; cursor: pointer; text-align: left; }
+.button:hover:not(:disabled) { background: color-mix(in srgb, var(--mc-primary) 16%, var(--mc-primary-bg)); }
+.button:disabled { cursor: default; color: var(--mc-text-muted); border-color: var(--mc-border); background: var(--mc-surface-sunken); }
+.button:focus-visible { outline: 2px solid var(--mc-primary); outline-offset: -2px; }
+.icon { font-size: 18px; width: 22px; text-align: center; flex: none; }
+.text { display: grid; min-width: 0; line-height: 1.2; }
+.text strong { font-weight: var(--mc-weight-semibold); white-space: nowrap; }
+.text small { font-size: 11px; color: var(--mc-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.progress { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--mc-primary); transition: width 400ms ease; }

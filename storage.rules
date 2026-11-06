@@ -1,0 +1,21 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function participant(cid, tid) {
+      let member = firestore.get(/databases/(default)/documents/companies/$(cid)/members/$(request.auth.uid));
+      let team = firestore.get(/databases/(default)/documents/companies/$(cid)/teams/$(tid));
+      return request.auth != null && member.data.status == 'active'
+        && (team.data.visibility == 'company' || request.auth.uid in team.data.memberIds);
+    }
+    match /companies/{cid}/teams/{tid}/files/{uploaderUid}/{fid} {
+      allow read: if participant(cid, tid);
+      allow create: if resource == null && participant(cid, tid) && uploaderUid == request.auth.uid && request.resource.size > 0
+        && request.resource.size <= 20 * 1024 * 1024
+        && request.resource.contentType == 'application/octet-stream';
+      allow delete: if request.auth != null && uploaderUid == request.auth.uid
+        && firestore.get(/databases/(default)/documents/companies/$(cid)/members/$(request.auth.uid)).data.status == 'active'
+        && firestore.get(/databases/(default)/documents/companies/$(cid)/teams/$(tid)/files/$(fid)).data.status == 'uploading';
+      allow update: if false;
+    }
+  }
+}

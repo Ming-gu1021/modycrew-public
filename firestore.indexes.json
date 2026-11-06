@@ -1,0 +1,13 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "aiRequests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "teamId", "order": "ASCENDING" },
+        { "fieldPath": "createdAtEpochMs", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

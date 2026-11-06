@@ -1,0 +1,28 @@
+{
+  "name": "ModyCrew",
+  "short_name": "ModyCrew",
+  "description": "선택한 메일과 업무 내용을 AI 업무대장으로 넘기고 승인 전까지 안전하게 검토합니다.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/modycrew-logo-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "share_target": {
+    "action": "/mail-share/",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

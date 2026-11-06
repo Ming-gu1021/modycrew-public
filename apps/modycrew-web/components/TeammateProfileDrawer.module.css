@@ -1,0 +1,595 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(2px);
+}
+
+.panel {
+  --panel-accent: var(--mc-primary);
+  position: relative;
+  width: min(440px, 100%);
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--mc-surface);
+  border-left: 1px solid var(--mc-border);
+  box-shadow: var(--mc-elev-overlay);
+  overflow-wrap: anywhere;
+}
+
+.close {
+  position: absolute;
+  top: max(var(--mc-space-4), env(safe-area-inset-top));
+  right: max(var(--mc-space-4), env(safe-area-inset-right));
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  font-size: var(--mc-text-sm);
+  cursor: pointer;
+}
+.close:hover {
+  background: var(--mc-surface-muted);
+  color: var(--mc-text-strong);
+}
+
+/* ── 히어로 ── */
+.hero {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--mc-space-5);
+  padding: var(--mc-space-7) var(--mc-space-6) var(--mc-space-5);
+  padding-top: max(var(--mc-space-7), env(safe-area-inset-top));
+  border-bottom: 1px solid var(--mc-border-subtle);
+}
+
+/* CrewAvatar가 자체 카드 프레임(::before)을 그리므로 여기서는 크기만 잡는다 — 이중 프레임 방지 */
+.heroAvatar {
+  flex: none;
+  width: 104px;
+  height: 118px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.heroInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.teamBadge {
+  align-self: flex-start;
+  max-width: calc(100% - 36px);
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-strong);
+  background: color-mix(in srgb, var(--panel-accent) 14%, transparent);
+  border-radius: var(--mc-radius-pill);
+  padding: 2px 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.heroName {
+  margin: 3px 0 0;
+  font-size: var(--mc-text-2xl);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-strong);
+  line-height: var(--mc-leading-tight);
+  word-break: keep-all;
+}
+
+.heroRole {
+  margin: 0;
+  font-size: var(--mc-text-md);
+  color: var(--mc-text-muted);
+}
+
+.mainTag {
+  color: var(--mc-primary-strong);
+  font-weight: var(--mc-weight-semibold);
+}
+
+.heroChannel {
+  margin: 0;
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text-subtle);
+}
+
+.heroStatus {
+  margin-top: var(--mc-space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-medium);
+  color: var(--mc-text-muted);
+}
+.heroStatus i {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mc-text-faint);
+}
+.heroStatus[data-tone="primary"] i {
+  background: var(--mc-primary);
+}
+.heroStatus[data-tone="warning"] i {
+  background: var(--mc-warning);
+}
+.heroStatus[data-tone="safe"] i {
+  background: var(--mc-safe);
+}
+
+/* ── 역할 고르기 (채용) ── */
+.rolePicker {
+  flex-shrink: 0;
+  padding: var(--mc-space-4) var(--mc-space-6);
+  border-bottom: 1px solid var(--mc-border-subtle);
+  background: var(--mc-surface-muted);
+}
+.rolePickerLabel {
+  display: block;
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-muted);
+  margin-bottom: var(--mc-space-3);
+}
+.roleChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-2);
+}
+.roleChip {
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-medium);
+  padding: 5px 10px;
+  border-radius: var(--mc-radius-pill);
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  cursor: pointer;
+}
+.roleChip[data-active="true"] {
+  border-color: var(--panel-accent);
+  background: color-mix(in srgb, var(--panel-accent) 12%, var(--mc-surface));
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-semibold);
+}
+
+/* ── 탭 ── */
+.tabs {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: var(--mc-space-3) var(--mc-space-6) 0;
+  border-bottom: 1px solid var(--mc-border-subtle);
+}
+.tab {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: var(--mc-space-3) var(--mc-space-2);
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-medium);
+  color: var(--mc-text-subtle);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tab[data-active="true"] {
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-semibold);
+  border-bottom-color: var(--panel-accent);
+}
+.tab:hover {
+  color: var(--mc-text);
+}
+
+/* ── 본문 ── */
+.body {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--mc-space-5) var(--mc-space-6);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-5);
+}
+
+.brief {
+  margin: 0;
+  font-size: var(--mc-text-md);
+  color: var(--mc-text);
+  line-height: var(--mc-leading-relaxed);
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text-subtle);
+}
+
+.factGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--mc-space-3);
+  margin: 0;
+}
+.factGrid > div {
+  padding: var(--mc-space-4);
+  background: var(--mc-surface-muted);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+}
+.factGrid dt {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-subtle);
+  margin-bottom: 2px;
+}
+.factGrid dd {
+  margin: 0;
+  font-size: var(--mc-text-md);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-strong);
+}
+
+.nowDoing {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--mc-space-4);
+  border: 1px solid var(--mc-border-subtle);
+  border-left: 3px solid var(--panel-accent);
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface-muted);
+}
+.nowLabel {
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-strong);
+}
+.nowValue {
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text);
+  line-height: var(--mc-leading-normal);
+}
+
+.skills,
+.personaList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-3);
+}
+.skillsLabel {
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-muted);
+}
+.skillChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-2);
+}
+.skillChip {
+  font-size: var(--mc-text-xs);
+  color: var(--mc-text-muted);
+  background: var(--mc-surface-muted);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-sm);
+  padding: 3px 8px;
+}
+.personaList ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-2);
+}
+.personaList li {
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text);
+  line-height: var(--mc-leading-normal);
+}
+
+/* ── 캐릭터 고르기 ── */
+.charSelected {
+  margin: 0;
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text-muted);
+}
+.charSelected b {
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-bold);
+}
+.charGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: var(--mc-space-3);
+}
+.charCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--mc-space-3) var(--mc-space-2);
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  cursor: pointer;
+  transition: transform var(--mc-dur-fast) ease, border-color var(--mc-dur-fast) ease,
+    box-shadow var(--mc-dur-fast) ease;
+}
+.charCell:hover {
+  transform: translateY(-2px);
+  border-color: var(--mc-border-strong);
+  box-shadow: var(--mc-elev-1);
+}
+.charCell[data-active="true"] {
+  border-color: var(--panel-accent);
+  background: color-mix(in srgb, var(--panel-accent) 8%, var(--mc-surface));
+  box-shadow: 0 0 0 1px var(--panel-accent) inset;
+}
+/* 캐릭터 자체 프레임이 있으므로 썸네일 박스는 투명 — 선택 강조는 셀(.charCell)에서 처리 */
+.charThumb {
+  width: 64px;
+  height: 72px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.charName {
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-strong);
+}
+.charRole {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-subtle);
+}
+
+/* ── 성격 프리셋 / 기능 토글 ── */
+.presetBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-3);
+  padding: var(--mc-space-4);
+  background: var(--mc-surface-muted);
+  border: 1px solid var(--mc-border-subtle);
+  border-radius: var(--mc-radius-md);
+}
+.presetTitle {
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-bold);
+  color: var(--mc-text-strong);
+}
+.presetHint {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-subtle);
+  margin-top: -4px;
+}
+.presetGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-2);
+}
+.presetGroupLabel {
+  font-size: var(--mc-text-2xs);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-muted);
+}
+.presetChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-2);
+}
+.presetChip {
+  font-size: var(--mc-text-sm);
+  padding: 5px 11px;
+  border-radius: var(--mc-radius-pill);
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  color: var(--mc-text-muted);
+  cursor: pointer;
+  transition: border-color var(--mc-dur-fast) ease, background var(--mc-dur-fast) ease,
+    color var(--mc-dur-fast) ease;
+}
+.presetChip:hover {
+  border-color: var(--mc-border-strong);
+  color: var(--mc-text-strong);
+}
+.presetChip[data-active="true"] {
+  border-color: var(--panel-accent);
+  background: color-mix(in srgb, var(--panel-accent) 12%, var(--mc-surface));
+  color: var(--mc-text-strong);
+  font-weight: var(--mc-weight-semibold);
+}
+
+/* ── 입력 필드 ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-2);
+}
+.field > span {
+  font-size: var(--mc-text-xs);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-muted);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: var(--mc-text-md);
+  color: var(--mc-text-strong);
+  padding: var(--mc-space-4);
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--mc-border-focus);
+  box-shadow: 0 0 0 2px var(--mc-primary-bg);
+}
+.field small {
+  font-size: var(--mc-text-2xs);
+  color: var(--mc-text-subtle);
+}
+
+/* ── 푸터 ── */
+.footer {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 8px var(--mc-space-5);
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+  padding-left: max(var(--mc-space-5), env(safe-area-inset-left));
+  padding-right: max(var(--mc-space-5), env(safe-area-inset-right));
+  border-top: 1px solid var(--mc-border-subtle);
+  background: var(--mc-surface);
+}
+.footerActions {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 6px;
+  margin-left: auto;
+}
+.footer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  flex-shrink: 0;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.primaryButton {
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-semibold);
+  color: var(--mc-text-inverse);
+  background: var(--mc-primary-strong);
+  border: 1px solid var(--mc-primary-strong);
+  border-radius: var(--mc-radius-md);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.primaryButton:hover {
+  background: var(--mc-primary-strong);
+}
+.ghostButton {
+  font-size: var(--mc-text-sm);
+  font-weight: var(--mc-weight-medium);
+  color: var(--mc-primary-strong);
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius-md);
+  padding: 8px;
+  cursor: pointer;
+}
+.ghostButton:hover {
+  background: var(--mc-surface-muted);
+}
+.removeButton {
+  font-size: var(--mc-text-sm);
+  color: var(--mc-text-subtle);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--mc-radius-md);
+  padding: 8px 4px;
+  cursor: pointer;
+}
+.removeButton:hover {
+  color: var(--mc-danger-ink);
+  border-color: var(--mc-danger-soft);
+  background: var(--mc-danger-bg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(24px);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .panel {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    width: 100%;
+  }
+  .hero {
+    padding: var(--mc-space-6) var(--mc-space-5) var(--mc-space-4);
+    padding-top: max(var(--mc-space-6), env(safe-area-inset-top));
+  }
+  .heroAvatar {
+    width: 80px;
+    height: 94px;
+  }
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-inline: var(--mc-space-4);
+  }
+  .tab {
+    padding-inline: 2px;
+    white-space: normal;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+  .heroName {
+    margin-top: 8px;
+  }
+  .body {
+    padding: var(--mc-space-5);
+  }
+  .footer {
+    padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right));
+  }
+}

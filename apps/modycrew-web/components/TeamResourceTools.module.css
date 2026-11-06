@@ -1,0 +1,135 @@
+/* 공유 자료 본문 속 링크 — 버튼이지만 글 속 링크처럼 보인다(누르면 열기 확인이 먼저 나온다). */
+p > button.link,
+p > button.link:hover:enabled {
+  display: inline;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--mc-primary-strong);
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.linkConfirm {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface-sunken);
+}
+
+.linkConfirm > p:first-child {
+  margin: 0;
+  color: var(--mc-text-strong);
+}
+
+.linkConfirm code {
+  color: var(--mc-text);
+  font-family: var(--mc-font-mono);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.grow {
+  flex: 1 1 220px;
+}
+
+.row button.toolPrimary,
+.row button.toolPrimary:hover:enabled {
+  border-color: var(--mc-primary-strong);
+  background: var(--mc-primary-strong);
+  color: var(--mc-text-inverse);
+  font-weight: 650;
+}
+
+.drive {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--mc-border);
+}
+
+.drive h4 {
+  margin: 0;
+}
+
+.drive > button {
+  justify-self: start;
+}
+
+.files {
+  display: grid;
+  gap: 4px;
+  max-height: 300px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.files button {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+}
+
+.files strong {
+  min-width: 0;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.files small {
+  flex-shrink: 0;
+}
+
+.preview {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: var(--mc-radius-md);
+  background: var(--mc-surface-sunken);
+}
+
+.preview .previewHeading {
+  margin: 0;
+  color: var(--mc-text-strong);
+  font-weight: 600;
+}
+
+.preview pre {
+  margin: 0;
+  color: var(--mc-text);
+  font: inherit;
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* 회사 화면의 기본 문단 규칙보다 우선하도록 클래스를 두 번 쓴다. */
+.toolHint.toolHint {
+  margin: 4px 0 0;
+  font-size: 12px;
+}
+
+.warn.warn {
+  margin: 4px 0 0;
+  color: var(--mc-warning-ink);
+}

@@ -1,0 +1,393 @@
+.avatar {
+  --crew-accent: #4967e8;
+  --crew-accent-rgb: 73 103 232;
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  width: 82px;
+  height: 96px;
+  max-width: 100%;
+  max-height: 100%;
+  flex: none;
+  place-items: end center;
+  overflow: visible;
+}
+
+.avatar[data-role="doc"] {
+  --crew-accent: #1f8d73;
+  --crew-accent-rgb: 31 141 115;
+}
+
+.avatar[data-role="file"] {
+  --crew-accent: #bf762e;
+  --crew-accent-rgb: 191 118 46;
+}
+
+.avatar[data-role="approval"] {
+  --crew-accent: #6671b9;
+  --crew-accent-rgb: 102 113 185;
+}
+
+.avatar[data-size="scene"] {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar[data-size="compact"] {
+  width: 44px;
+  height: 50px;
+}
+
+.avatar[data-size="card"] {
+  width: 52px;
+  height: 60px;
+}
+
+.avatar::before {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, var(--crew-accent) 15%, var(--mc-border));
+  border-radius: 24px 24px 17px 17px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--crew-accent) 10%, var(--mc-surface-elevated)),
+    color-mix(in srgb, var(--mc-surface) 94%, transparent)
+  );
+  box-shadow:
+    0 10px 26px rgb(var(--crew-accent-rgb) / 0.11),
+    inset 0 1px 0 color-mix(in srgb, white 30%, transparent);
+  content: "";
+}
+
+.portraitFrame {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--crew-accent) 18%, var(--mc-border-strong));
+  border-radius: 21px 21px 14px 14px;
+  background:
+    radial-gradient(circle at 50% 30%, rgb(var(--crew-accent-rgb) / 0.17), transparent 58%),
+    linear-gradient(165deg, color-mix(in srgb, var(--mc-surface-elevated) 97%, white), var(--mc-surface-muted));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 42%, transparent),
+    inset 0 -16px 24px color-mix(in srgb, var(--crew-accent) 7%, transparent);
+}
+
+.portraitFrame::before {
+  position: absolute;
+  z-index: 0;
+  inset: 10% 10% 4%;
+  border-radius: 999px 999px 32% 32%;
+  background: radial-gradient(circle at 50% 38%, rgb(var(--crew-accent-rgb) / 0.2), transparent 67%);
+  filter: blur(7px);
+  content: "";
+}
+
+.portraitFrame::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, white 12%, transparent),
+    inset 0 -10px 14px color-mix(in srgb, var(--mc-text-strong) 4%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.portrait {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  padding: 4px 3px 0;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 8px 10px color-mix(in srgb, var(--mc-text-strong) 18%, transparent));
+  transform: none;
+  transform-origin: center bottom;
+  user-select: none;
+}
+
+.portrait[data-crew-asset-kind="diptych"] {
+  inset: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  height: var(--crew-avatar-image-height, 100%);
+  max-height: none;
+  padding: 0;
+  object-fit: contain;
+  transform: translateY(var(--crew-avatar-image-translate-y, 0%));
+  transform-origin: center top;
+}
+
+.avatar[data-role="doc"] .portrait,
+.avatar[data-role="approval"] .portrait {
+  padding-inline: 2px;
+}
+
+.avatar[data-size="compact"]::before,
+.avatar[data-size="card"]::before {
+  inset: 0;
+  border-radius: 16px 16px 11px 11px;
+}
+
+.avatar[data-size="compact"] .portraitFrame,
+.avatar[data-size="card"] .portraitFrame {
+  border-radius: 14px 14px 9px 9px;
+}
+
+.avatar[data-size="compact"] .portrait[data-crew-asset-kind="diptych"],
+.avatar[data-size="card"] .portrait[data-crew-asset-kind="diptych"] {
+  padding: 0;
+}
+
+.avatar[data-size="compact"] .portrait {
+  padding: 3px 2px 0;
+}
+
+.overrideMark {
+  position: absolute;
+  z-index: 4;
+  right: -4px;
+  bottom: 3px;
+  display: grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid var(--mc-surface);
+  border-radius: 999px;
+  background: var(--mc-surface-elevated, var(--mc-surface));
+  box-shadow: 0 4px 11px color-mix(in srgb, var(--mc-text-strong) 18%, transparent);
+  color: var(--mc-text-strong);
+  font-size: 12px;
+  font-weight: var(--mc-weight-bold);
+  line-height: 1;
+}
+
+.avatar[data-size="compact"] .overrideMark {
+  right: -4px;
+  bottom: 0;
+  min-width: 14px;
+  height: 14px;
+  border-width: 1px;
+  font-size: 12px;
+}
+
+:global(html[data-mody-theme="light"]) .avatar::before {
+  border-color: color-mix(in srgb, var(--crew-accent) 18%, var(--mc-border-strong));
+  box-shadow:
+    0 8px 20px rgb(var(--crew-accent-rgb) / 0.08),
+    inset 0 1px 0 rgb(255 255 255 / 0.88);
+}
+
+:global(html[data-mody-theme="light"]) .portraitFrame {
+  background:
+    radial-gradient(circle at 50% 28%, rgb(var(--crew-accent-rgb) / 0.12), transparent 58%),
+    linear-gradient(165deg, #ffffff, color-mix(in srgb, var(--crew-accent) 5%, var(--mc-surface-sunken)));
+}
+
+.avatar {
+  --crew-cycle: 5.2s;
+  --crew-phase-delay: 0s;
+}
+
+.avatar[data-role="doc"] {
+  --crew-phase-delay: -1.25s;
+}
+
+.avatar[data-role="file"] {
+  --crew-phase-delay: -2.5s;
+}
+
+.avatar[data-role="approval"] {
+  --crew-phase-delay: -3.75s;
+}
+
+.avatar[data-activity="moving"] {
+  --crew-cycle: 3.9s;
+}
+
+.portraitIdle,
+.portraitWorking {
+  will-change: opacity, transform;
+}
+
+.portraitWorking {
+  opacity: 0;
+  transform: translateY(4px) scale(0.985);
+}
+
+.avatar[data-activity="working"] .portraitIdle,
+.avatar[data-activity="moving"] .portraitIdle {
+  animation: crewIdlePose var(--crew-cycle) cubic-bezier(0.33, 1, 0.68, 1) var(--crew-phase-delay) infinite;
+}
+
+.avatar[data-activity="working"] .portraitWorking,
+.avatar[data-activity="moving"] .portraitWorking {
+  animation: crewWorkingPose var(--crew-cycle) cubic-bezier(0.32, 0.72, 0, 1) var(--crew-phase-delay) infinite;
+}
+
+.avatar[data-crew-asset-kind="diptych"][data-activity="working"] .portraitIdle,
+.avatar[data-crew-asset-kind="diptych"][data-activity="moving"] .portraitIdle {
+  animation: none;
+  opacity: 0;
+  transform: translateY(var(--crew-avatar-image-translate-y, 0%));
+}
+
+.avatar[data-crew-asset-kind="diptych"][data-activity="working"] .portraitWorking,
+.avatar[data-crew-asset-kind="diptych"][data-activity="moving"] .portraitWorking {
+  animation: none;
+  opacity: 1;
+  transform: translateY(var(--crew-avatar-image-translate-y, 0%));
+}
+
+.workCue {
+  position: absolute;
+  z-index: 3;
+  right: 5px;
+  bottom: 5px;
+  display: inline-flex;
+  height: 13px;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 3px 4px;
+  border: 1px solid color-mix(in srgb, var(--crew-accent) 24%, var(--mc-border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mc-surface-elevated) 88%, transparent);
+  box-shadow:
+    0 4px 10px color-mix(in srgb, var(--mc-text-strong) 12%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+  opacity: 0;
+  transform: translateY(3px) scale(0.92);
+  transition:
+    opacity 220ms cubic-bezier(0.33, 1, 0.68, 1),
+    transform 260ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.workCue i {
+  width: 2px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--crew-accent);
+  transform: scaleY(0.4);
+  transform-origin: center bottom;
+}
+
+.avatar[data-activity="working"] .workCue,
+.avatar[data-activity="moving"] .workCue {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.avatar[data-activity="working"] .workCue i,
+.avatar[data-activity="moving"] .workCue i {
+  animation: crewWorkMeter 1.15s cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
+}
+
+.workCue i:nth-child(2) {
+  animation-delay: -0.38s !important;
+}
+
+.workCue i:nth-child(3) {
+  animation-delay: -0.76s !important;
+}
+
+.avatar[data-size="compact"] .workCue {
+  right: 3px;
+  bottom: 3px;
+  height: 10px;
+  gap: 1px;
+  padding: 2px 3px;
+}
+
+.avatar[data-size="compact"] .workCue i {
+  width: 1px;
+  height: 4px;
+}
+
+@keyframes crewIdlePose {
+  0%,
+  8%,
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  14%,
+  90% {
+    opacity: 0;
+    transform: translateY(2px) scale(0.99);
+  }
+}
+
+@keyframes crewWorkingPose {
+  0%,
+  8%,
+  100% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.985);
+  }
+
+  14%,
+  90% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  52% {
+    opacity: 1;
+    transform: translateY(-1px) scale(1.012);
+  }
+}
+
+@keyframes crewWorkMeter {
+  0% {
+    transform: scaleY(0.35);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar[data-activity="working"] .portraitIdle,
+  .avatar[data-activity="moving"] .portraitIdle {
+    animation: none;
+    opacity: 0;
+  }
+
+  .avatar[data-activity="working"] .portraitWorking,
+  .avatar[data-activity="moving"] .portraitWorking {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .avatar[data-activity="working"] .workCue i,
+  .avatar[data-activity="moving"] .workCue i {
+    animation: none;
+    transform: scaleY(0.72);
+  }
+}
+
+@media (forced-colors: active) {
+  .avatar::before,
+  .portraitFrame {
+    border-color: CanvasText;
+    background: Canvas;
+    box-shadow: none;
+  }
+
+  .portrait {
+    filter: grayscale(1) contrast(1.15);
+  }
+}
