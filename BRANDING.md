@@ -1,9 +1,9 @@
-# Mody 브랜드
+# Mody brand
 
-Mody는 모디크루를 만드는 팀이며, ModyCrew(모디크루)는 제품 이름입니다.
+Mody is the team that builds ModyCrew, and ModyCrew is the product name.
 
-이 저장소의 Mody·ModyCrew 로고는 프로젝트를 소개하고 원본 제품을 표시하기 위해 제공합니다. 코드의 Apache License 2.0은 회사 이름·로고의 상표 사용권이나 Mody의 보증·제휴를 표시할 권리를 부여하지 않습니다.
+The Mody and ModyCrew logos in this repository are included to introduce the project and identify the original product. The Apache License 2.0 that covers the code does not grant any right to use the company name or logos as trademarks, or to suggest endorsement by or affiliation with Mody.
 
-수정한 제품을 배포할 때는 원본과 구분되는 이름을 사용하고, Mody가 배포하거나 보증하는 공식 제품으로 오인되지 않게 표시해 주세요.
+If you distribute a modified version, give it a name that is distinct from the original, and make sure it cannot be mistaken for an official product distributed or endorsed by Mody.
 
-회사·제품 로고 이미지의 저작권은 Mody에 있으며, 이 이미지는 코드의 Apache 2.0 라이선스 적용 대상에서 제외합니다. 이 저장소와 원본 프로젝트를 소개하는 목적의 표시를 허용합니다. 별도 제품의 상표나 로고로 사용하는 경우에는 허락이 필요합니다.
+Copyright in the company and product logo images belongs to Mody, and these images are not covered by the Apache 2.0 license for the code. You may display them to introduce this repository and the original project. Using them as the trademark or logo of a separate product requires permission.

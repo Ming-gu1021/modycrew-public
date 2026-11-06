@@ -3,7 +3,7 @@
   "version": "0.2.159",
   "private": true,
   "type": "module",
-  "description": "ModyCrew 데스크톱 앱 (V2 web 통합) — 한국형 AI 업무 오피스",
+  "description": "ModyCrew desktop app — Korean-first AI workspace by the Mody team",
   "main": "src/main/main.mjs",
   "author": "Mody team",
   "scripts": {

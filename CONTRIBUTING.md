@@ -1,12 +1,12 @@
-# 기여 안내
+# Contributing
 
-ModyCrew는 Mody 팀이 개발하는 한국어 중심 AI 업무 앱입니다.
+ModyCrew is a Korean-first AI work app developed by the Mody team. Issues and pull requests are welcome in English or Korean.
 
-- 기능 제안과 일반 버그는 GitHub Issues에 작성해 주세요. 재현 순서와 기대 동작을 짧게 적어 주세요.
-- 실제 메일, 고객 자료, 계정 정보, 토큰은 이슈나 첨부 파일에 넣지 마세요.
-- 수정은 작은 단위의 Pull Request로 보내 주세요. 바뀐 동작과 확인 방법을 설명해 주세요.
-- `npm run build:domain`과 `npm run typecheck`를 실행하고, 영향을 받는 화면과 작업 흐름을 확인해 주세요.
-- 외부 발송·일정 등록·파일 접근의 승인과 보호 절차를 유지해 주세요.
-- 제3자 코드를 추가할 때는 출처와 라이선스 고지를 함께 유지해 주세요.
+- Report feature ideas and general bugs in GitHub Issues. Include short steps to reproduce the problem and the behavior you expected.
+- Do not include real email, customer data, account details or tokens in issues or attachments.
+- Keep pull requests small, and describe what changed and how you checked it.
+- Run `npm run build:domain` and `npm run typecheck`, and check the screens and workflows your change affects.
+- Keep the approval and protection steps for sending email, adding calendar events and accessing files.
+- When you add third-party code, keep its source and license notices.
 
-기여 코드는 별도 고지가 없는 한 이 프로젝트의 Apache License 2.0 조건으로 제공됩니다. 보안 문제는 [SECURITY.md](SECURITY.md)를 참고해 주세요.
+Unless stated otherwise, contributions are provided under this project's Apache License 2.0. For security issues, see [SECURITY.md](SECURITY.md).

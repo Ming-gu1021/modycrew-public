@@ -1,7 +1,7 @@
-# 보안 문제 제보
+# Security policy
 
-계정·자료 접근, 파일 실행, 인증정보 노출과 관련된 문제는 저장소의 **Security → Report a vulnerability**로 비공개 제보해 주세요. 실제 키나 고객 자료를 첨부하지 말고, 임시 데이터로 재현할 수 있는 절차를 알려 주세요.
+Please report problems involving account or data access, file execution or credential exposure privately through **Security → Report a vulnerability** in this repository. Do not attach real keys or customer data. Describe steps that reproduce the problem with temporary data.
 
-AI가 만든 내용이나 도구 제안은 신뢰된 실행 권한으로 간주하지 않습니다. 외부 발송, 파일 변경, 프로그램 실행에는 앱과 운영체제의 권한 확인이 필요합니다. 자체 운영 시 인증·데이터베이스·스토리지 규칙과 서비스별 이용 권한을 함께 설정해 주세요.
+ModyCrew does not treat AI-generated content or tool suggestions as permission to act. Sending anything outside the app, changing files and running programs require permission checks in the app and the operating system. If you run your own deployment, also configure the authentication, database and storage rules and the access rights for each service.
 
-일반적인 기능 오류는 GitHub Issues로 알려 주세요.
+Please report general bugs in GitHub Issues.
